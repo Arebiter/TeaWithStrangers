@@ -8,9 +8,9 @@ const App = () => (
     <div>
         <header>
             <h1>Tea With Strangers</h1>
-            <GreetingContainer />
+            {/* <GreetingContainer /> */}
         </header>
-
+        <Route exact path="/" component={GreetingContainer} />
         <Route path="/login" component={LoginFormContainer} />
         <Route path="/signup" component={SignupFormContainer} />
     </div>
