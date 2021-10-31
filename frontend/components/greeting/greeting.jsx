@@ -9,12 +9,12 @@ class Greeting extends React.Component {
         const { currentUser, logout } = this.props;
 
         const greeting = currentUser ? (
-            <div>
+            <div className="greeting">
                 <p>Welcome, {currentUser.first_name}</p>
                 <button onClick={() => logout()}>Logout</button>
             </div>
         ) : (
-            <div>
+            <div className="greeting">
                 <Link to="/signup">Sign Up</Link>
                 <Link to="/login">Login</Link>
             </div>

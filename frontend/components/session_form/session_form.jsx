@@ -10,7 +10,18 @@ class SessionForm extends React.Component {
             first_name: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoUser = this.demoUser.bind(this);
     }
+
+    demoUser() {
+        let demo = {
+            email: 'demo@gmail.com',
+            password: 'password',
+            first_name: "Guest"
+        }
+        this.props.processForm(demo)
+    }
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -43,6 +54,14 @@ class SessionForm extends React.Component {
             <Link to="/login">Login</Link>
         );
 
+        const demoLogin = (formType === "Login") ? (
+            <p>Just here to look? &nbsp;
+                <span onClick={this.demoUser}>Guest User</span>
+            </p>
+        ) : (
+            null
+        );
+
         const firstName = (formType === "Sign Up") ? (
             <label>First Name
                 <input type="text" onChange={this.update("first_name")} value={first_name} />
@@ -66,6 +85,7 @@ class SessionForm extends React.Component {
                     {altLink}
                     <button>{formType}</button>
                 </form>
+                {demoLogin}
             </div>
         )
     }
