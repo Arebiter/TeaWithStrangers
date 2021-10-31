@@ -15,9 +15,8 @@ class SessionForm extends React.Component {
 
     demoUser() {
         let demo = {
-            email: 'demo@gmail.com',
-            password: 'password',
-            first_name: "Guest"
+            email: 'demoUser@demo.com',
+            password: 'demoPassword',
         }
         this.props.processForm(demo)
     }
