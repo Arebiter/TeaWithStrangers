@@ -20,7 +20,9 @@ class SessionForm extends React.Component {
         }
         this.props.processForm(demo)
     }
-
+    componentWillUnmount() {
+        this.props.removeErrors();
+    };
 
     handleSubmit(e) {
         e.preventDefault();
@@ -40,11 +42,11 @@ class SessionForm extends React.Component {
         const errorMessages = errors ? (
             <div>
                 <ul>
-                    {errors.map(error => <li>{error}</li>)}
+                    {errors.map(error => <li className="errors">{error}</li>)}
                 </ul>
             </div>
         ) : (
-            <div></div>
+            null
         );
 
         const altLink = (formType === "Login") ? (

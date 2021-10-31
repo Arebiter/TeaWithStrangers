@@ -28,3 +28,7 @@
  .main-title{
     font-size: 40px;
  }
+
+ .errors{
+    color: red;
+ }
