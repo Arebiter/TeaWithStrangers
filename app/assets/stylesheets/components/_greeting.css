@@ -1,3 +1,18 @@
 .greeting{
     border: 2px solid black;
  }
+
+ .greeting-loggedIn{
+    display: flex;
+ }
+
+ .greeting-loggedOut{
+    display: flex;
+ }
+
+ .greeting-button{
+     color: white;
+     background-color: orange;
+     border: 2px solid black;
+     border-radius: 5px;
+ }
