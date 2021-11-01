@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2021_10_29_190221) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
-    t.string "first_name", null: false
-    t.string "last_name"
+    t.string "fname", null: false
+    t.string "lname", null: false
     t.text "bio"
     t.text "profile_img_url"
     t.string "password_digest", null: false
