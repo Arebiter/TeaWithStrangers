@@ -10,8 +10,18 @@ class Profile extends React.Component {
         const { user } = this.props
         return (
             <div>
-                <p>{user.fname}</p>
-                <Link to={`/users/${user.id}/edit`}>Edit User Information</Link>
+                <div className="profile-info-container">
+                    <div className="profile-info-tag">Name:
+                        <p className="profile-info">{user.fname} {user.lname}</p>
+                    </div>
+                    <div className="profile-info-tag">Email:
+                        <p className="profile-info">{user.email}</p>
+                    </div>
+                    <div className="profile-info-tag">Bio:
+                        <p className="profile-info">{user.bio}</p>
+                    </div>
+                </div>
+                <Link className="profile-info-edit-btn" to={`/users/${user.id}/edit`}>Edit User Information</Link>
             </div>
         )
     }

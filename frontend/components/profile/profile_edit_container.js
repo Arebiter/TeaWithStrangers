@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { fetchUser, updateUser } from "../../actions/user_actions";
 import ProfileEditForm from "./profile_edit_form"
+import { withRouter } from "react-router";
 
 const mSTP = (state, ownProps) => {
     return {
@@ -15,4 +16,4 @@ const mDTP = dispatch => {
     }
 };
 
-export default connect(mSTP, mDTP)(ProfileEditForm);
+export default withRouter(connect(mSTP, mDTP)(ProfileEditForm));
