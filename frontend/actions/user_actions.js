@@ -10,10 +10,10 @@ const receiveAllUsers = (users) => {
     }
 };
 
-const receiveUser = userId => {
+const receiveUser = user => {
     return {
         type: RECEIVE_USER,
-        userId
+        user
     }
 };
 
@@ -25,7 +25,7 @@ export const fetchUsers = () => dispatch => {
 
 export const fetchUser = userId => dispatch => {
     return UsersUtil.fetchUser(userId)
-        .then(userId => dispatch(receiveUser(userId)))
+        .then(user => dispatch(receiveUser(user)))
 };
 
 export const updateUser = user => dispatch => {
