@@ -4,14 +4,13 @@ import Profile from "./profile"
 
 const mSTP = (state, ownProps) => {
     return {
-        user: state.users[ownProps.match.params.userId]
+        user: state.entities.users[ownProps.match.params.userId]
     }
 };
 
 const mDTP = dispatch => {
     return {
-        fetchUser: user => dispatch(fetchUser(user)),
-        updateUser: user => dispatch(updateUser(user))
+        fetchUser: user => dispatch(fetchUser(user))
     }
 };
 

@@ -30,4 +30,4 @@ export const AuthRoute = withRouter(
     connect(mSTP, null)(Auth)
 );
 
-export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
+export const ProtectedRoute = withRouter(connect(mSTP)(Protected));
