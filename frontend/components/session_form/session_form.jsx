@@ -82,7 +82,7 @@ class SessionForm extends React.Component {
         );
 
         return (
-            <div className="session-form-container">
+            <div className="container session-form-container">
                 <h2 className="session-formtype">{formType}</h2>
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <div className="session-form-input">

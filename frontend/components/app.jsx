@@ -10,12 +10,14 @@ import ProfileEditContainer from "./profile/profile_edit_container"
 
 
 const App = () => (
-    <div>
+    <div className="main-body">
         <header className="header-title">
-            <h1 className="main-title">
-                <Link to="/">Tea With Strangers</Link>
-            </h1>
-            <GreetingContainer />
+            <div className="container">
+                <h1 className="main-title">
+                    <Link to="/">Tea With Strangers</Link>
+                </h1>
+                <GreetingContainer />
+            </div>
         </header>
         <Switch>
             <Route exact path="/" component={Splash} />

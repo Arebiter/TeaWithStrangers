@@ -20,14 +20,43 @@
 /* COMPONENTS */
  @import "components/_greeting.css";
  @import "components/_session_form.css";
+ @import "components/_profile.css";
+ @import "components/_profile_edit_form.css";
 
- .greeting{
-    background-color: aqua;
- }
+ //main colors:
+$main-color1: #CB997E;
+$main-color2: #DDBEA9;
+$main-color3: #FFE8D6;
+$main-color4: #B7B7A4;
+$main-color5: #A5A58D;
+$main-color6: #6B705C;
 
- .main-title{
-    font-size: 40px;
- }
+ 
+.container{
+   max-width: 1020px;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 0 1em;
+}
+
+.header-title{
+   display: block;
+   background-color: $main-color6;
+
+   .container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: $main-color3;
+      padding: 20px;
+
+
+      .main-title{
+         font-size: 30px;
+      }
+
+   }
+}
 
  .errors{
     color: red;

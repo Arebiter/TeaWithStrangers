@@ -9,7 +9,7 @@ class Profile extends React.Component {
     render() {
         const { user } = this.props
         return (
-            <div>
+            <div className="container">
                 <div className="profile-info-container">
                     <div className="profile-info-tag">Name:
                         <p className="profile-info">{user.fname} {user.lname}</p>
