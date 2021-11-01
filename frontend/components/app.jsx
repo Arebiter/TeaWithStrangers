@@ -2,17 +2,21 @@ import React from "react";
 import GreetingContainer from "./greeting/greeting_container";
 import SignupFormContainer from "./session_form/signup_form_container"
 import LoginFormContainer from "./session_form/login_form_container"
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import { AuthRoute } from "../util/route_util";
+import Splash from "./splash/splash";
+
 
 const App = () => (
     <div>
         <header className="header-title">
-            <h1 className="main-title">Tea With Strangers</h1>
-            {/* <GreetingContainer /> */}
-            <Route exact path="/" component={GreetingContainer} />
+            <h1 className="main-title">
+                <Link to="/">Tea With Strangers</Link>
+            </h1>
+            <GreetingContainer />
         </header>
         <Switch>
+            <Route exact path="/" component={Splash} />
             <AuthRoute path="/login" component={LoginFormContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
         </Switch>
