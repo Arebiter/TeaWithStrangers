@@ -7,7 +7,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Splash from "./splash/splash";
 import ProfileContainer from "./profile/profile_container";
 import ProfileEditContainer from "./profile/profile_edit_container"
-
+import Footer from "./footer/footer";
 
 const App = () => (
     <div className="main-body">
@@ -26,6 +26,9 @@ const App = () => (
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
         </Switch>
+        <div className="container">
+            <Footer />
+        </div>
     </div>
 );
 
