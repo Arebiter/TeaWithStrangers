@@ -26,8 +26,10 @@ const App = () => (
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
         </Switch>
-        <div className="container">
-            <Footer />
+        <div class="footer-outer">
+            <div className="container">
+                <Footer />
+            </div>
         </div>
     </div>
 );

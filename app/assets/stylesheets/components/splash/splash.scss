@@ -1,0 +1,14 @@
+.splash-main-img-container{
+    display:flex;
+    flex-direction: column;
+    background-color: $main-color5;
+
+    .splash-main-line{
+        color: white;
+    }
+    .splash-main-subtitle{
+        font-size: 20px;
+        color: white;
+    }
+
+}

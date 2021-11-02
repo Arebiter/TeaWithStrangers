@@ -1,0 +1,56 @@
+//main colors:
+$main-color1: #CB997E;
+$main-color2: #DDBEA9;
+$main-color3: #FFE8D6;
+$main-color4: #B7B7A4;
+$main-color5: #A5A58D;
+$main-color6: #6B705C;
+
+ 
+.container{
+   max-width: 1020px;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 0 1em;
+}
+
+h1{
+    font-size: 40px;
+    color: $main-color3;
+}
+
+h2{
+    font-size: 30px;
+    color: $main-color3;
+}
+
+h3{
+    font-size: 20px;
+    color: $main-color3;
+}
+
+Link{
+    background-color: $main-color1;
+    border-radius: 10px;
+}
+
+.header-title{
+   display: block;
+   background-color: $main-color6;
+
+   .container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: $main-color3;
+      padding: 20px;
+
+      .main-title{
+         font-size: 30px;
+      }
+   }
+}
+
+ .errors{
+    color: red;
+ }

@@ -21,21 +21,27 @@ class ProfileEditForm extends React.Component {
         this.props.fetchUser(this.props.user.id)
     };
 
-    handleSubmit(e) {
-        e.preventDefault();
-        const user = Object.assign({}, this.state);
-        debugger
-        this.props.updateUser(user);
-        this.props.history.push(`/users/${this.props.user.id}`);
-    }
 
     handleFile(e) {
+        this.setState({ profile_photo: e.currentTarget.files[0] })
+    }
+
+    handleSubmit(e) {
         e.preventDefault();
+        // const user = Object.assign({}, this.state);
         const formData = new FormData();
+        formData.append("user[id]", this.state.id);
+        formData.append("user[email]", this.state.email);
+        formData.append("user[fname]", this.state.fname);
+        formData.append("user[lname]", this.state.lname);
+        formData.append("user[bio]", this.state.bio);
         if (this.state.profile_photo) {
             formData.append("user[profile_photo]", this.state.profile_photo)
         }
+        this.props.updateUser(formData);
+        this.props.history.push(`/users/${this.props.user.id}`);
     }
+
 
     update(field) {
         return (e) => {
@@ -61,7 +67,7 @@ class ProfileEditForm extends React.Component {
                     <label className="profile-edit-info-tag">Bio
                         <textarea onChange={this.update("bio")} value={bio}></textarea>
                     </label>
-                    <label>
+                    <label>Upload Profile Image
                         <input type="file" onChange={this.handleFile} />
                     </label>
                     <div className="profile-edit-buttn-container">

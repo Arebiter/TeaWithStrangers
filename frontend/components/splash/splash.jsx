@@ -6,10 +6,12 @@ class Splash extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className="splash-main-img-container">
-                    <h1 className="splash-main-line">Everyone is interesting</h1>
-                    <span className="splash-main-subtitle">But you don't discover that when you're staring at a screen</span>
-                    <Link className="splash-main-button" to="/">LET'S GET TEA</Link>
+                <div className="container">
+                    <div className="splash-main-img-container">
+                        <h1 className="splash-main-line">Everyone is interesting</h1>
+                        <span className="splash-main-subtitle">But you don't discover that when you're staring at a screen</span>
+                        <Link className="splash-main-button" to="/">LET'S GET TEA</Link>
+                    </div>
                 </div>
                 <div className="splash-description-container">
                     <div className="splash-description-part">
