@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
     return {
         fetchUser: user => dispatch(fetchUser(user)),
-        updateUser: user => dispatch(updateUser(user))
+        updateUser: formData => dispatch(updateUser(formData))
     }
 };
 

@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         store = configureStore();
     }
-    // window.store = store;
+    window.store = store;
     // window.login = login;
     // window.signup = signup;
     // window.logout = logout;

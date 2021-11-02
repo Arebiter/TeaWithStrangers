@@ -10,25 +10,19 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+
  *= require_self
  */
 
  /* CSS Reset*/
  @import "base/css_reset.scss";
+ @import "base/base.scss";
 
 /* COMPONENTS */
- @import "components/_greeting.css";
- @import "components/_session_form.css";
-
- .greeting{
-    background-color: aqua;
- }
-
- .main-title{
-    font-size: 40px;
- }
-
- .errors{
-    color: red;
- }
+ @import "components/greeting/_greeting.css";
+ @import "components/footer/footer.scss";
+ @import "components/session/_session_form.css";
+ @import "components/profile/profile.scss";
+ @import "components/profile/profile_edit_form.scss";
+ @import "components/splash/splash.scss";
+ 

@@ -7,15 +7,17 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Splash from "./splash/splash";
 import ProfileContainer from "./profile/profile_container";
 import ProfileEditContainer from "./profile/profile_edit_container"
-
+import Footer from "./footer/footer";
 
 const App = () => (
-    <div>
+    <div className="main-body">
         <header className="header-title">
-            <h1 className="main-title">
-                <Link to="/">Tea With Strangers</Link>
-            </h1>
-            <GreetingContainer />
+            <div className="container">
+                <h1 className="main-title">
+                    <Link to="/">Tea With Strangers</Link>
+                </h1>
+                <GreetingContainer />
+            </div>
         </header>
         <Switch>
             <Route exact path="/" component={Splash} />
@@ -24,6 +26,11 @@ const App = () => (
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
         </Switch>
+        <div class="footer-outer">
+            <div className="container">
+                <Footer />
+            </div>
+        </div>
     </div>
 );
 

@@ -1,0 +1,30 @@
+.footer-outer{
+    display: block;
+    background-color: $main-color6;
+    height: 200px;
+}
+.footer{
+    padding: 10px;
+    color:$main-color3;
+
+    .footer-content{
+        display: flex;
+        justify-content: space-between;
+
+        .footer-links{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 200px;
+            
+        }
+
+        .footer-message{
+            width: 700px;
+
+            p{
+                padding:10px
+            }
+        }
+    }
+}
