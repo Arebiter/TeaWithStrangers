@@ -7,22 +7,31 @@ class Profile extends React.Component {
     };
 
     render() {
-        const { user } = this.props
-        return (
+        const { fname, lname, email, bio, photoUrl, id } = this.props.user
+        const info = this.props.user ? (
             <div className="container">
                 <div className="profile-info-container">
+                    <div>
+                        <img src={photoUrl} />
+                    </div>
                     <div className="profile-info-tag">Name:
-                        <p className="profile-info">{user.fname} {user.lname}</p>
+                        <p className="profile-info">{fname} {lname}</p>
                     </div>
                     <div className="profile-info-tag">Email:
-                        <p className="profile-info">{user.email}</p>
+                        <p className="profile-info">{email}</p>
                     </div>
                     <div className="profile-info-tag">Bio:
-                        <p className="profile-info">{user.bio}</p>
+                        <p className="profile-info">{bio}</p>
                     </div>
                 </div>
-                <Link className="profile-info-edit-btn" to={`/users/${user.id}/edit`}>Edit User Information</Link>
+                <Link className="profile-info-edit-btn" to={`/users/${id}/edit`}>Edit User Information</Link>
             </div>
+        ) : (
+            null
+        );
+
+        return (
+            info
         )
     }
 };
