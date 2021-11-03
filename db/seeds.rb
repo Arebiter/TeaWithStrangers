@@ -18,3 +18,20 @@ demo = User.create!(
     profile_img_url: "image",
     password: "demoPassword"
 )
+
+TeaTime.destroy_all
+
+tea_time_1 = TeaTime.create!(
+    location: "somewhere in Staten Island",
+    start_time: "2021-11-25T12:00:00",
+    end_time: "2021-11-25T15:00:00",
+    city_id: 1,
+    host_id: 1,
+    description: "lets do stuff"
+)
+
+City.destroy_all
+
+new_york = City.create!(
+    city_name: "New York City"
+)
