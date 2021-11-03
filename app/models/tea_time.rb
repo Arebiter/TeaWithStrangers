@@ -14,6 +14,6 @@ class TeaTime < ApplicationRecord
         foreign_key: :city_id,
         class_name: :City
 
-
+    #maybe a duration method
 
 end

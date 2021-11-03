@@ -9,6 +9,10 @@ class User < ApplicationRecord
         after_initialize :ensure_session_token
 
         has_one_attached :profile_photo
+
+        has_many :hosted_tea_times,
+          foreign_key: :host_id,
+          class_name: :TeaTime
       
         def self.find_by_credentials(email, password)
           user = User.find_by(email: email)

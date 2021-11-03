@@ -11,11 +11,6 @@ class Api::TeaTimesController < ApplicationController
         render :show
     end
 
-    def new
-        @tea_time = TeaTime.new
-        render :new
-    end
-
     def create
         @tea_time = TeaTime.new(tea_times_params)
         if @tea_time.save
@@ -23,11 +18,6 @@ class Api::TeaTimesController < ApplicationController
         else
             render json: @tea_time.errors.full_messages, status: 422
         end
-    end
-
-    def edit
-        @tea_time = TeaTime.find(params[:id])
-        render :edit
     end
 
     def update
