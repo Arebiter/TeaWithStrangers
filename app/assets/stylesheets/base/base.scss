@@ -6,27 +6,51 @@ $main-color4: #B7B7A4;
 $main-color5: #A5A58D;
 $main-color6: #6B705C;
 
- 
-.container{
-   max-width: 1020px;
-   margin-left: auto;
-   margin-right: auto;
-   padding: 0 1em;
+ content-container{
+    display:block;
+ }
+
+ .container{
+        max-width: 1020px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 1em;
+     }
+
+ .color6{
+    background-color: #6B705C;
 }
+ .color5{
+     background-color: #A5A58D;
+ }
+ .color4{
+    background-color: #B7B7A4;
+}
+.color3{
+    background-color: #FFE8D6;
+}
+.color2{
+    background-color: #DDBEA9;
+}
+.color1{
+    background-color: #CB997E;
+}
+
+
 
 h1{
     font-size: 40px;
-    color: $main-color3;
+ 
 }
 
 h2{
     font-size: 30px;
-    color: $main-color3;
+
 }
 
 h3{
     font-size: 20px;
-    color: $main-color3;
+
 }
 
 Link{

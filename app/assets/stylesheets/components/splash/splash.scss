@@ -1,6 +1,7 @@
 .splash-main-img-container{
     display:flex;
     flex-direction: column;
+    align-items: center;
     background-color: $main-color5;
 
     .splash-main-line{
@@ -10,5 +11,160 @@
         font-size: 20px;
         color: white;
     }
+
+}
+
+.splash-description-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 5px;
+
+    .splash-description-part{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+}
+
+.splash-link{
+    background-color: $main-color1;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: $main-color3;
+}
+
+.tea-explainer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+
+    .tea-header{
+        color: $main-color1;
+    }
+
+  
+    .tea-explainer{
+        display: flex;
+        justify-content: space-evenly;
+        color: $main-color1;
+
+        .tea-image-div{
+            height: auto;
+            width: 45%;
+            padding: 10px;
+            background-color: yellowgreen;
+        }
+
+        .tea-explainer-section{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            height: 150px;
+            padding: 10px;
+            margin: 0 30px;
+
+            h2{
+                color: $main-color6;
+                padding-bottom: 10px;
+            }
+        }
+    }
+}
+
+.get-tea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+    height: 120px;
+}
+
+.testimonial-quotes{
+    display: flex;
+    justify-content: center;
+
+    div{
+        padding: 20px 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 60%;
+        
+        p{
+            border-right: 15px solid $main-color5;
+            padding-right: 30px;
+            span{
+                color: lightcoral;
+            }
+        }
+    }
+}
+
+.centered-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    .centered-img-div{
+        background-color: yellowgreen;
+        height: 300px;
+        width: 300px;
+        padding: 10px;
+    }
+}
+
+.stranger-letter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .stranger-letter-content{
+        display: flex;
+        flex-direction: row;
+
+        .letter-img-div{
+            width: 50%;
+            height: 300px;
+            margin: 20px;
+            background-color: yellowgreen;
+        }
+
+        .letter-content-div{
+            width: 50%;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            p{
+                padding: 5px;
+            }
+            
+            :first-of-type{
+                padding-top: 10px;
+            }
+            :last-of-type{
+                padding-bottom: 10px;
+            }
+        }
+    }
+}
+
+.high-five{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+    height: 120px;
+
+    h2{
+        padding: 5px;
+    }
+
 
 }
