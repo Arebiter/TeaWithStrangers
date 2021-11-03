@@ -82,27 +82,29 @@ class SessionForm extends React.Component {
         );
 
         return (
-            <div className="container session-form-container">
-                <h2 className="session-formtype">{formType}</h2>
-                <form className="session-form" onSubmit={this.handleSubmit}>
-                    <div className="session-form-input">
-                        <label>Email
-                            <input className="session-form-field" type="text" onChange={this.update("email")} value={email} />
-                        </label>
-                        <label>Password
-                            <input className="session-form-field" type="password" onChange={this.update("password")} value={password} />
-                        </label>
-                        {firstName}
-                        {lastName}
-                        {errorMessages}
+            <div className="container">
+                <div className="session-form-container">
+                    <h2 className="session-formtype">{formType}</h2>
+                    <form className="session-form" onSubmit={this.handleSubmit}>
+                        <div className="session-form-input">
+                            <label>Email
+                                <input className="session-form-field" type="text" onChange={this.update("email")} value={email} />
+                            </label>
+                            <label>Password
+                                <input className="session-form-field" type="password" onChange={this.update("password")} value={password} />
+                            </label>
+                            {firstName}
+                            {lastName}
+                            {errorMessages}
+                        </div>
+                        <div className="session-button-div">
+                            {altLink}
+                            <button className="session-button">{formType}</button>
+                        </div>
+                    </form>
+                    <div className="demo-login">
+                        {demoLogin}
                     </div>
-                    <div className="session-button-div">
-                        {altLink}
-                        <button className="session-button">{formType}</button>
-                    </div>
-                </form>
-                <div className="demo-login">
-                    {demoLogin}
                 </div>
             </div>
         )

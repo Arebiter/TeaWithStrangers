@@ -1,5 +1,6 @@
 .session-form-container{
-    
+    width: 60%;
+    margin: auto;
 }
 
 .session-formtype{
@@ -8,7 +9,6 @@
 }
 
 .session-form-input{
-    background-color: lightcyan;
     display: flex;
     flex-direction: column;
     padding: 10px;

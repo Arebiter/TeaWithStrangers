@@ -14,8 +14,11 @@
  *= require_self
  */
 
+ 
+
  /* CSS Reset*/
  @import "base/css_reset.scss";
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
  @import "base/base.scss";
 
 /* COMPONENTS */

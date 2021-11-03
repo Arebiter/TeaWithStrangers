@@ -1,10 +1,18 @@
 //main colors:
-$main-color1: #CB997E;
+$main-color1: #f27360;
 $main-color2: #DDBEA9;
-$main-color3: #FFE8D6;
+$main-color3: #faf1ea;
 $main-color4: #B7B7A4;
 $main-color5: #A5A58D;
 $main-color6: #6B705C;
+
+$font1: 'Inter', sans-serif;
+$font1-reg: 400;
+$font1-bold: 900;
+
+.main-body{
+    font-family: $font1;
+}
 
  content-container{
     display:block;
@@ -33,25 +41,10 @@ $main-color6: #6B705C;
     background-color: #DDBEA9;
 }
 .color1{
-    background-color: #CB997E;
+    background-color: #f27360;
 }
 
 
-
-h1{
-    font-size: 40px;
- 
-}
-
-h2{
-    font-size: 30px;
-
-}
-
-h3{
-    font-size: 20px;
-
-}
 
 Link{
     background-color: $main-color1;
