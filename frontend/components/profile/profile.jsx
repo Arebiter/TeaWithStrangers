@@ -25,6 +25,7 @@ class Profile extends React.Component {
                     </div>
                 </div>
                 <Link className="profile-info-edit-btn" to={`/users/${id}/edit`}>Edit User Information</Link>
+                <i class="fas fa-arrow-circle-up"></i>
             </div>
         ) : (
             null
