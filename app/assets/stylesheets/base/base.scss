@@ -3,45 +3,49 @@ $main-color1: #f27360;
 $main-color2: #DDBEA9;
 $main-color3: #faf1ea;
 $main-color4: #B7B7A4;
-$main-color5: #A5A58D;
-$main-color6: #6B705C;
+$main-color5: #cacaba;
+$main-color6: #6b705cf5;
+$main-color7: #6b705cd8;
+$main-color8: #464646;
 
 $font1: 'Inter', sans-serif;
 $font1-reg: 400;
 $font1-bold: 900;
 
+
 .main-body{
     font-family: $font1;
-}
-
- content-container{
     display:block;
- }
+}   
 
- .container{
-        max-width: 1020px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0 1em;
-     }
-
- .color6{
-    background-color: #6B705C;
+.content-container{
+    margin:auto;
 }
- .color5{
-     background-color: #A5A58D;
- }
- .color4{
-    background-color: #B7B7A4;
+
+.container{
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1em;
+}
+
+.color6{
+    background-color: $main-color6;
+}
+.color5{
+    background-color: $main-color5;
+}
+.color4{
+    background-color: $main-color4;
 }
 .color3{
-    background-color: #FFE8D6;
+    background-color: $main-color3;
 }
 .color2{
-    background-color: #DDBEA9;
+    background-color: $main-color2;
 }
 .color1{
-    background-color: #f27360;
+    background-color: $main-color1;
 }
 
 
@@ -51,9 +55,10 @@ Link{
     border-radius: 10px;
 }
 
-.header-title{
+.header{
    display: block;
    background-color: $main-color6;
+
 
    .container{
       display: flex;
@@ -68,10 +73,7 @@ Link{
    }
 }
 
-.main-comp-div{
-    margin: auto;
-}
 
- .errors{
+.errors{
     color: red;
- }
+}

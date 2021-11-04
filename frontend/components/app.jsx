@@ -11,7 +11,7 @@ import Footer from "./footer/footer";
 
 const App = () => (
     <div className="main-body">
-        <header className="header-title">
+        <header className="header">
             <div className="container">
                 <h1 className="main-title">
                     <Link to="/">Tea With Strangers</Link>
@@ -19,20 +19,20 @@ const App = () => (
                 <GreetingContainer />
             </div>
         </header>
-        <div class="main-comp-div">
-            <Switch>
-                <Route exact path="/" component={Splash} />
-                <AuthRoute path="/login" component={LoginFormContainer} />
-                <AuthRoute path="/signup" component={SignupFormContainer} />
-                <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
-                <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
-            </Switch>
-        </div>
-        <div class="footer-outer">
+
+        <Switch>
+            <Route exact path="/" component={Splash} />
+            <AuthRoute path="/login" component={LoginFormContainer} />
+            <AuthRoute path="/signup" component={SignupFormContainer} />
+            <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
+            <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
+        </Switch>
+
+        <section class="footer-outer">
             <div className="container">
                 <Footer />
             </div>
-        </div>
+        </section>
     </div>
 );
 

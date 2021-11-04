@@ -1,25 +1,35 @@
+.splash-container{
+    display: block;
+}
+
+.splash-header-img{
+    background-image: -webkit-linear-gradient(top, $main-color7, $main-color7),image-url("header.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .splash-main-img-container{
     display:flex;
     flex-direction: column;
     align-items: center;
-    background-color: $main-color5;
-    padding: 20px 0;
+    padding: 100px 0;
 
     .splash-main-line{
-        color: white;
+        color: #faf1ea;
         padding: 10px 0;
         font-weight: $font1-bold;
         font-size: 40px;
     }
     .splash-main-subtitle{
         font-size: 20px;
-        color: white;
+        color: #faf1ea;
         padding: 5px 0;
+        margin-bottom: 5px;
     }
 
     .splash-main-button{
         background-color: $main-color1;
-        color: white;
+        color: #faf1ea;
         padding: 15px 10%;
         border-radius: 10px;
     }
@@ -31,6 +41,7 @@
     align-items: center;
     justify-content: space-evenly;
     padding: 10px 5px;
+    height: 140px;
 
     .splash-description-part{
         display: flex;
@@ -38,6 +49,19 @@
         align-items: center;
         justify-content: center;
 
+        .splash-description-part-main{
+            color: $main-color1;
+            font-size: 22px;
+            font-weight: $font1-bold;
+            padding-bottom: 10px;
+        }
+
+        .splash-description-part-sub{
+            font-size: 16px;
+            margin-top: 5px;
+            color: $main-color8;
+            font-weight: 600;
+        }
     }
 }
 
@@ -53,38 +77,72 @@
     flex-direction: column;
     align-items: center;
     padding: 10px 0;
+    padding-top: 50px;
 
     .tea-header{
-        color: $main-color1;
+        color: $main-color8;
+        font-weight: $font1-bold;
+        margin: 10px 0;
+        margin-bottom: 17px;
+        font-size: 17px;
     }
-
   
     .tea-explainer{
         display: flex;
         justify-content: space-evenly;
+        align-items: center;
         color: $main-color6;
 
         .tea-image-div{
-            height: auto;
-            width: 45%;
             padding: 10px;
-            background-color: yellowgreen;
+            
+            .tea-image{
+                height: 300px;
+                width: 300px;
+            }
+          
+        }
+
+        .right{
+            margin-right: 30px;
+        }
+        .left{
+            margin-left: 30px;
         }
 
         .tea-explainer-section{
             display: flex;
             flex-direction: column;
-            width: 80%;
-            height: 150px;
-            padding: 10px;
+            width: 45%;
+            height: 160px;
             margin: 0 30px;
 
             h2{
                 color: $main-color1;
+                font-size: 24px;
+                font-weight: $font1-bold;
                 padding-bottom: 10px;
+            }
+
+            p{
+                line-height: 30px;
+                font-size: 17px;
+                color: $main-color8;
+                font-weight: 600;
             }
         }
     }
+}
+
+.splash-link{
+    width: 50%;
+    padding: 20px 0;
+    max-width: 500px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 10px;
 }
 
 .get-tea{
@@ -93,24 +151,35 @@
     align-items: center;
     justify-content: space-evenly;
     padding: 10px 0px;
-    height: 120px;
+    height: 170px;
+
+    h2{
+        font-size: 30px;
+        font-weight: $font1-bold;
+        color: $main-color8;
+        margin-bottom: 5px;
+    }
+
 }
 
-.testimonial-quotes{
+.testimonials{
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    width: 900px;
 
     div{
-        padding: 20px 50px;
+        padding: 20px 40px;
         margin-top: 10px;
         margin-bottom: 10px;
-        width: 60%;
         
         p{
             border-right: 15px solid $main-color5;
             padding-right: 30px;
+            color: $main-color8;
             span{
-                color: lightcoral;
+                color: $main-color1;
+                font-weight: $font1-bold;
             }
         }
     }
@@ -122,10 +191,13 @@
     align-items: center;
  
     .centered-img-div{
-        background-color: yellowgreen;
-        height: 300px;
-        width: 300px;
         padding: 10px;
+        margin-bottom: 50px;
+
+        img{
+            height: 400px;
+            width: 400px;
+        }
     }
 }
 
@@ -134,15 +206,28 @@
     flex-direction: column;
     align-items: center;
 
+    h2{
+        font-size: 19px;
+        color: $main-color8;
+        font-weight: $font1-bold;
+        text-transform: uppercase;
+    }
+
     .stranger-letter-content{
         display: flex;
         flex-direction: row;
+        width: 900px;
+        margin-bottom: 50px;
 
         .letter-img-div{
-            width: 50%;
-            height: 300px;
-            margin: 20px;
-            background-color: yellowgreen;
+            padding: 10px;
+            margin: 10px;
+            
+            .letter-img{
+                height: 400px;
+                width: 400px;
+            }
+          
         }
 
         .letter-content-div{
@@ -151,9 +236,12 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            margin-left: 20px;
 
             p{
                 padding: 5px;
+                line-height: 23px;
+                font-weight: 600;
             }
             
             :first-of-type{
@@ -164,19 +252,4 @@
             }
         }
     }
-}
-
-.high-five{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 10px 0px;
-    height: 120px;
-
-    h2{
-        padding: 5px;
-    }
-
-
 }
