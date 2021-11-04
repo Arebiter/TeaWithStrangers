@@ -95,8 +95,8 @@
             padding: 10px;
             
             .tea-image{
-                height: 300px;
-                width: 300px;
+                height: auto;
+                width: 400px;
             }
           
         }
@@ -199,8 +199,8 @@
         margin-bottom: 50px;
 
         img{
-            height: 400px;
-            width: 400px;
+            height: auto;
+            width: 450px;
         }
     }
 }
@@ -215,6 +215,7 @@
         color: $main-color8;
         font-weight: $font1-bold;
         text-transform: uppercase;
+        margin-bottom: 10px;
     }
 
     .stranger-letter-content{
@@ -228,7 +229,7 @@
             margin: 10px;
             
             .letter-img{
-                height: 400px;
+                height: auto;
                 width: 400px;
             }
           

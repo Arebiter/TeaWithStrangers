@@ -53,29 +53,46 @@ class ProfileEditForm extends React.Component {
         console.log(this.state);
         const { email, fname, lname, bio } = this.state
         return (
-            <div className="container">
-                <form className="profile-edit-form" onSubmit={this.handleSubmit}>
-                    <label className="profile-edit-info-tag">Email
-                        <input className="session-form-field" type="text" onChange={this.update("email")} value={email} />
-                    </label>
-                    <label className="profile-edit-info-tag">First Name
-                        <input className="session-form-field" type="text" onChange={this.update("fname")} value={fname} />
-                    </label>
-                    <label className="profile-edit-info-tag">Last Name
-                        <input className="session-form-field" type="text" onChange={this.update("lname")} value={lname} />
-                    </label>
-                    <label className="profile-edit-info-tag">Bio
-                        <textarea onChange={this.update("bio")} value={bio}></textarea>
-                    </label>
-                    <label>Upload Profile Image
-                        <input type="file" onChange={this.handleFile} />
-                    </label>
-                    <div className="profile-edit-buttn-container">
-                        <button className="session-button">Submit Changes</button>
-                        <Link className="session-button" to={`/users/${this.props.user.id}`}>Cancel Changes</Link>
+            <section className="profile-edit-form-section">
+                <div className="profile-edit-div container">
+                    <div className="profile-edit-welcome">
+                        <h2>
+                            Welcome home,
+                            <span>{fname}</span>
+                        </h2>
+                        <p>What are you greatful for today?</p>
                     </div>
-                </form>
-            </div>
+                    <form className="profile-edit-form" onSubmit={this.handleSubmit}>
+                        <h2>Edit Your Account</h2>
+                        <div className="profile-edit-inputs">
+                            <h3>Personal Information</h3>
+                            <div className="profile-edit-info-tag">
+                                <h3>Email</h3>
+                                <input className="profile-form-field" type="text" onChange={this.update("email")} value={email} />
+                            </div>
+                            <div className="profile-edit-info-tag">
+                                <h3>First name</h3>
+                                <input className="profile-form-field" type="text" onChange={this.update("fname")} value={fname} />
+                            </div>
+                            <div className="profile-edit-info-tag">
+                                <h3>Last name</h3>
+                                <input className="profile-form-field" type="text" onChange={this.update("lname")} value={lname} />
+                            </div>
+                            <div className="profile-edit-info-tag">
+                                <h3>Your Story</h3>
+                                <textarea className="profile-form-field" onChange={this.update("bio")} value={bio}></textarea>
+                            </div>
+                            <div>Upload Profile Image
+                                <input type="file" onChange={this.handleFile} />
+                            </div>
+                            <div className="profile-edit-btn-container">
+                                <button className="session-button">Submit Changes</button>
+                                <Link className="session-button" to={`/users/${this.props.user.id}`}>Cancel Changes</Link>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
         )
     }
 };

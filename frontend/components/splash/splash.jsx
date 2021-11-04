@@ -48,7 +48,7 @@ class Splash extends React.Component {
                         </div>
                         <div className="tea-explainer">
                             <div className="tea-image-div left">
-                                <img class="tea-image" scr={window.weird} />
+                                <img className="tea-image" src={window.weird} />
                             </div>
                             <div className="tea-explainer-section">
                                 <h2>It's Weird</h2>
@@ -65,12 +65,12 @@ class Splash extends React.Component {
                                 </p>
                             </div>
                             <div className="tea-image-div right">
-                                <img class="tea-image" scr={window.wontMeet} />
+                                <img className="tea-image" src={window.neverMeet} />
                             </div>
                         </div>
                         <div className="tea-explainer">
                             <div className="tea-image-div left">
-                                <img class="tea-image" scr={window.highFive} />
+                                <img className="tea-image" src={window.highFive} />
                             </div>
                             <div className="tea-explainer-section">
                                 <h2>Your hands are made for high fiving!</h2>
@@ -104,7 +104,7 @@ class Splash extends React.Component {
                 <section className="splash-centered-img color3">
                     <div className="centered-image container">
                         <div className="centered-img-div">
-                            <img class="centered-img" scr={window.centered} />
+                            <img className="centered-img" src={window.centered} />
                         </div>
                     </div>
                 </section>
@@ -113,7 +113,7 @@ class Splash extends React.Component {
                         <h2>There's no such thing as a stranger</h2>
                         <div className="stranger-letter-content">
                             <div className="letter-img-div">
-                                <img class="letter-img" scr={window.stranger} />
+                                <img className="letter-img" src={window.stranger} />
                             </div>
                             <div className="letter-content-div">
                                 <p>
@@ -130,7 +130,7 @@ class Splash extends React.Component {
                     </div>
                 </section>
                 <section className="splash-high-five color5">
-                    <div class="get-tea container">
+                    <div className="get-tea container">
                         <h2>Do we get to high five yet?</h2>
                         <Link className="splash-link" to="/">Yes</Link>
                     </div>

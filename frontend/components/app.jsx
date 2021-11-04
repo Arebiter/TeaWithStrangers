@@ -28,7 +28,7 @@ const App = () => (
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
         </Switch>
 
-        <section class="footer-outer">
+        <section className="footer-outer">
             <Footer />
         </section>
     </div>
