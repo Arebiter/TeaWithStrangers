@@ -58,6 +58,7 @@ Link{
 .header{
    display: block;
    background-color: $main-color6;
+   filter: drop-shadow(0 1px 10px $main-color8);
 
 
    .container{
@@ -72,7 +73,6 @@ Link{
       }
    }
 }
-
 
 .errors{
     color: red;

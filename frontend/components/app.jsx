@@ -29,9 +29,7 @@ const App = () => (
         </Switch>
 
         <section class="footer-outer">
-            <div className="container">
-                <Footer />
-            </div>
+            <Footer />
         </section>
     </div>
 );

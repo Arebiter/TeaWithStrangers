@@ -32,6 +32,11 @@
         color: #faf1ea;
         padding: 15px 10%;
         border-radius: 10px;
+        font-weight: 600;
+    }
+
+    .splash-main-button:hover{
+        background-color: #e65742;
     }
 
 }
@@ -63,13 +68,6 @@
             font-weight: 600;
         }
     }
-}
-
-.splash-link{
-    background-color: $main-color1;
-    padding: 5px 20px;
-    border-radius: 5px;
-    color: $main-color3;
 }
 
 .tea-explainer-container{
@@ -135,6 +133,8 @@
 }
 
 .splash-link{
+    background-color: $main-color1;
+    color: $main-color3;
     width: 50%;
     padding: 20px 0;
     max-width: 500px;
@@ -143,6 +143,10 @@
     font-size: 18px;
     text-transform: uppercase;
     border-radius: 10px;
+}
+
+.splash-link:hover{
+    background-color: #e65742;
 }
 
 .get-tea{
@@ -253,3 +257,4 @@
         }
     }
 }
+

@@ -1,6 +1,13 @@
+.session-form{
+    display: block;
+    background-color: $main-color3;
+}
 .session-form-container{
-    width: 60%;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60vh;
 }
 
 .session-formtype{

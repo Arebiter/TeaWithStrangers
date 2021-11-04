@@ -1,13 +1,15 @@
 .footer-outer{
     display: block;
     background-color: $main-color6;
-    height: 200px;
+    height: 300px;
 }
 .footer{
     padding: 10px;
     color:$main-color3;
+    line-height: 24px;
 
     .footer-content{
+        padding: 10px 10px;
         display: flex;
         justify-content: space-between;
 
@@ -16,11 +18,13 @@
             flex-direction: column;
             justify-content: space-between;
             width: 200px;
+            margin-bottom: 15px;
             
         }
 
         .footer-message{
             width: 700px;
+            line-height: 30px;
 
             p{
                 padding:10px
