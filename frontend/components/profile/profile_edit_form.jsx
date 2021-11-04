@@ -60,12 +60,14 @@ class ProfileEditForm extends React.Component {
                             Welcome home,
                             <span>{fname}</span>
                         </h2>
-                        <p>What are you greatful for today?</p>
+                        <p>What are you grateful for today?</p>
                     </div>
                     <form className="profile-edit-form" onSubmit={this.handleSubmit}>
                         <h2>Edit Your Account</h2>
-                        <div className="profile-edit-inputs">
+                        <div className="profile-edit-form-top">
                             <h3>Personal Information</h3>
+                        </div>
+                        <div className="profile-edit-inputs">
                             <div className="profile-edit-info-tag">
                                 <h3>Email</h3>
                                 <input className="profile-form-field" type="text" onChange={this.update("email")} value={email} />
@@ -82,8 +84,9 @@ class ProfileEditForm extends React.Component {
                                 <h3>Your Story</h3>
                                 <textarea className="profile-form-field" onChange={this.update("bio")} value={bio}></textarea>
                             </div>
-                            <div>Upload Profile Image
-                                <input type="file" onChange={this.handleFile} />
+                            <div className="profile-edit-info-tag" >
+                                <h3>Upload Profile Image</h3>
+                                <input className="profile-form-image-change" type="file" onChange={this.handleFile} />
                             </div>
                             <div className="profile-edit-btn-container">
                                 <button className="session-button">Submit Changes</button>
