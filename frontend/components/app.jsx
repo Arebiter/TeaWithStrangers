@@ -8,6 +8,7 @@ import Splash from "./splash/splash";
 import ProfileContainer from "./profile/profile_container";
 import ProfileEditContainer from "./profile/profile_edit_container"
 import Footer from "./footer/footer";
+import TeaTimesContainer from "./tea_times/tea_times_container";
 
 const App = () => (
     <div className="main-body">
@@ -26,6 +27,7 @@ const App = () => (
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <ProtectedRoute path="/users/:userId/edit" component={ProfileEditContainer} />
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
+            <Route path="/teaTimes" component={TeaTimesContainer} />
         </Switch>
 
         <section className="footer-outer">

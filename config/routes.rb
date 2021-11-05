@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :update]
     resource :session, only: [:create, :destroy, :show]
     resources :tea_times, only: [:index, :show, :create, :destroy, :update]
+    resources :cities, only: [:index]
   end
 
 end

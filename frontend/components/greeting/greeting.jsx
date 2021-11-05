@@ -10,14 +10,14 @@ class Greeting extends React.Component {
 
         const greeting = currentUser ? (
             <div className="greeting-loggedIn">
-                <Link className="greeting-button" to="/">TEA TIMES</Link>
+                <Link className="greeting-button" to="/teaTimes">TEA TIMES</Link>
                 <Link className="greeting-button" to="/">HOSTING</Link>
                 <Link className="greeting-button" to={`/users/${currentUser.id}`}>DASHBOARD</Link>
                 <button className="greeting-button" onClick={() => logout()}>SIGN OUT</button>
             </div>
         ) : (
             <div className="greeting-loggedOut">
-                <Link className="greeting-button" to="/">TEA TIMES</Link>
+                <Link className="greeting-button" to="/teaTimes">TEA TIMES</Link>
                 <Link className="greeting-button" to="/signup">HOSTING</Link>
                 <Link className="greeting-button" to="/login">SIGN IN</Link>
                 <Link className="greeting-button-signup" to="/signup">SIGN UP</Link>
