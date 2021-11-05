@@ -1,42 +1,65 @@
 //main colors:
-$main-color1: #CB997E;
+$main-color1: #f27360;
 $main-color2: #DDBEA9;
-$main-color3: #FFE8D6;
+$main-color3: #faf1ea;
 $main-color4: #B7B7A4;
-$main-color5: #A5A58D;
-$main-color6: #6B705C;
+$main-color5: #cacaba;
+$main-color6: #6b705cf5;
+$main-color7: #6b705cd8;
+$main-color8: #464646;
 
- 
+$font1: 'Inter', sans-serif;
+$font1-reg: 400;
+$font1-bold: 900;
+
+
+.main-body{
+    font-family: $font1;
+    display:block;
+}   
+
+.content-container{
+    margin:auto;
+}
+
 .container{
-   max-width: 1020px;
-   margin-left: auto;
-   margin-right: auto;
-   padding: 0 1em;
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1em;
 }
 
-h1{
-    font-size: 40px;
-    color: $main-color3;
+.color6{
+    background-color: $main-color6;
+}
+.color5{
+    background-color: $main-color5;
+}
+.color4{
+    background-color: $main-color4;
+}
+.color3{
+    background-color: $main-color3;
+}
+.color2{
+    background-color: $main-color2;
+}
+.color1{
+    background-color: $main-color1;
 }
 
-h2{
-    font-size: 30px;
-    color: $main-color3;
-}
 
-h3{
-    font-size: 20px;
-    color: $main-color3;
-}
 
 Link{
     background-color: $main-color1;
     border-radius: 10px;
 }
 
-.header-title{
+.header{
    display: block;
    background-color: $main-color6;
+   filter: drop-shadow(0 1px 10px $main-color8);
+
 
    .container{
       display: flex;
@@ -51,6 +74,12 @@ Link{
    }
 }
 
- .errors{
+.errors{
     color: red;
- }
+}
+
+#root{
+    min-height: 100vh;
+    height: 100%;
+    background-color: $main-color3;
+}

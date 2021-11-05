@@ -52,59 +52,98 @@ class SessionForm extends React.Component {
         );
 
         const altLink = (formType === "Login") ? (
-            <Link className="session-button" to="/signup">Sign Up</Link>
+            <div>
+                <Link to="/signup">If you've never signed up before, click here and do that</Link>
+            </div>
         ) : (
-            <Link className="session-button" to="/login">Login</Link>
+            <div>
+                <Link to="/login">If you've already done this before, click here to log in</Link>
+            </div>
         );
 
         const demoLogin = (formType === "Login") ? (
-            <p>Just here to look? &nbsp;
-                <span onClick={this.demoUser}>Guest User</span>
-            </p>
+            <div>
+                <p>Just here to look? &nbsp;
+                    <span onClick={this.demoUser}>Sign in as guest</span>
+                </p>
+            </div>
         ) : (
-            null
+            <div>
+            </div>
         );
 
         const firstName = (formType === "Sign Up") ? (
-            <label>First Name
-                <input className="session-form-field" type="text" onChange={this.update("fname")} value={fname} />
+            <label>
+                <input className="session-form-field" type="text" onChange={this.update("fname")} value={fname} placeholder="First name" />
             </label>
         ) : (
             <div></div>
         );
 
         const lastName = (formType === "Sign Up") ? (
-            <label>Last Name
-                <input className="session-form-field" type="text" onChange={this.update("lname")} value={lname} />
+            <label>
+                <input className="session-form-field" type="text" onChange={this.update("lname")} value={lname} placeholder="Last name" />
             </label>
         ) : (
             <div></div>
         );
 
-        return (
-            <div className="container session-form-container">
-                <h2 className="session-formtype">{formType}</h2>
-                <form className="session-form" onSubmit={this.handleSubmit}>
-                    <div className="session-form-input">
-                        <label>Email
-                            <input className="session-form-field" type="text" onChange={this.update("email")} value={email} />
-                        </label>
-                        <label>Password
-                            <input className="session-form-field" type="password" onChange={this.update("password")} value={password} />
-                        </label>
-                        {firstName}
-                        {lastName}
-                        {errorMessages}
-                    </div>
-                    <div className="session-button-div">
-                        {altLink}
-                        <button className="session-button">{formType}</button>
-                    </div>
-                </form>
-                <div className="demo-login">
-                    {demoLogin}
-                </div>
+        const passwordInput = (formType === "Sign Up") ? (
+            <label>
+                <input className="session-form-field" type="password" onChange={this.update("password")} value={password} placeholder="Password (at least 6 characters you won't forget)" />
+            </label>
+        ) : (
+            <label>
+                <input className="session-form-field" type="password" onChange={this.update("password")} value={password} placeholder="Password" />
+            </label>
+        );
+
+        const sessionFormHeader = (formType === "Sign Up") ? (
+            <div className="session-form-header">
+                <h2>
+                    Join for tea time
+                </h2>
+                <p>
+                    1000s of strangers across the world have sat together for conversations. Create an account and you'll be on your way to join the community.
+                </p>
             </div>
+        ) : (
+            <div className="session-form-header">
+                <h2>
+                    Hey stranger!
+                </h2>
+                <p>
+                    It's good to have you back. Sign in here and sign up for your next tea time!
+                </p>
+            </div>
+        );
+
+        return (
+            <section className="session-form-section">
+                <div className="session-form-container container">
+                    <div className="session-form-header-div">
+                        {sessionFormHeader}
+                    </div>
+                    <form className="session-form" onSubmit={this.handleSubmit}>
+                        <div className="session-form-inputs">
+                            {firstName}
+                            {lastName}
+                            <label>
+                                <input className="session-form-field" type="text" onChange={this.update("email")} value={email} placeholder="Email address" />
+                            </label>
+                            {passwordInput}
+                            {errorMessages}
+                        </div>
+                        <div className="session-button-div">
+                            <button className="session-button">{formType}</button>
+                        </div>
+                    </form>
+                    <div className="demo-login">
+                        {demoLogin}
+                        {altLink}
+                    </div>
+                </div>
+            </section>
         )
     }
 };

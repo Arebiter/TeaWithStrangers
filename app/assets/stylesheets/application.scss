@@ -14,15 +14,19 @@
  *= require_self
  */
 
+ 
+
  /* CSS Reset*/
  @import "base/css_reset.scss";
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
  @import "base/base.scss";
 
 /* COMPONENTS */
- @import "components/greeting/_greeting.css";
+ @import "components/greeting/_greeting.scss";
  @import "components/footer/footer.scss";
- @import "components/session/_session_form.css";
+ @import "components/session/_session_form.scss";
  @import "components/profile/profile.scss";
  @import "components/profile/profile_edit_form.scss";
+ @import "components/profile/_profile_nav.scss";
  @import "components/splash/splash.scss";
  
