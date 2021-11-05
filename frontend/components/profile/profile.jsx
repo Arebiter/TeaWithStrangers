@@ -40,7 +40,9 @@ class Profile extends React.Component {
                                 <h3>Your Story</h3>
                                 <p className="profile-info">{bio}</p>
                             </div>
-                            <Link className="profile-info-edit-btn" to={`/users/${id}/edit`}>Edit Your Information</Link>
+                            <div className="profile-info-edit-div">
+                                <Link className="profile-info-edit-btn" to={`/users/${id}/edit`}>Edit Your Information</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
