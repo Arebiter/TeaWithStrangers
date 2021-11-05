@@ -15,4 +15,5 @@ class TeaTime < ApplicationRecord
         class_name: :City   
 
 
+
 end
