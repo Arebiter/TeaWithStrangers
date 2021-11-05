@@ -1,0 +1,25 @@
+.profile-nav-bar-section{
+    display: block;
+    background-color: $main-color5;
+    padding: 25px 0;
+
+    .profile-nav-bar-div{
+        display: flex;
+        justify-content: flex-start;
+
+        .profile-nav-bar{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 300px;
+    
+            .profile-nav-link{
+                font-size: 18px;
+                font-weight: 600;
+                color: $main-color8;
+            }
+        }
+    }
+
+ 
+}

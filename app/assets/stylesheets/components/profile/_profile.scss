@@ -1,0 +1,46 @@
+.profile-main-section{
+    display: block;
+    background-color: $main-color3;
+}
+
+.profile-info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 74%;
+
+    .profile-photo-div{
+        border: 2px solid $main-color6;
+        padding: 20px;
+        margin: 40px;
+        width: 50%;
+
+        .profile-img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .profile-info-div{
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        border: 2px solid $main-color6;
+
+        h3{
+            color: $main-color8;
+            font-size: 16px;
+            font-weight: $font1-bold;
+            background-color: #ced8b2f5;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        p{
+            padding: 10px;
+            margin: 5px;
+
+        }
+
+    }
+}

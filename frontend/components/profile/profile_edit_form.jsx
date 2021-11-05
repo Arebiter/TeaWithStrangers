@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import ProfileNavBar from "./profile_nav";
+import ProfileWelcome from "./profile_welcome";
 class ProfileEditForm extends React.Component {
     constructor(props) {
         super(props);
@@ -53,15 +54,10 @@ class ProfileEditForm extends React.Component {
         console.log(this.state);
         const { email, fname, lname, bio } = this.state
         return (
-            <section className="profile-edit-form-section">
-                <div className="profile-edit-div container">
-                    <div className="profile-edit-welcome">
-                        <h2>
-                            Welcome home,
-                            <span>{fname}</span>
-                        </h2>
-                        <p>What are you grateful for today?</p>
-                    </div>
+            <section className="profile-main-section">
+                <ProfileNavBar user={this.props.user} />
+                <div className="profile container">
+                    <ProfileWelcome user={this.props.user} />
                     <form className="profile-edit-form" onSubmit={this.handleSubmit}>
                         <h2>Edit Your Account</h2>
                         <div className="profile-edit-form-top">
