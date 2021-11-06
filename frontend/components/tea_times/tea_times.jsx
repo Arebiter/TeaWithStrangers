@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TeaTimeItemBox from "./tea_times_item_box";
+
 
 class TeaTimes extends React.Component {
     constructor(props) {
@@ -17,17 +19,25 @@ class TeaTimes extends React.Component {
 
         const allCities = cities.map((city, id) =>
             <li key={id}>
-                <h2>{city.city_name}</h2>
-                <h2>{city.tea_times}</h2>
+                <Link to={`/teaTimes#${city.city_name}`}>{city.city_name}</Link>
             </li>
         );
 
-        const cityTeaTimes = cities.map((city, id) =>
-            city.tea_times.map((teaTimeId, id) =>
-                <li key={id}>
-                    <h3>teaTimes[teaTimeId].location</h3>
-                </li>
-            )
+        const cityTeaTimes = cities.map((city, id) => (
+            <li>
+                <div className="city-name">
+                    <h2>{city.city_name}</h2>
+                    <button></button>
+                </div>
+                {city.tea_times.length > 0 ?
+                    city.tea_times.map((teaTimeId) => (
+                        <TeaTimeItemBox key={teaTimeId} teaTime={this.props.teaTimes[teaTimeId]} />
+                    )) : (
+                        null
+                    )
+                }
+            </li>
+        )
         )
         //iterate thorugh teatimes - get the ids - use that to key into teatimes
         //have a null for the if no teatimes 
