@@ -18,15 +18,27 @@ class TeaTimes extends React.Component {
         const allCities = cities.map((city, id) =>
             <li key={id}>
                 <h2>{city.city_name}</h2>
+                <h2>{city.tea_times}</h2>
             </li>
         );
 
+        const cityTeaTimes = cities.map((city, id) =>
+            city.tea_times.map((teaTimeId, id) =>
+                <li key={id}>
+                    <h3>teaTimes[teaTimeId].location</h3>
+                </li>
+            )
+        )
+        //iterate thorugh teatimes - get the ids - use that to key into teatimes
+        //have a null for the if no teatimes 
+        //watch out for empty objects - being true
         console.log(this.props);
         return (
             <div>
                 <h1>These are the available cities</h1>
                 <ul>
                     {allCities}
+                    {cityTeaTimes}
                 </ul>
             </div>
         )
