@@ -12,12 +12,18 @@ export const fetchTeaTime = teatimeId => {
     })
 };
 
-// export const updateUser = formData => {
-//     return $.ajax({
-//         method: "PATCH",
-//         url: `/api/users/${parseInt(formData.get("user[id]"))}`,
-//         data: formData,
-//         contentType: false,
-//         processData: false
-//     })
-// };
+export const createTeaTime = teatime => {
+    return $.ajax({
+        method: "POST",
+        url: `/api/tea_times`,
+        data: { teatime }
+    })
+};
+
+export const updateTeaTime = teatime => {
+    return $.ajax({
+        method: "PATCH",
+        url: `/api/tea_times/${teatime.id}`,
+        data: { teatime }
+    })
+};

@@ -27,15 +27,17 @@ class TeaTimes extends React.Component {
             <li>
                 <div className="city-name">
                     <h2>{city.city_name}</h2>
-                    <button></button>
+                    <Link to="/teaTimes/new">Host a Tea Times</Link>
                 </div>
-                {city.tea_times.length > 0 ?
-                    city.tea_times.map((teaTimeId) => (
-                        <TeaTimeItemBox key={teaTimeId} teaTime={this.props.teaTimes[teaTimeId]} />
-                    )) : (
-                        null
-                    )
-                }
+                <div className="city-tea-times">
+                    {city.tea_times.length > 0 ?
+                        city.tea_times.map((teaTimeId) => (
+                            <TeaTimeItemBox key={teaTimeId} teaTime={this.props.teaTimes[teaTimeId]} />
+                        )) : (
+                            null
+                        )
+                    }
+                </div>
             </li>
         )
         )
@@ -44,10 +46,14 @@ class TeaTimes extends React.Component {
         //watch out for empty objects - being true
         console.log(this.props);
         return (
-            <div>
-                <h1>These are the available cities</h1>
-                <ul>
-                    {allCities}
+            <div className="teatimes-section container">
+                <div className="city-links-section">
+                    <h1>These are the available cities</h1>
+                    <ul className="city-links">
+                        {allCities}
+                    </ul>
+                </div>
+                <ul className="city-sections">
                     {cityTeaTimes}
                 </ul>
             </div>

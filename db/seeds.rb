@@ -80,3 +80,26 @@ tea_time_3 = TeaTime.create!(
     host_id: user2.id,
     description: "let's get some mashed potato pizza"
 )
+
+Attendance.destroy_all
+ApplicationRecord.connection.reset_pk_sequence!('attendances')
+
+attendance1 = Attendance.create!(
+    teatime_id: 2,
+    user_id: 1
+)
+
+attendance2 = Attendance.create!(
+    teatime_id: 2,
+    user_id: 2
+)
+
+attendance3 = Attendance.create!(
+    teatime_id: 2,
+    user_id: 3
+)
+
+attendance4 = Attendance.create!(
+    teatime_id: 1,
+    user_id: 3
+)

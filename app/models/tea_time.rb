@@ -14,6 +14,10 @@ class TeaTime < ApplicationRecord
         foreign_key: :city_id,
         class_name: :City   
 
+    has_many :attendees,
+        foreign_key: :teatime_id,
+        class_name: :Attendance
+
 
 
 end

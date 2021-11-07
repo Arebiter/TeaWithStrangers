@@ -27,3 +27,13 @@ export const fetchTeaTime = (teaTimeId) => dispatch => {
     return TeaTimeUtil.fetchTeaTime(teaTimeId)
         .then(teaTime => dispatch(receiveTeaTime(teaTime)))
 };
+
+export const createTeaTime = (teaTime) => dispatch => {
+    return TeaTimeUtil.createTeaTime(teaTime)
+        .then(() => dispatch(receiveTeaTime(teaTime)))
+};
+
+export const updateTeaTime = (teaTime) => dispatch => {
+    return TeaTimeUtil.updateTeaTime(teaTime)
+        .then(() => dispatch(receiveTeaTime(teaTime)))
+};
