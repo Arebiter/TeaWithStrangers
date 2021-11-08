@@ -5,25 +5,25 @@ export const fetchTeaTimes = () => {
     })
 };
 
-export const fetchTeaTime = teatimeId => {
+export const fetchTeaTime = tea_timeId => {
     return $.ajax({
         method: "GET",
-        url: `/api/tea_times/${teatimeId}`
+        url: `/api/tea_times/${tea_timeId}`
     })
 };
 
-export const createTeaTime = teatime => {
+export const createTeaTime = tea_time => {
     return $.ajax({
         method: "POST",
         url: `/api/tea_times`,
-        data: { teatime }
+        data: { tea_time }
     })
 };
 
-export const updateTeaTime = teatime => {
+export const updateTeaTime = tea_time => {
     return $.ajax({
         method: "PATCH",
-        url: `/api/tea_times/${teatime.id}`,
-        data: { teatime }
+        url: `/api/tea_times/${tea_time.id}`,
+        data: { tea_time }
     })
 };

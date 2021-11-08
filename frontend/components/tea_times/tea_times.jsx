@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TeaTimeItemBox from "./tea_times_item_box";
+import TeaTimeItemBox from "./tea_time_item_box";
 
 
 class TeaTimes extends React.Component {
     constructor(props) {
         super(props);
-
     }
 
     componentDidMount() {
@@ -24,7 +23,7 @@ class TeaTimes extends React.Component {
         );
 
         const cityTeaTimes = cities.map((city, id) => (
-            <li>
+            <li key={id}>
                 <div className="city-name">
                     <h2>{city.city_name}</h2>
                     <Link to="/teaTimes/new">Host a Tea Times</Link>
@@ -32,7 +31,7 @@ class TeaTimes extends React.Component {
                 <div className="city-tea-times">
                     {city.tea_times.length > 0 ?
                         city.tea_times.map((teaTimeId) => (
-                            <TeaTimeItemBox key={teaTimeId} teaTime={this.props.teaTimes[teaTimeId]} />
+                            <TeaTimeItemBox key={teaTimeId} teaTime={teaTimes[teaTimeId]} />
                         )) : (
                             null
                         )

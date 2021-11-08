@@ -40,6 +40,6 @@ class Api::TeaTimesController < ApplicationController
     private
 
     def tea_times_params
-        params.require(:tea_time).permit(:location, :start_time, :end_time, :city_id, :host_id, :description)
+        params.require(:tea_time).permit(:location, :start_time, :end_time, :date, :city_id, :host_id, :description)
     end
 end

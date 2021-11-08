@@ -14,14 +14,14 @@ class TeaTimeItemBox extends React.Component {
             return null;
         }
 
-        const startTime = moment(this.props.teaTime.start_time).format('MMMM Do YYYY, h:mm:ss a');
-        const endTime = new Date(this.props.teaTime.end_time).toString();
+        // const startTime = moment(this.props.teaTime.start_time).format('hh:mm:ss');
+        // const endTime = moment(this.props.teaTime.end_time).format('hh:mm:ss');
 
         return (
             <div className="tea-time-item-box">
                 <h2>{this.props.teaTime.location}</h2>
-                <h2>{startTime}</h2>
-                <h2>{endTime}</h2>
+                <h2>{this.props.teaTime.start_time}</h2>
+                <h2>{this.props.teaTime.end_time}</h2>
                 <h2>{this.props.teaTime.attendees.length}</h2>
             </div>
         )

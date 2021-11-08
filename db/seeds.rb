@@ -15,7 +15,6 @@ demo = User.create!(
     fname: "Guest",
     lname: "User",
     bio: "This is a demo user, it doesn't really do much",
-    profile_img_url: "image",
     password: "demoPassword"
 )
 demo.profile_photo.attach(io: File.open("/home/pasan/fullstack_project/images/albert-dera-ILip77SbmOE-unsplash.jpg"), filename:"albert-dera-ILip77SbmOE-unsplash.jpg")
@@ -25,7 +24,6 @@ user1 = User.create!(
     fname: "Pasan",
     lname: "Dharmasena",
     bio: "Hi, I made this site, hopefully it's working right",
-    profile_img_url: "image",
     password: "PasanPassword"
 )
 user1.profile_photo.attach(io: File.open("/home/pasan/fullstack_project/images/headshot_2.png"), filename:"headshot_2.png")
@@ -35,7 +33,6 @@ user2 = User.create!(
     fname: "Rebecca",
     lname: "Foster",
     bio: "My name is actually gurubecca",
-    profile_img_url: "image",
     password: "RebPassword"
 )
 user2.profile_photo.attach(io: File.open("/home/pasan/fullstack_project/images/michael-dam-mEZ3PoFGs_k-unsplash.jpg"), filename:"michael-dam-mEZ3PoFGs_k-unsplash.jpg")
@@ -56,8 +53,9 @@ TeaTime.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('tea_times')
 tea_time_1 = TeaTime.create!(
     location: "somewhere in Staten Island",
-    start_time: "2021-11-25T12:00:00",
-    end_time: "2021-11-25T15:00:00",
+    date: "2021-11-25",
+    start_time: "12:00",
+    end_time: "15:00",
     city_id: new_york.id,
     host_id: demo.id,
     description: "lets do stuff"
@@ -65,8 +63,9 @@ tea_time_1 = TeaTime.create!(
 
 tea_time_2 = TeaTime.create!(
     location: "somewhere in Staten Island",
-    start_time: "2021-11-27T12:00:00",
-    end_time: "2021-11-27T15:00:00",
+    date: "2021-11-27",
+    start_time: "12:00",
+    end_time: "15:00",
     city_id: new_york.id,
     host_id: user1.id,
     description: "lets do stuff again, this time with Pasan"
@@ -74,8 +73,9 @@ tea_time_2 = TeaTime.create!(
 
 tea_time_3 = TeaTime.create!(
     location: "Bar Pizza",
-    start_time: "2021-11-28T12:00:00",
-    end_time: "2021-11-28T15:00:00",
+    date: "2021-11-28",
+    start_time: "12:00",
+    end_time: "15:00",
     city_id: new_haven.id,
     host_id: user2.id,
     description: "let's get some mashed potato pizza"

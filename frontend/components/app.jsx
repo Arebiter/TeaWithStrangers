@@ -9,6 +9,7 @@ import ProfileContainer from "./profile/profile_container";
 import ProfileEditContainer from "./profile/profile_edit_container"
 import Footer from "./footer/footer";
 import TeaTimesContainer from "./tea_times/tea_times_container";
+import TeaTimeCreateContainer from "./tea_times/tea_time_create_form_container"
 
 const App = () => (
     <div className="main-body">
@@ -29,7 +30,7 @@ const App = () => (
             <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
             <ProtectedRoute path="/teaTimes/:teaTimeId/edit" component={TeaTimeEditContainer} />
             <ProtectedRoute path="/teaTimes/new" component={TeaTimeCreateContainer} />
-            <Route path="/teaTimes" component={TeaTimesContainer} />
+            <Route exact path="/teaTimes" component={TeaTimesContainer} />
         </Switch>
 
         <section className="footer-outer">

@@ -2,7 +2,7 @@ class TeaTime < ApplicationRecord
 
 
     #validation - all things in schema should exist - presence:true
-    validates :location, :start_time, :end_time, :city_id, :host_id, :description, presence:true
+    validates :location, :start_time, :end_time, :date, :city_id, :host_id, :description, presence:true
 
     #association 
     #belongs to a host and belongs to a city
