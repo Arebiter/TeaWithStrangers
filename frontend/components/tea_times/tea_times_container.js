@@ -6,7 +6,7 @@ import { fetchCities } from "../../actions/cities_actions";
 
 const mSTP = (state, ownProps) => {
     return {
-        teaTimes: state.entities.teaTimes[ownProps.match.props.teaTimeId],
+        teaTimes: state.entities.teaTimes,
         cities: Object.values(state.entities.cities),
     }
 };

@@ -5,11 +5,12 @@ import { fetchCities } from "../../actions/cities_actions";
 import { fetchUsers } from "../../actions/user_actions"
 
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
     return {
         formType: "Edit Tea Time",
         cities: Object.values(state.entities.cities),
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
+        teaTime: state.entities.teaTimes[ownProps.match.params.userId]
     }
 };
 
@@ -17,8 +18,9 @@ const mSTP = (state) => {
 const mDTP = dispatch => {
     return {
         processAction: teaTime => dispatch(updateTeaTime(teaTime)),
+        fetchTeaTimes: teaTime => dispatch(fetchTeaTime(teaTime)),
         fetchUsers: () => dispatch(fetchUsers()),
-        fetchCities: () => dispatch(fetchCities()),
+        fetchCities: () => dispatch(fetchCities())
     }
 };
 

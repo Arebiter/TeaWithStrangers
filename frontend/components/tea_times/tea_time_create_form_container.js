@@ -18,7 +18,7 @@ const mDTP = dispatch => {
     return {
         processAction: teaTime => dispatch(createTeaTime(teaTime)),
         fetchUsers: () => dispatch(fetchUsers()),
-        fetchCities: () => dispatch(fetchCities()),
+        fetchCities: () => dispatch(fetchCities())
     }
 };
 
