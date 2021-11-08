@@ -41,10 +41,11 @@ class SessionForm extends React.Component {
         const { formType, errors } = this.props;
         const { email, password, fname, lname } = this.state;
 
+
         const errorMessages = errors ? (
             <div>
                 <ul>
-                    {errors.map(error => <li className="errors">{error}</li>)}
+                    {errors.map((error, id) => <li key={id} className="errors">{error}</li>)}
                 </ul>
             </div>
         ) : (

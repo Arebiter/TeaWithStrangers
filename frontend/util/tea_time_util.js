@@ -27,3 +27,10 @@ export const updateTeaTime = tea_time => {
         data: { tea_time }
     })
 };
+
+export const destroyTeaTime = tea_timeId => {
+    return $.ajax({
+        method: "DELETE",
+        url: `/api/tea_times/${tea_timeId}`,
+    })
+};

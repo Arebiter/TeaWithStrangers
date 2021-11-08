@@ -18,6 +18,4 @@ class TeaTime < ApplicationRecord
         foreign_key: :teatime_id,
         class_name: :Attendance
 
-
-
 end

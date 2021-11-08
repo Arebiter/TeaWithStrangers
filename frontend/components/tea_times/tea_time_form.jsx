@@ -1,32 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { deleteTeaTime } from "../../actions/tea_time_actions";
+
 
 
 class TeaTimeForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            location: "",
-            date: "",
-            start_time: "",
-            end_time: "",
-            description: "",
-            city_id: "",
-            host_id: this.props.currentUser.id,
-        };
+        this.state = this.props.teaTime;
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     componentDidMount() {
-        this.props.fetchCities();
+        if (this.props.formType === "Create Tea Time") {
+            this.props.fetchCities();
+            this.setState({ host_id: this.props.currentUser.id })
+        }
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const tea_time = Object.assign({}, this.state);
         this.props.processAction(tea_time);
-    };
+        if (this.props.formType !== "Create Tea Time") {
+            this.props.redirectTea();
+        } else {
+            this.props.history.push(`/teaTimes`);
+        }
+    }
 
     update(field) {
         return (e) => {
@@ -57,8 +58,8 @@ class TeaTimeForm extends React.Component {
 
         today = yyyy + '-' + mm + '-' + dd;
 
-        const { formType, cities } = this.props
-        const { location, start_time, end_time, description } = this.state
+        const { formType, cities, deleteTeaTime } = this.props
+        const { location, start_time, end_time, description, date, city_id, id } = this.state
         return (
             <section className="tea-time-form-section">
                 <div className="tea-time-form-container container">
@@ -79,7 +80,7 @@ class TeaTimeForm extends React.Component {
                                 <h3>Select a Date</h3>
                                 <div className="tea-time-edit-time-inputs">
                                     <div>Have tea on</div>
-                                    <input type="date" name="tea_date" min={today} onChange={this.update("date")} />
+                                    <input type="date" name="tea_date" min={today} onChange={this.update("date")} value={date} />
                                     <div>from</div>
                                     <input type="time" onChange={this.update("start_time")} value={start_time} />
                                     <div>to</div>
@@ -90,6 +91,8 @@ class TeaTimeForm extends React.Component {
                                 <h3>Select A City</h3>
                                 <div>
                                     <select className="city-select" onChange={this.update("city_id")}>
+
+                                        <option value="selected" selected disabled>Select A City</option>
                                         {
                                             cities.map((city, id) => {
                                                 return (
@@ -98,8 +101,6 @@ class TeaTimeForm extends React.Component {
                                             })
                                         }
                                     </select>
-                                    {/* <h3>If your city is not available, feel free to enter your own</h3>
-                                    <input className="tea-time-form-field" type="text" onChange={this.update("location")} value={location} /> */}
                                 </div>
                             </div>
                             <div className="tea-time-edit-info-tag">
@@ -107,7 +108,14 @@ class TeaTimeForm extends React.Component {
                                 <textarea className="tea-time-form-field" type="text" onChange={this.update("description")} value={description} ></textarea>
                             </div>
                             <div className="tea-time-button-div">
-                                <button className="tea-time-button">{formType}</button>
+                                {
+                                    Object.values(this.state).every(teaTimeValue => teaTimeValue) ? (
+                                        <button className="tea-time-button">{formType}</button>
+                                    ) : (
+                                        <button className="tea-time-button">{formType}</button>
+                                    )
+                                }
+                                <button className="tea-time-button" onClick={() => deleteTeaTime(id)}>Delete Tea Time</button>
                             </div>
                         </div>
                     </form>

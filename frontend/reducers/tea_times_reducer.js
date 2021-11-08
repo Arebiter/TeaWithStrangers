@@ -1,4 +1,4 @@
-import { RECEIVE_TEA_TIMES, RECEIVE_TEA_TIME } from "../actions/tea_time_actions";
+import { RECEIVE_TEA_TIMES, RECEIVE_TEA_TIME, REMOVE_TEA_TIME } from "../actions/tea_time_actions";
 
 
 const teaTimesReducer = (oldState = {}, action) => {
@@ -10,6 +10,9 @@ const teaTimesReducer = (oldState = {}, action) => {
             return action.teaTimes
         case RECEIVE_TEA_TIME:
             nextState[action.teaTime.id] = action.teaTime
+            return nextState;
+        case REMOVE_TEA_TIME:
+            delete nextState[action.teaTimeId]
             return nextState;
         default:
             return oldState;

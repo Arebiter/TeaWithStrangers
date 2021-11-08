@@ -10,8 +10,10 @@ class Profile extends React.Component {
 
 
     render() {
-
         const { fname, lname, email, bio, photoUrl, id } = this.props.user
+        if (id !== this.props.session) {
+            this.props.history.push(`/`);
+        };
         const photo = photoUrl ? (
             <div className="profile-photo-div">
                 <img className="profile-img" src={photoUrl} />
@@ -19,6 +21,12 @@ class Profile extends React.Component {
         ) : (
             <div></div>
         );
+
+        const editBtn = (id === this.props.session) ? (
+            <Link className="profile-info-edit-btn" to={`/users/${id}/edit`}>Edit Your Information</Link>
+        ) : (
+            <div></div>
+        )
 
         const info = this.props.user ? (
             <section className="profile-main-section">
@@ -41,7 +49,7 @@ class Profile extends React.Component {
                                 <p className="profile-info">{bio}</p>
                             </div>
                             <div className="profile-info-edit-div">
-                                <Link className="profile-info-edit-btn" to={`/users/${id}/edit`}>Edit Your Information</Link>
+                                {editBtn}
                             </div>
                         </div>
                     </div>
