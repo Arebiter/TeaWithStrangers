@@ -23,7 +23,7 @@ class TeaTimeEditForm extends React.Component {
     }
 
     render() {
-        const { cities, formType, currentUser, teaTime, processAction } = this.props;
+        const { cities, formType, currentUser, teaTime, processAction, deleteTeaTime } = this.props;
         if (!teaTime || !cities) return null;
         return (
             <TeaTimeForm

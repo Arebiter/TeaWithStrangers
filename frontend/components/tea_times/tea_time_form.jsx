@@ -59,7 +59,7 @@ class TeaTimeForm extends React.Component {
         today = yyyy + '-' + mm + '-' + dd;
 
         const { formType, cities, deleteTeaTime } = this.props
-        const { location, start_time, end_time, description, date, city_id, id } = this.state
+        const { location, start_time, end_time, description, date, id } = this.state
         return (
             <section className="tea-time-form-section">
                 <div className="tea-time-form-container container">
@@ -90,9 +90,9 @@ class TeaTimeForm extends React.Component {
                             <div className="tea-time-edit-info-tag">
                                 <h3>Select A City</h3>
                                 <div>
-                                    <select className="city-select" onChange={this.update("city_id")}>
+                                    <select className="city-select" onChange={this.update("city_id")} defaultValue={"DEFAULT"}>
 
-                                        <option value="selected" selected disabled>Select A City</option>
+                                        <option value="DEFAULT" disabled>Select A City</option>
                                         {
                                             cities.map((city, id) => {
                                                 return (
@@ -115,7 +115,11 @@ class TeaTimeForm extends React.Component {
                                         <button className="tea-time-button">{formType}</button>
                                     )
                                 }
-                                <button className="tea-time-button" onClick={() => deleteTeaTime(id)}>Delete Tea Time</button>
+                                {(formType === "Edit Tea Time") ? (
+                                    <button className="tea-time-button" onClick={() => deleteTeaTime(id)}>Delete Tea Time</button>
+                                ) : (
+                                    <div></div>
+                                )}
                             </div>
                         </div>
                     </form>

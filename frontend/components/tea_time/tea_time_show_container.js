@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import TeaTimeShow from "./tea_time_show";
 import { deleteTeaTime, fetchTeaTime } from "../../actions/tea_time_actions";
 import { fetchUser } from "../../actions/user_actions";
+import { createAttendance, deleteAttendance } from "../../actions/attendance_actions";
 
 
 
@@ -17,6 +18,8 @@ const mDTP = dispatch => {
     return {
         fetchTeaTime: (teaTimeId) => dispatch(fetchTeaTime(teaTimeId)),
         fetchUser: (userId) => dispatch(fetchUser(userId)),
+        createAttendance: (attendance) => dispatch(createAttendance(attendance)),
+        deleteAttendance: (attendanceId) => dispatch(deleteAttendance(attendanceId))
     }
 };
 

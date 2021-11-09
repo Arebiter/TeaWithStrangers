@@ -22,7 +22,7 @@ class TeaTimeShow extends React.Component {
             return null
         }
         const { teaTime } = this.props;
-        // console.log(teaTime.attendees.length);
+        console.log(this.props);
 
         const editBtn = (teaTime.host_id === this.props.currentUserId) ? (
             <Link to={`/teaTimes/${teaTime.id}/edit`}>This is the edit button</Link>
