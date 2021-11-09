@@ -44,6 +44,13 @@ class TeaTimeForm extends React.Component {
             return null;
         }
 
+        if (this.props.formType === "Edit Tea Time") {
+            if (this.props.currentUser.id !== this.props.teaTime.host_id) {
+                this.props.history.push(`/teaTimes`)
+            };
+        };
+
+
         //set the minimum value for calendar at today
         let today = new Date();
         let dd = today.getDate();

@@ -8,10 +8,11 @@ const AttendanceReducer = (oldState = {}, action) => {
         case RECEIVE_ATTENDANCES:
             return action.attendances
         case RECEIVE_ATTENDANCE:
+            // debugger
             nextState[action.attendance.id] = action.attendance
             return nextState
         case REMOVE_ATTENDANCE:
-            delete nextState[action.teaTimeId]
+            delete nextState[action.attendance.id]
             return nextState
         default:
             return oldState;

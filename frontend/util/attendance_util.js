@@ -8,7 +8,8 @@ export const fetchAttendances = () => {
 export const createAttendance = (attendance) => {
     return $.ajax({
         method: "POST",
-        url: `/api/attendances`
+        url: `/api/attendances`,
+        data: { attendance }
     })
 };
 

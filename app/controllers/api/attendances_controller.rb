@@ -6,6 +6,7 @@ class Api::AttendancesController < ApplicationController
     end
 
     def create
+        
         @attendance = Attendance.new(attendance_params)
         if @attendance.save
             render :show
@@ -19,7 +20,7 @@ class Api::AttendancesController < ApplicationController
         if @attendance
             @attendance.destroy
         end
-        redirect_to :index
+        render :show
     end
 
     private

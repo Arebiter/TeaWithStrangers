@@ -18,10 +18,10 @@ const receiveAttendance = (attendance) => {
     }
 };
 
-const removeAttendance = (attendanceId) => {
+const removeAttendance = (attendance) => {
     return {
         type: REMOVE_ATTENDANCE,
-        attendanceId
+        attendance
     }
 };
 
@@ -37,5 +37,5 @@ export const createAttendance = (attendance) => dispatch => {
 
 export const deleteAttendance = (attendanceId) => dispatch => {
     return AttendanceUtil.destroyAttendance(attendanceId)
-        .then(() => dispatch(removeAttendance(attendanceId)))
+        .then((attendance) => dispatch(removeAttendance(attendance)))
 };
