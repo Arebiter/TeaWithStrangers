@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import ProgressBar from "./progress_bar";
 
 
 class TeaTimeShow extends React.Component {
@@ -74,6 +75,8 @@ class TeaTimeShow extends React.Component {
             <h2>You are the host</h2>
         );
 
+
+
         const teaDate = moment(teaTime.date).format("dddd, MMMM Do YYYY")
         const teaStart_pre = new Date("1970-01-01T" + teaTime.start_time)
         const teaEnd_pre = new Date("1970-01-01T" + teaTime.end_time)
@@ -89,6 +92,7 @@ class TeaTimeShow extends React.Component {
                 <p>On {teaDate} from {teaStart} to {teaEnd}</p>
                 <p>{users[teaTime.host_id].bio}</p>
                 <p>{teaTime.description}</p>
+                <ProgressBar attendees={teaTime.attendees} />
                 {editBtn}
                 {joinBtn}
                 <img className="profile-img" src={users[teaTime.host_id].photoUrl} />

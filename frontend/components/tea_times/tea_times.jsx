@@ -9,12 +9,17 @@ class TeaTimes extends React.Component {
     }
 
     componentDidMount() {
+        // this.props.fetchUsers();
         this.props.fetchTeaTimes();
         this.props.fetchCities();
     }
 
     render() {
-        const { cities, teaTimes } = this.props
+
+        // if (this.props.users) {
+        //     return null
+        // }
+        const { cities, teaTimes, users } = this.props
 
         const allCities = cities.map((city, id) =>
             <li key={id}>
@@ -31,7 +36,7 @@ class TeaTimes extends React.Component {
                 <div className="city-tea-times">
                     {city.tea_times.length > 0 ?
                         city.tea_times.map((teaTimeId) => (
-                            <TeaTimeItemBox key={teaTimeId} teaTime={teaTimes[teaTimeId]} />
+                            <TeaTimeItemBox key={teaTimeId} teaTime={teaTimes[teaTimeId]} users={users} />
                         )) : (
                             null
                         )

@@ -1,4 +1,8 @@
+import moment from "moment";
 import React from "react";
+import { Link } from "react-router-dom";
+import ProfileNavBar from "../profile/profile_nav";
+import ProfileWelcome from "../profile/profile_welcome";
 
 
 class ProfileTea extends React.Component {
@@ -8,11 +12,29 @@ class ProfileTea extends React.Component {
             showPrev: false
         }
         this.updateShowPrev = this.updateShowPrev.bind(this);
+        this.leaveTeaTime = this.leaveTeaTime.bind(this);
+    }
+
+    leaveTeaTime(teaId, userId) {
+        const attending = this.props.attendances.find(attendance => (
+            (attendance.user_id === userId) && (attendance.teatime_id === teaId)
+        ))
+        this.props.deleteAttendance(attending.id);
     }
 
     componentDidMount() {
         this.props.fetchUser(this.props.currentUser.id);
         this.props.fetchTeaTimes();
+        if (this.props.pageType === "Joined") {
+            this.props.fetchAttendances();
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        // debugger
+        // if (this.props.attendances !== prevProps.attendances) {
+        //     this.props.fetchAttendances();
+        // }
     }
 
     updateShowPrev() {
@@ -39,15 +61,14 @@ class ProfileTea extends React.Component {
         };
 
         today = yyyy + '-' + mm + '-' + dd;
-        const { tea_times, currentUser, pageType } = this.props;
+        const { tea_times, currentUser, pageType, attendances } = this.props;
 
         //get the teas hosted by the logged in user
-        const hostedTeas = tea_times.filter(tea_time => (currentUser.id === tea_time.host_id));
         //filter hosted teas to upcoming teas and previously hosted teas
+        const hostedTeas = tea_times.filter(tea_time => (currentUser.id === tea_time.host_id));
         const hostedBefore = hostedTeas.filter(oldTea => (
             Date.parse(oldTea.date) < Date.parse(today)
         ));
-
         const hostedUpcoming = hostedTeas.filter(newTea => (
             Date.parse(newTea.date) > Date.parse(today)
         ));
@@ -55,24 +76,34 @@ class ProfileTea extends React.Component {
         //get the teas the logges in user is attending
         //filter teas based on upcoming and previously joined teas
         const joinedTeas = tea_times.filter(tea_time => (tea_time.attendees.includes(currentUser.id)));
-        //filter hosted teas to upcoming teas and previously hosted teas
         const joinedBefore = joinedTeas.filter(oldTea => (
             Date.parse(oldTea.date) < Date.parse(today)
         ));
-
         const joinedUpcoming = joinedTeas.filter(newTea => (
             Date.parse(newTea.date) > Date.parse(today)
         ));
 
+        // const teaDate = moment(teaTime.date).format("dddd, MMMM Do YYYY")
+        // const teaStart_pre = new Date("1970-01-01T" + teaTime.start_time)
+        // const teaEnd_pre = new Date("1970-01-01T" + teaTime.end_time)
+        // const teaStart = moment(teaStart_pre).format('hh:mm a')
+        // const teaEnd = moment(teaEnd_pre).format('hh:mm a')
         //have a link to edit upcoming hosted teas
         //have a button to leave upcoming joined teas - or have a link to the teashow, then to leave
-
         const pageContent = pageType === "Joined" ? (
             this.state.showPrev === false ? (
                 <div>
                     {
                         joinedUpcoming.map(tea => (
-                            <p>{tea.location}</p>
+                            <div>
+                                <Link to={`/teaTimes/${tea.id}`}>
+                                    <p>{tea.location}</p>
+                                    {/* <p>{moment(tea.date).format("dddd, MMMM Do YYYY")}</p> */}
+                                    {/* <p>{moment(tea.start_time).format("dddd, MMMM Do YYYY")}</p>
+                                    <p>{moment(tea.end_time).format("dddd, MMMM Do YYYY")}</p> */}
+                                </Link>
+                                <button onClick={() => this.leaveTeaTime((tea.id), (currentUser.id))}>Leave Tea Time</button>
+                            </div>
                         ))
                     }
                 </div>
@@ -80,7 +111,9 @@ class ProfileTea extends React.Component {
                 <div>
                     {
                         joinedBefore.map(tea => (
-                            <p>{tea.location}</p>
+                            <div>
+                                <Link to={`/teaTimes/${tea.id}`}><p>{tea.location}</p></Link>
+                            </div>
                         ))
                     }
                 </div>
@@ -90,7 +123,10 @@ class ProfileTea extends React.Component {
                 <div>
                     {
                         hostedUpcoming.map(tea => (
-                            <p>{tea.location}</p>
+                            <div>
+                                <Link to={`/teaTimes/${tea.id}`}><p>{tea.location}</p></Link>
+                                <Link to={`/teaTimes/${tea.id}/edit`}><p>{tea.location}</p></Link>
+                            </div>
                         ))
                     }
                 </div>
@@ -98,7 +134,9 @@ class ProfileTea extends React.Component {
                 <div>
                     {
                         hostedBefore.map(tea => (
-                            <p>{tea.location}</p>
+                            <div>
+                                <Link to={`/teaTimes/${tea.id}`}><p>{tea.location}</p></Link>
+                            </div>
                         ))
                     }
                 </div>
@@ -112,13 +150,22 @@ class ProfileTea extends React.Component {
         );
 
 
+
+
         console.log(this.props)
         return (
-            <div>
-                <h1>Hello there</h1>
-                {pageContent}
-                {switchBtn}
-            </div>
+            <section className="profile-main-section">
+                <ProfileNavBar user={this.props.currentUser} />
+                <div className="profile container">
+                    {/* <ProfileWelcome user={this.props.currentUser} /> */}
+                    <div className="profile-info-container">
+
+                        <h1>Hello there</h1>
+                        {pageContent}
+                        {switchBtn}
+                    </div>
+                </div>
+            </section>
         )
     }
 }
