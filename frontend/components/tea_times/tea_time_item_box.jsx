@@ -9,7 +9,7 @@ class TeaTimeItemBox extends React.Component {
     }
 
     // componentDidMount() {
-    //     console.log(this.props);
+    //     // console.log(this.props);
     //     // this.props.fetchUser(this.props.teaTime.host_id);
     // }
 
@@ -18,8 +18,9 @@ class TeaTimeItemBox extends React.Component {
         if (!this.props.teaTime) {
             return null;
         }
-        const { teaTime, users } = this.props;
+        const { teaTime, host } = this.props;
         // debugger
+        console.log(this.props);
         const teaDate = moment(teaTime.date).format("dddd, MMMM Do YYYY")
         const teaStart_pre = new Date("1970-01-01T" + teaTime.start_time)
         const teaEnd_pre = new Date("1970-01-01T" + teaTime.end_time)
@@ -27,7 +28,9 @@ class TeaTimeItemBox extends React.Component {
         const teaEnd = moment(teaEnd_pre).format('hh:mm a')
         return (
             <Link to={`/teaTimes/${teaTime.id}`} className="tea-time-item-box" >
-                <img src={users.photoUrl} />
+
+                <h2>{host.fname}</h2>
+                <h2>{host.lname}</h2>
                 <h2>{teaTime.location}</h2>
                 <h2>{teaDate}</h2>
                 <h2>{teaStart}</h2>

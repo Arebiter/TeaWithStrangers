@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import TeaTimes from "./tea_times";
 import { fetchTeaTimes } from "../../actions/tea_time_actions";
 import { fetchCities } from "../../actions/cities_actions";
-import { fetchUsers } from "../../util/user_util";
+import { fetchUsers } from "../../actions/user_actions";
 
 
 const mSTP = (state, ownProps) => {

@@ -81,6 +81,16 @@ tea_time_3 = TeaTime.create!(
     description: "let's get some mashed potato pizza"
 )
 
+tea_time_4 = TeaTime.create!(
+    location: "This happened in the past",
+    date: "2021-11-01",
+    start_time: "12:00",
+    end_time: "15:00",
+    city_id: new_york.id,
+    host_id: demo.id,
+    description: "Too late, you missed this"
+)
+
 Attendance.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('attendances')
 
