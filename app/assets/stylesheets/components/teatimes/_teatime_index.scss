@@ -314,6 +314,7 @@
     h2{
         color: $main-color6;
         font-weight: $font1-bold;
+        font-size: 120%;
     }
 
     .bar{
@@ -321,14 +322,14 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        width: 80%;
+        width: 90%;
         padding: 10px 0;
 
         .block{
-            width: 15px;
+            width: 20px;
             height: 10px;
             background-color: $main-color7;
-            margin-right: 2px;
+            margin-right: 3px;
         }
 
         :first-child{

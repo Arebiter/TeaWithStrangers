@@ -16,6 +16,18 @@
         width: 30%;
 
         .teashow-btn{
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2{
+                font-size: 20px;
+                color: $main-color1;
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+
             .joinbtn{
                 color: white;
                 background-color: #ced8b2f5;
@@ -46,6 +58,8 @@
             :hover{
                 background-color: $main-color6;
             }
+
+            
         }
 
         .teashow-about{
@@ -68,7 +82,72 @@
         }
 
         .teashow-info{
-            padding: 10px;
+            border: 1px solid $main-color5;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+
+            .teashow-info-section{
+                background-color: white;
+                
+                .link-div{
+                    border-top: 1px solid $main-color5;
+                }
+
+                .teashow-title{
+                    font-size: 20px;
+                    color: $main-color1;
+                    font-weight: $font1-bold;
+                    text-transform: uppercase;
+                    border-bottom:  1px solid $main-color5;
+                    padding: 5px 10px;
+
+                }
+                
+                p:nth-of-type(1n){
+                    padding: 8px 5px;
+                    margin: 0 10px;
+                    
+                }
+                padding: 10px 5px;
+
+                .teashow-date{
+                    font-size: 18px;
+                    font-weight: 600;
+                    border-bottom: 1px solid $main-color5;
+                }
+
+                .teashow-loc{
+                    color: $main-color8;
+                }
+
+                .teashow-link{
+                    font-size: 14px;
+                }
+                .teashow-share{
+                    font-size: 13px;
+                    font-weight: 600;
+                }
+
+                .teashow-share{
+                    border-bottom: 1px solid $main-color5;
+                }
+
+                .teashow-time{
+                    text-align: center;
+                    font-weight: 600;
+                }
+            }            
+            
+            .teashow-progress-div{
+                background-color: $main-color4;
+                padding: 10px 0;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
         }
     }
 
@@ -77,25 +156,44 @@
         flex-direction: column;
         max-width: 70%;
 
-        .profile-photo-div{
-            border: 2px solid $main-color6;
-            padding: 20px;
-            margin: 40px;
-            margin-top: 10px;
-            width: 50%;
-    
-            .profile-img{
-                width: 100%;
-                height: auto;
+        .teashow-host-name{
+            h1{
+                font-size: 25px;
+                color: $main-color1;
+                font-weight: $font1-bold;
+                margin-bottom: 10px;
+            }
+            p{
+                font-size: 14px;
+                color: #a5a594;
             }
         }
+
+        .teashow-photo-area{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .profile-photo-div{
+                border: 2px solid $main-color6;
+                padding: 20px;
+                margin: 40px;
+                width: 50%;
+        
+                .profile-img{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }      
 
         .profile-info-div{
             display: flex;
             flex-direction: column;
-            width: 70%;
-            border: 2px solid $main-color6;
-    
+            width: 100%;
+            border: 2px solid $main-color6;          
+
             h3{
                 color: $main-color8;
                 font-size: 16px;
@@ -108,11 +206,7 @@
             p{
                 padding: 10px;
                 margin: 5px;
-    
-            }
-        }
-
-        
-    
+            }           
+        }    
     }
 }

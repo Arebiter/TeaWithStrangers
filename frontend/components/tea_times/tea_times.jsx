@@ -27,7 +27,7 @@ class TeaTimes extends React.Component {
         if (cities.length === 0) {
             return null;
         }
-        if (!this.props.teaTimes) {
+        if (!this.props.teaTimes || Object.values(teaTimes).length < 2) {
             return null;
         }
 

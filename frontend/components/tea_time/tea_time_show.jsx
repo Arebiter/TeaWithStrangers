@@ -16,46 +16,44 @@ class TeaTimeShow extends React.Component {
         this.leaveTeaTime = this.leaveTeaTime.bind(this);
     }
     componentDidMount() {
-        // debugger
-        // this.props.fetchCities();
         this.props.fetchTeaTime(this.props.match.params.teaTimeId);
         this.props.fetchAttendances();
         this.setState({ teatime_id: this.props.match.params.teaTimeId });
         this.setState({ user_id: this.props.currentUser.id });
     }
 
-    componentDidUpdate(prevProps) {
-        // debugger
-        if (this.props.teaTime !== prevProps.teaTime) {
-            this.props.fetchUser(this.props.teaTime.host_id);
+    componentDidUpdate() {
+        if (!this.props.teaTime) {
+            this.props.fetchTeaTime(this.props.match.params.teaTimeId)
+                .then(() => this.props.fetchUser(this.props.teaTime.host_id))
             this.props.fetchAttendances();
         }
     }
 
     joinTeaTime() {
-        // debugger
         const attendance = Object.assign({}, this.state)
         this.props.createAttendance(attendance);
     }
 
     leaveTeaTime() {
-        // const attendance = Object.assign({}, this.state)
         this.props.deleteAttendance(this.props.attendance.id)
     }
 
     render() {
-        // debugger
-        console.log(this.props);
-        if (!this.props.teaTime || !this.props.users[this.props.teaTime.host_id]) {
+
+        if (!this.props.teaTime) {
             return null
         }
+
+        if (!this.props.users[this.props.teaTime.host_id]) {
+            return null
+        }
+
         // debugger
         const { teaTime, users, city } = this.props;
 
         const editBtn = (teaTime.host_id === this.props.currentUser.id) ? (
-            <div className="joinbtn">
-                <Link to={`/teaTimes/${teaTime.id}/edit`}>This is the edit button</Link>
-            </div>
+            <Link className="joinbtn" to={`/teaTimes/${teaTime.id}/edit`}>This is the edit button</Link>
         ) : (
             null
         );
@@ -63,13 +61,9 @@ class TeaTimeShow extends React.Component {
         const joinBtn = ((teaTime.host_id !== this.props.currentUser.id)) ? (
             (teaTime.attendees.length <= 6) ? (
                 (teaTime.attendees.includes(this.props.currentUser.id) ? (
-                    <div className="joinbtn">
-                        <button onClick={this.leaveTeaTime}>Leave the Tea Time</button>
-                    </div>
+                    <button className="joinbtn" onClick={this.leaveTeaTime}>Leave the Tea Time</button>
                 ) : (
-                    <div className="joinbtn">
-                        <button onClick={this.joinTeaTime}>Join Tea Time</button>
-                    </div>
+                    <button className="joinbtn" onClick={this.joinTeaTime}>Join Tea Time</button>
                 ))
             ) : (
                 <h2>Sorry, this teatime is full</h2>
@@ -99,12 +93,19 @@ class TeaTimeShow extends React.Component {
                 <div className="teashow container">
                     <div className="teashow-left">
                         <div className="teashow-info">
-                            <p className="teashow-date">{teaDate}</p>
-                            <p className="teashow-time">{teaStart} to {teaEnd}</p>
-                            {/* <p>{city.city_name}</p> */}
-                            <p className="teashow-loc">{teaTime.location}</p>
-                            <h2 className="teashow-link">{`teawithstrangers-pd.herokuapp.com/#/teaTimes/${teaTime.id}`}</h2>
-                            <h2 className="teashow-share">Send to a friend that should be here </h2>
+                            <div className="teashow-info-section">
+                                <p className="teashow-title">Tea Time Details</p>
+                                <p className="teashow-date">{teaDate}</p>
+                                <p className="teashow-time">{teaStart} to {teaEnd}</p>
+                                {/* <p>{city.city_name}</p> */}
+                                <p className="teashow-loc">{teaTime.location}</p>
+                                <div className="link-div">
+                                    <p className="teashow-link">
+                                        {`https://tinyurl.com/TeaTimeLinks/${teaTime.id}`}
+                                    </p>
+                                    <p className="teashow-share">Send to a friend that should be here </p>
+                                </div>
+                            </div>
                             <div className="teashow-progress-div">
                                 <ProgressBar attendees={teaTime.attendees} />
                             </div>
@@ -135,14 +136,14 @@ class TeaTimeShow extends React.Component {
                             <h1>Meet your Host, {users[teaTime.host_id].fname}</h1>
                             <p>(It'll be helpful to know what they look like when you're looking for a group of confused strangers at the cafe.)</p>
                         </div>
-                        {photo}
+                        <div className="teashow-photo-area">
+                            {photo}
+                        </div>
                         <div className="profile-info-div">
                             <div className="profile-info-tag">
                                 <h3>What's your story?</h3>
                                 <p>{users[teaTime.host_id].bio}</p>
                             </div>
-                        </div>
-                        <div className="profile-info-div">
                             <div className="profile-info-tag">
                                 <h3>What might we talk about?</h3>
                                 <p>{teaTime.description}</p>
