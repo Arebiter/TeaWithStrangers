@@ -52,13 +52,13 @@ export const fetchTeaTime = (teaTimeId) => dispatch => {
 
 export const createTeaTime = (teaTime) => dispatch => {
     return TeaTimeUtil.createTeaTime(teaTime)
-        .then(() => dispatch(receiveTeaTime(teaTime)),
+        .then((teaTime) => dispatch(receiveTeaTime(teaTime)),
             errors => dispatch(receiveTeaTimeErrors(errors.responseJSON)))
 };
 
 export const updateTeaTime = (teaTime) => dispatch => {
     return TeaTimeUtil.updateTeaTime(teaTime)
-        .then(() => dispatch(receiveTeaTime(teaTime)),
+        .then((teaTime) => dispatch(receiveTeaTime(teaTime)),
             errors => dispatch(receiveTeaTimeErrors(errors.responseJSON)))
 };
 

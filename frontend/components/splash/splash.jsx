@@ -10,7 +10,7 @@ class Splash extends React.Component {
                     <div className="splash-main-img-container container">
                         <h1 className="splash-main-line">Everyone is interesting</h1>
                         <span className="splash-main-subtitle">But you don't discover that when you're staring at a screen</span>
-                        <Link className="splash-main-button" to="/">LET'S GET TEA</Link>
+                        <Link className="splash-main-button" to="/teaTimes">LET'S GET TEA</Link>
                     </div>
                 </section>
                 <section className="splash-description color5">

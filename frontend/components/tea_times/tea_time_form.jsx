@@ -14,17 +14,20 @@ class TeaTimeForm extends React.Component {
     componentDidMount() {
         if (this.props.formType === "Create Tea Time") {
             this.props.fetchCities();
+            this.props.fetchTeaTimes();
             this.setState({ host_id: this.props.currentUser.id })
         }
+
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const tea_time = Object.assign({}, this.state);
-        this.props.processAction(tea_time);
         if (this.props.formType !== "Create Tea Time") {
+            this.props.processAction(tea_time);
             this.props.redirectTea();
         } else {
+            this.props.processAction(tea_time);
             this.props.history.push(`/teaTimes`);
         }
     }
@@ -66,7 +69,7 @@ class TeaTimeForm extends React.Component {
         today = yyyy + '-' + mm + '-' + dd;
 
         const { formType, cities, deleteTeaTime } = this.props
-        const { location, start_time, end_time, description, date, id } = this.state
+        const { location, start_time, end_time, description, date, id, city_id } = this.state
         return (
             <section className="tea-time-form-section">
                 <div className="tea-time-form-container container">
@@ -97,8 +100,7 @@ class TeaTimeForm extends React.Component {
                             <div className="tea-time-edit-info-tag">
                                 <h3>Select A City</h3>
                                 <div>
-                                    <select className="city-select" onChange={this.update("city_id")} defaultValue={"DEFAULT"}>
-
+                                    <select className="city-select" onChange={this.update("city_id")} defaultValue={(formType === "Edit Tea Time") ? (this.props.teaTime.city_id) : ("DEFAULT")}>
                                         <option value="DEFAULT" disabled>Select A City</option>
                                         {
                                             cities.map((city, id) => {
@@ -125,7 +127,7 @@ class TeaTimeForm extends React.Component {
                                 {(formType === "Edit Tea Time") ? (
                                     <button className="tea-time-button" onClick={() => deleteTeaTime(id)}>Delete Tea Time</button>
                                 ) : (
-                                    <div></div>
+                                    null
                                 )}
                             </div>
                         </div>
