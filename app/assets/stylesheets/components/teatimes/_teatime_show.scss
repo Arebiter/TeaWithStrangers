@@ -1,165 +1,118 @@
-.teatime-container{
+.teashow-main-section{
     display: block;
+    background-color: $main-color3;
 }
 
-.teatime-header-img{
-    background-image: -webkit-linear-gradient(top, $main-color7, $main-color7),image-url("teatime.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0 45%;
-}
-
-.teatime-main-img-container{
+.teashow{
     display:flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 100px 0;
+    flex-direction: row;
+    max-width: 1020px;
+    padding: 40px 10px;
 
-    .teatime-main-line{
-        color: #faf1ea;
-        padding: 10px 0;
-        font-weight:$font1-bold;
-        font-size: 40px;
-        text-transform: uppercase;
-    }
-    .teatime-main-subtitle{
-        font-size: 20px;
-        color: #faf1ea;
-        font-weight: 600;
-        padding: 5px 0;
-        margin-bottom: 5px;
-        text-transform: uppercase;
-    }
-}
-
-
-.teatime-description-container{
-    width: 58%;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    color: $main-color8;
-
-    .teatime-description-main{
-        color:$main-color1;
-        font-weight: $font1-bold;
-        font-size: 26px;
-        margin-bottom: 5px;
-    }
-
-    .teatime-description-body{
-        font-size: 18px;
-        margin-bottom: 15px;
-    }
-
-    :last-child{
-        margin-bottom: 30px;
-    }
-
-    .teatime-description-link{
-        color: $main-color1;
-    }
-}
-
-.teatimes-section-head{
-    background-color: $main-color5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 2px solid $main-color7;
-    padding: 15px 0;
-    color: $main-color8;
-    
-    .city-links{        
+    .teashow-left{
+        margin-right: 20px;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column;
+        width: 30%;
 
-        li{
-            padding: 5px 10px;
-            background-color: $main-color3;
-            border-radius: 5px 10px;
-            border: 2px solid $main-color7;
-            margin: 10px;
-            font-weight: $font1-bold;
-            text-transform: uppercase;
-            font-size: 13px;
-            color: $main-color7;
-        }        
-        
-    }
-}
-
-
-.city-sections{
-    margin: 20px 0px;
-    margin-bottom: 40px;
-
-    .city-li{
-        max-height: 240px;
-        display: grid;
-        grid-template-columns: 25% 91%;
-        grid-template-rows: 240px;
-        margin: 20px 0px;
-
-        .city-name{
-            width: 100%;
-            height: 240px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border: 1px solid $main-color1;
-
-            h2{
-                color: $main-color1;
-                font-weight: 600;
-                text-transform: uppercase;
+        .teashow-btn{
+            .joinbtn{
+                color: white;
+                background-color: #ced8b2f5;
+                border: 2px solid  $main-color6;
+                text-align: center;
+                border-radius: 8px;
+                width: 100%;
+                padding: 15px;
                 font-size: 17px;
+                font-weight: 600;
+                text-transform: uppercase;  
             }
 
-            .teatime-host-link{
-                color: white;
+            :first-child{
+                margin-bottom: 10px;
+            }
+
+            :last-child{
                 background-color: #ee9385;
                 border: 2px solid #9e4d40;
-                text-align: center;
-                border-radius: 6px;
-                width: 100%;
-                margin-top: 10px;
-                padding: 12px;
-                font-size: 14px;
-                font-weight: 600;
-                text-transform: uppercase;
             }
 
-            .teatime-host-link:hover{
+            :last-child:hover{
                 background-color: #9e4d40;
-                border: 2px solid #9e4d40;   
+                border: 2px solid #9e4d40;                
+            }
+
+            :hover{
+                background-color: $main-color6;
             }
         }
 
-        .city-tea-times{
-            margin-left: 20px;
-            max-width: 720px;
-            max-height: 240px;
-            display: flex;
-            flex-wrap: no-wrap;
-            overflow-x: scroll;
-            overflow-y: hidden;
-            flex-direction: row;
-            justify-content: flex-start;
+        .teashow-about{
+            padding: 20px 20px;
+            margin: 10px 0;
+            background-color: $main-color4;
+            color: $main-color8;
+
+            h2{
+                text-transform: capitalize;
+                font-weight: $font1-bold;
+                font-size: 18px;   
+                color: $main-color7;             
+            }
+
+            p{
+                padding-bottom: 10px;
+                font-size: 15px;
+            }
+        }
+
+        .teashow-info{
             padding: 10px;
-            padding-bottom: 0px;
         }
     }
-}
 
-.tea-time-item-box{
-    height: 210px;
-    font-size: 14px;
-    border: 2px solid $main-color1;
-    width: 200px;
-    min-width: 200px;
-    margin-right: 10px;
-    border-radius: 0 0 5px 5px;
+    .teashow-right{
+        display: flex;
+        flex-direction: column;
+        max-width: 70%;
+
+        .profile-photo-div{
+            border: 2px solid $main-color6;
+            padding: 20px;
+            margin: 40px;
+            margin-top: 10px;
+            width: 50%;
+    
+            .profile-img{
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .profile-info-div{
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            border: 2px solid $main-color6;
+    
+            h3{
+                color: $main-color8;
+                font-size: 16px;
+                font-weight: $font1-bold;
+                background-color: #ced8b2f5;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+    
+            p{
+                padding: 10px;
+                margin: 5px;
+    
+            }
+        }
+
+        
+    
+    }
 }

@@ -84,7 +84,7 @@ class Splash extends React.Component {
                 <section className="splash-get-tea color5">
                     <div className="get-tea container">
                         <h2>Actually talk to people</h2>
-                        <Link className="splash-link" to="/">Let's get tea</Link>
+                        <Link className="splash-link" to="/teaTimes">Let's get tea</Link>
                     </div>
                 </section>
                 <section className="splash-testimonials color3">
@@ -132,7 +132,7 @@ class Splash extends React.Component {
                 <section className="splash-high-five color5">
                     <div className="get-tea container">
                         <h2>Do we get to high five yet?</h2>
-                        <Link className="splash-link" to="/">Yes</Link>
+                        <Link className="splash-link" to="/teaTimes">Yes</Link>
                     </div>
                 </section>
             </div >
