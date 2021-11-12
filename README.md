@@ -34,6 +34,8 @@ Signed in users are able to create tea time events and also edit those events. T
 The main tea times page display all available tea times, sorted by the city they are being hosted in. Each tea time is selectable. Clicking on enables a logged in user to view the tea time's information and join the tea time, or leave the tea time - if they have already joined. This automatically updates the tea times index page which reflects the number of users each tea time has attending through the use of a progress bar. 
 
 
+
+
 ## Future Features
 ### User Reviews
 I want to give users the ability to review the tea times they have attended. The host of the tea time will receive those reviews on their profile and the reviews will be accessible by other people. 
