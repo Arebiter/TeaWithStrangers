@@ -1,0 +1,24 @@
+
+.not-found-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 50px;
+
+    h1{
+        font-size: 40px;
+        font-weight: $font1-bold;
+        color: $main-color1;
+        margin: 20px 10px;
+    }
+
+    p{
+        margin: 0px 10px;
+    }
+
+    .not-found-link{
+        font-weight: $font1-bold;
+        color: $main-color1;
+        font-size: 20px;
+    }
+}

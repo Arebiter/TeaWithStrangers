@@ -8,11 +8,11 @@ class Footer extends React.Component {
                 <div className="footer-content">
                     <div className="footer-links">
                         <ul>
-                            <li><Link to="/">About</Link></li>
-                            <li><Link to="/">Hosting</Link></li>
-                            <li><Link to="/">Tea Times</Link></li>
-                            <li><Link to="/">GitHub</Link></li>
-                            <li><Link to="/">LinkedIn</Link></li>
+                            <li><Link to="/about">About</Link></li>
+                            <li><Link to="/teaTimes/new">Hosting</Link></li>
+                            <li><Link to="/teaTimes">Tea Times</Link></li>
+                            <li><Link to="/https://github.com/Arebiter/TeaWithStrangers">GitHub</Link></li>
+                            <li><Link to="/https://www.linkedin.com/in/pasan-dharmasena-135507159/">LinkedIn</Link></li>
                         </ul>
                         <ul>
                             <li><Link to="/">Terms of Service</Link></li>

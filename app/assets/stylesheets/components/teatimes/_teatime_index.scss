@@ -69,28 +69,34 @@
     padding: 15px 0;
     color: $main-color8;
     
-    .city-links{        
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+    .city-links-section{
+        margin: 10px 0;
 
-        li{
-            padding: 5px 10px;
-            background-color: $main-color3;
-            border-radius: 5px 10px;
-            border: 2px solid $main-color7;
-            margin: 10px;
-            font-weight: $font1-bold;
-            text-transform: uppercase;
-            font-size: 13px;
-            color: $main-color7;
-        }        
-        
-        li:hover{
-            background-color: $main-color7;
-            color: $main-color3;
+        .city-links{        
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+    
+            li{
+                padding: 5px 10px;
+                background-color: $main-color3;
+                border-radius: 5px 10px;
+                border: 2px solid $main-color7;
+                margin: 5px 10px;
+                font-weight: $font1-bold;
+                text-transform: uppercase;
+                font-size: 13px;
+                color: $main-color7;
+            }        
+            
+            li:hover{
+                background-color: $main-color7;
+                color: $main-color3;
+            }
         }
     }
+    
 }
 
 .city-sections{

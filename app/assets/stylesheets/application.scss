@@ -20,8 +20,6 @@
  @import "base/css_reset.scss";
  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
  @import "base/base.scss";
- @import 'react-date-range/dist/styles.css'; // main css file
- @import 'react-date-range/dist/theme/default.css'; // theme css file
 
 /* COMPONENTS */
  @import "components/greeting/_greeting.scss";
@@ -30,4 +28,6 @@
  @import "components/profile/*";
  @import "components/splash/splash.scss";
  @import "components/teatimes/*";
+ @import "components/not_found/not_found.scss";
+ @import "components/about/about.scss" 
  

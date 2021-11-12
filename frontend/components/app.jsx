@@ -15,13 +15,14 @@ import TeaTimeShowContainer from "./tea_time/tea_time_show_container";
 import HostedTeaContainer from "./tea_profile/hosted_tea_container";
 import JoinedTeaContainer from "./tea_profile/joined_tea_container";
 import NotFound from "./not_found/not_found";
+import About from "./about/about";
 
 const App = () => (
     <div className="main-body">
         <header className="header">
             <div className="container">
                 <h1 className="main-title">
-                    <Link to="/">Tea With Strangers</Link>
+                    <Link to="/"><img src={window.logo} /></Link>
                 </h1>
                 <GreetingContainer />
             </div>
@@ -39,6 +40,7 @@ const App = () => (
             <ProtectedRoute exact path="/hosting" component={HostedTeaContainer} />
             <ProtectedRoute exact path="/joined" component={JoinedTeaContainer} />
             <Route exact path="/teaTimes" component={TeaTimesContainer} />
+            <Route exact path="/about" component={About} />
             <Route component={NotFound} />
         </Switch>
 

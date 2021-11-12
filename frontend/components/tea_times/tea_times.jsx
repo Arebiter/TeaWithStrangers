@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import TeaTimeItemBox from "./tea_time_item_box";
+import { HashLink } from "react-router-hash-link";
 
 
 class TeaTimes extends React.Component {
@@ -31,9 +32,15 @@ class TeaTimes extends React.Component {
             return null;
         }
 
+        const scrollWithOffset = (el) => {
+            const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+            const yOffset = -400;
+            window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
+        }
+
         const allCities = cities.map((city, id) =>
             <li key={id}>
-                <Link to={`/teaTimes#${city.city_name}`}>{city.city_name}</Link>
+                <HashLink smooth scroll={el => scrollWithOffset(el)} to={`/teaTimes#${city.city_name}`}>{city.city_name}</HashLink>
             </li>
         );
         if (Object.values(teaTimes).length === 0) {
@@ -96,7 +103,7 @@ class TeaTimes extends React.Component {
         const cityTeaTimes = cities.map((city, id) => (
             <li className="city-li" key={id}>
                 <div className="city-name">
-                    <h2>{city.city_name}</h2>
+                    <h2 id={city.city_name}>{city.city_name}</h2>
                     <Link className="teatime-host-link" to="/teaTimes/new">Host Tea Time</Link>
                 </div>
                 <div className="city-tea-times">

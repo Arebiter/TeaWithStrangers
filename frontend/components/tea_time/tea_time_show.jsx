@@ -116,7 +116,7 @@ class TeaTimeShow extends React.Component {
                         </div>
                         <div className="teashow-about">
                             <h2>What is tea time, exactly?</h2>
-                            <p>image</p>
+                            <p className="teashow-about-image">🍵</p>
                             <p>
                                 Tea Time is where five-ish strangers sit at a cafe with a Host to have a two hour conversation.
                                 It's not about anything in particular.
