@@ -1,0 +1,118 @@
+.profile-tea{
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.profile-tea-left{
+    width: 25%;
+    font-weight: 900;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+
+    button{
+        color: white;
+        background-color: #ee9385;
+        border: 2px solid  #9e4d40;
+        text-align: center;
+        border-radius: 8px;
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;   
+    }
+
+    button:hover{
+        background-color: #9e4d40;
+    }
+
+    h1{
+        font-size: 25px;
+        color: #f27360;
+        padding-bottom: 10px;
+    }
+}
+
+.profile-tea-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+
+
+    .profile-info-container{
+        width: 100%;
+        margin-right: 20px;
+
+        .tea-item{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border: 2px solid $main-color1;
+            margin-top: 20px;
+            padding: 10px;
+            width: 400px;
+            background-color: $main-color2;
+            border-radius: 5px;
+
+            .tea-details{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 70%;
+            
+
+                .tea-date{
+                    font-weight: 600;
+                    font-size: 18px;
+                }
+                .tea-time{
+                    font-weight: 500;
+                    font-size: 15px;
+                }
+
+                :nth-child(1n){
+                    padding-bottom: 5px;
+                }
+
+                :last-child{
+                    padding-bottom: 0;
+                }
+            }
+
+            .tea-btn{
+                width: 35%;
+                color: white;
+                background-color: #ee9385;
+                border: 2px solid  #9e4d40;
+                text-align: center;
+                border-radius: 8px;
+                padding: 15px;
+                font-size: 71%;
+                font-weight: 600;
+                text-transform: uppercase;
+
+                .tea-btn-text{
+                    font-size: 14px;
+                }
+            }
+            .tea-btn:hover{
+                background-color: #9e4d40;
+            }
+        }
+
+        .tea-item:last-child{
+            margin-bottom: 10px;
+        }
+
+        .tea-item:hover{
+            transform: scale(1.01);
+            filter:drop-shadow(0px 0px 2px $main-color8);
+        }
+    }
+}

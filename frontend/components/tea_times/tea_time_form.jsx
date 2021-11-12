@@ -53,6 +53,12 @@ class TeaTimeForm extends React.Component {
             };
         };
 
+        const header = this.props.formType === "Edit Tea Time" ? (
+            <h1>Edit Your Tea Time</h1>
+        ) : (
+            <h1>Host a Tea Time</h1>
+        );
+
 
         //set the minimum value for calendar at today
         let today = new Date();
@@ -76,7 +82,7 @@ class TeaTimeForm extends React.Component {
 
                     <form className="tea-time-form" onSubmit={this.handleSubmit}>
                         <div className="tea-time-form-header-div">
-                            <h1>This is the form header</h1>
+                            {header}
                         </div>
                         <div className="tea-time-form-top">
                             <h3>{formType}</h3>

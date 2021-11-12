@@ -92,27 +92,50 @@ class ProfileTea extends React.Component {
         //have a button to leave upcoming joined teas - or have a link to the teashow, then to leave
         const pageContent = pageType === "Joined" ? (
             this.state.showPrev === false ? (
-                <div>
+                <div className="profile-info-container">
                     {
                         joinedUpcoming.map(tea => (
-                            <div>
-                                <Link to={`/teaTimes/${tea.id}`}>
-                                    <p>{tea.location}</p>
-                                    {/* <p>{moment(tea.date).format("dddd, MMMM Do YYYY")}</p> */}
-                                    {/* <p>{moment(tea.start_time).format("dddd, MMMM Do YYYY")}</p>
-                                    <p>{moment(tea.end_time).format("dddd, MMMM Do YYYY")}</p> */}
-                                </Link>
-                                <button onClick={() => this.leaveTeaTime((tea.id), (currentUser.id))}>Leave Tea Time</button>
+                            <div className="tea-item">
+                                <div className="tea-details">
+                                    <Link to={`/teaTimes/${tea.id}`}>
+
+                                        <p className="tea-date">{moment(tea.date).format("dddd, MMMM Do")}</p>
+                                        <p className="tea-time">
+                                            {
+                                                moment(new Date("1970-01-01T" + tea.start_time)).format('hh:mm a')
+                                            } to {
+                                                moment(new Date("1970-01-01T" + tea.end_time)).format('hh:mm a')
+                                            }
+                                        </p>
+                                        <p>{tea.location}</p>
+                                    </Link>
+                                </div>
+                                <button className="tea-btn" onClick={() => this.leaveTeaTime((tea.id), (currentUser.id))}>Leave Tea Time</button>
                             </div>
                         ))
                     }
                 </div>
             ) : (
-                <div>
+                <div className="profile-info-container">
                     {
                         joinedBefore.map(tea => (
-                            <div>
-                                <Link to={`/teaTimes/${tea.id}`}><p>{tea.location}</p></Link>
+                            <div className="tea-item">
+                                <div className="tea-details">
+                                    <Link to={`/teaTimes/${tea.id}`}>
+
+                                        <p className="tea-date">{moment(tea.date).format("dddd, MMMM Do")}</p>
+                                        <p className="tea-time">
+                                            {
+                                                moment(new Date("1970-01-01T" + tea.start_time)).format('hh:mm a')
+                                            } to {
+                                                moment(new Date("1970-01-01T" + tea.end_time)).format('hh:mm a')
+                                            }
+                                        </p>
+                                        <p>{tea.location}</p>
+                                    </Link>
+                                </div>
+                                <div>
+                                </div>
                             </div>
                         ))
                     }
@@ -120,22 +143,52 @@ class ProfileTea extends React.Component {
             )
         ) : (
             this.state.showPrev === false ? (
-                <div>
+                <div className="profile-info-container">
                     {
                         hostedUpcoming.map(tea => (
-                            <div>
-                                <Link to={`/teaTimes/${tea.id}`}><p>{tea.location}</p></Link>
-                                <Link to={`/teaTimes/${tea.id}/edit`}><p>{tea.location}</p></Link>
+                            <div className="tea-item">
+                                <div className="tea-details">
+                                    <Link to={`/teaTimes/${tea.id}`}>
+
+                                        <p className="tea-date">{moment(tea.date).format("dddd, MMMM Do")}</p>
+                                        <p className="tea-time">
+                                            {
+                                                moment(new Date("1970-01-01T" + tea.start_time)).format('hh:mm a')
+                                            } to {
+                                                moment(new Date("1970-01-01T" + tea.end_time)).format('hh:mm a')
+                                            }
+                                        </p>
+                                        <p>{tea.location}</p>
+                                    </Link>
+                                </div>
+                                <div className="tea-btn">
+                                    <Link to={`/teaTimes/${tea.id}/edit`}><p className="tea-btn-text">Edit</p></Link>
+                                </div>
                             </div>
                         ))
                     }
                 </div>
             ) : (
-                <div>
+                <div className="profile-info-container">
                     {
                         hostedBefore.map(tea => (
-                            <div>
-                                <Link to={`/teaTimes/${tea.id}`}><p>{tea.location}</p></Link>
+                            <div className="tea-item">
+                                <div className="tea-details">
+                                    <Link to={`/teaTimes/${tea.id}`}>
+
+                                        <p className="tea-date">{moment(tea.date).format("dddd, MMMM Do")}</p>
+                                        <p className="tea-time">
+                                            {
+                                                moment(new Date("1970-01-01T" + tea.start_time)).format('hh:mm a')
+                                            } to {
+                                                moment(new Date("1970-01-01T" + tea.end_time)).format('hh:mm a')
+                                            }
+                                        </p>
+                                        <p>{tea.location}</p>
+                                    </Link>
+                                </div>
+                                <div>
+                                </div>
                             </div>
                         ))
                     }
@@ -149,20 +202,26 @@ class ProfileTea extends React.Component {
             <button onClick={this.updateShowPrev}>Show Upcoming Tea Times</button>
         );
 
-
+        const leftSide = (pageType === "Joined") ? (
+            <h1>Joined Tea Times</h1>
+        ) : (
+            <h1>Hosted Tea Times</h1>
+        );
 
 
         console.log(this.props)
         return (
             <section className="profile-main-section">
                 <ProfileNavBar user={this.props.currentUser} />
-                <div className="profile container">
-                    {/* <ProfileWelcome user={this.props.currentUser} /> */}
-                    <div className="profile-info-container">
-
-                        <h1>Hello there</h1>
+                <div className="profile-tea container">
+                    <div className="profile-tea-left">
+                        <div className="profile-tea-left-info">
+                            {leftSide}
+                            {switchBtn}
+                        </div>
+                    </div>
+                    <div className="profile-tea-right">
                         {pageContent}
-                        {switchBtn}
                     </div>
                 </div>
             </section>
