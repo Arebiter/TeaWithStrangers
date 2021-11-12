@@ -71,7 +71,7 @@ user6 = User.create!(
     bio: "I'll write an bio in later. For now, what's up?",
     password: "EmmayPassword"
 )
-user6.profile_photo.attach(io: File.open("https://teawithstrangers-seed.s3.amazonaws.com/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg"), filename:"joseph-gonzalez-iFgRcqHznqg-unsplash.jpg")
+user6.profile_photo.attach(io: open("https://teawithstrangers-seed.s3.amazonaws.com/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg"), filename:"joseph-gonzalez-iFgRcqHznqg-unsplash.jpg")
 
 City.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('cities')
