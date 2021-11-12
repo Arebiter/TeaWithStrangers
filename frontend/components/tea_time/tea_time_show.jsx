@@ -61,7 +61,7 @@ class TeaTimeShow extends React.Component {
         const joinBtn = ((teaTime.host_id !== this.props.currentUser.id)) ? (
             (teaTime.attendees.length <= 6) ? (
                 (teaTime.attendees.includes(this.props.currentUser.id) ? (
-                    <button className="joinbtn" onClick={this.leaveTeaTime}>Leave the Tea Time</button>
+                    <button className="joinbtn btn2" onClick={this.leaveTeaTime}>Leave the Tea Time</button>
                 ) : (
                     <button className="joinbtn" onClick={this.joinTeaTime}>Join Tea Time</button>
                 ))
