@@ -127,11 +127,13 @@
 
             :last-child:hover{
                 background-color: #9e4d40;
-                border: 2px solid #9e4d40;                
+                border: 2px solid #9e4d40;
+                transition: all 0.05s ease-in;                
             }
 
             :hover{
                 background-color: $main-color6;
+                transition: all 0.05s ease-in;
             }
         }
     }

@@ -309,6 +309,8 @@
 
 .tea-time-item-box:hover{
     filter: drop-shadow(0.5px 0.5px 2px $main-color8);
+    transform:scale(1.005);
+    transition: all 0.05s ease-in;
 
 }
 

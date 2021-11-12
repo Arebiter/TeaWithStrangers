@@ -29,6 +29,7 @@
 
     button:hover{
         background-color: #9e4d40;
+        transition: all 0.05s ease-in;
     }
 
     h1{
@@ -103,6 +104,7 @@
             }
             .tea-btn:hover{
                 background-color: #9e4d40;
+                transition: all 0.05s ease-in;
             }
         }
 
@@ -113,6 +115,7 @@
         .tea-item:hover{
             transform: scale(1.01);
             filter:drop-shadow(0px 0px 2px $main-color8);
+            transition: all 0.07s ease-in;
         }
     }
 }
