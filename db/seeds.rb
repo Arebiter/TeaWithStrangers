@@ -26,7 +26,7 @@ user1 = User.create!(
     bio: "Hi, I made this site, hopefully it's working right",
     password: "PasanPassword"
 )
-user1.profile_photo.attach(io: File.open("https://teawithstrangers-seed.s3.amazonaws.com/headshot_2.png"), filename:"headshot_2.png")
+user1.profile_photo.attach(io: open("https://teawithstrangers-seed.s3.amazonaws.com/headshot_2.png"), filename:"headshot_2.png")
 
 user2 = User.create!(
     email: "reb@gmail.com",
@@ -35,7 +35,7 @@ user2 = User.create!(
     bio: "My name is actually gurubecca",
     password: "RebPassword"
 )
-user2.profile_photo.attach(io: File.open("https://teawithstrangers-seed.s3.amazonaws.com/michael-dam-mEZ3PoFGs_k-unsplash.jpg"), filename:"michael-dam-mEZ3PoFGs_k-unsplash.jpg")
+user2.profile_photo.attach(io: open("https://teawithstrangers-seed.s3.amazonaws.com/michael-dam-mEZ3PoFGs_k-unsplash.jpg"), filename:"michael-dam-mEZ3PoFGs_k-unsplash.jpg")
 
 user3 = User.create!(
     email: "jon@gmail.com",
@@ -44,7 +44,7 @@ user3 = User.create!(
     bio: "I'm a CSS god",
     password: "JonPassword"
 )
-user3.profile_photo.attach(io: File.open("https://teawithstrangers-seed.s3.amazonaws.com/austin-wade-X6Uj51n5CE8-unsplash.jpg"), filename:"austin-wade-X6Uj51n5CE8-unsplash.jpg")
+user3.profile_photo.attach(io: open("https://teawithstrangers-seed.s3.amazonaws.com/austin-wade-X6Uj51n5CE8-unsplash.jpg"), filename:"austin-wade-X6Uj51n5CE8-unsplash.jpg")
 
 user4 = User.create!(
     email: "vic@gmail.com",
@@ -53,7 +53,7 @@ user4 = User.create!(
     bio: "Hello all! My name is Victor and I am an NYC native. I graduated from SUNY at Buffalo with a degree in Biomedical Sciences in 2019 and then worked as an EMT/Firefighter for several years. I am currently in the process of switching careers into tech. My interests include powerlifting, cooking, and design. On the weekends you can find me lounging at a park, hanging with friends, or trying to learn something new.",
     password: "VicPassword"
 )
-user4.profile_photo.attach(io: File.open("https://teawithstrangers-seed.s3.amazonaws.com/good_boy.jpg"), filename:"good_boy.jpg")
+user4.profile_photo.attach(io: open("https://teawithstrangers-seed.s3.amazonaws.com/good_boy.jpg"), filename:"good_boy.jpg")
 
 user5 = User.create!(
     email: "al@gmail.com",
@@ -62,7 +62,7 @@ user5 = User.create!(
     bio: "I like bagels, let's hang out and find the best bagel spots in the city - with some tea of course",
     password: "AlPassword"
 )
-user5.profile_photo.attach(io: File.open("https://teawithstrangers-seed.s3.amazonaws.com/jack-finnigan-rriAI0nhcbc-unsplash.jpg"), filename:"jack-finnigan-rriAI0nhcbc-unsplash.jpg")
+user5.profile_photo.attach(io: open("https://teawithstrangers-seed.s3.amazonaws.com/jack-finnigan-rriAI0nhcbc-unsplash.jpg"), filename:"jack-finnigan-rriAI0nhcbc-unsplash.jpg")
 
 user6 = User.create!(
     email: "Emmay@gmail.com",
