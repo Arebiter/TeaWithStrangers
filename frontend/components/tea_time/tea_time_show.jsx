@@ -53,7 +53,7 @@ class TeaTimeShow extends React.Component {
         const { teaTime, users, city } = this.props;
 
         const editBtn = (teaTime.host_id === this.props.currentUser.id) ? (
-            <Link className="joinbtn" to={`/teaTimes/${teaTime.id}/edit`}>This is the edit button</Link>
+            <Link className="joinbtn btn2" to={`/teaTimes/${teaTime.id}/edit`}>This is the edit button</Link>
         ) : (
             null
         );
@@ -66,10 +66,10 @@ class TeaTimeShow extends React.Component {
                     <button className="joinbtn" onClick={this.joinTeaTime}>Join Tea Time</button>
                 ))
             ) : (
-                <h2>Sorry, this teatime is full</h2>
+                <h2 className="joinBtn-h2">Sorry, this teatime is full</h2>
             )
         ) : (
-            <h2>You are the host</h2>
+            <h2 className="joinBtn-h2">You are the host</h2>
         );
 
         const photo = users[teaTime.host_id].photoUrl ? (

@@ -121,18 +121,18 @@ class ProfileTea extends React.Component {
                         joinedBefore.map(tea => (
                             <div className="tea-item">
                                 <div className="tea-details">
-                                    <Link to={`/teaTimes/${tea.id}`}>
 
-                                        <p className="tea-date">{moment(tea.date).format("dddd, MMMM Do")}</p>
-                                        <p className="tea-time">
-                                            {
-                                                moment(new Date("1970-01-01T" + tea.start_time)).format('hh:mm a')
-                                            } to {
-                                                moment(new Date("1970-01-01T" + tea.end_time)).format('hh:mm a')
-                                            }
-                                        </p>
-                                        <p>{tea.location}</p>
-                                    </Link>
+
+                                    <p className="tea-date">{moment(tea.date).format("dddd, MMMM Do")}</p>
+                                    <p className="tea-time">
+                                        {
+                                            moment(new Date("1970-01-01T" + tea.start_time)).format('hh:mm a')
+                                        } to {
+                                            moment(new Date("1970-01-01T" + tea.end_time)).format('hh:mm a')
+                                        }
+                                    </p>
+                                    <p>{tea.location}</p>
+
                                 </div>
                                 <div>
                                 </div>
@@ -174,18 +174,18 @@ class ProfileTea extends React.Component {
                         hostedBefore.map(tea => (
                             <div className="tea-item">
                                 <div className="tea-details">
-                                    <Link to={`/teaTimes/${tea.id}`}>
 
-                                        <p className="tea-date">{moment(tea.date).format("dddd, MMMM Do")}</p>
-                                        <p className="tea-time">
-                                            {
-                                                moment(new Date("1970-01-01T" + tea.start_time)).format('hh:mm a')
-                                            } to {
-                                                moment(new Date("1970-01-01T" + tea.end_time)).format('hh:mm a')
-                                            }
-                                        </p>
-                                        <p>{tea.location}</p>
-                                    </Link>
+
+                                    <p className="tea-date">{moment(tea.date).format("dddd, MMMM Do")}</p>
+                                    <p className="tea-time">
+                                        {
+                                            moment(new Date("1970-01-01T" + tea.start_time)).format('hh:mm a')
+                                        } to {
+                                            moment(new Date("1970-01-01T" + tea.end_time)).format('hh:mm a')
+                                        }
+                                    </p>
+                                    <p>{tea.location}</p>
+
                                 </div>
                                 <div>
                                 </div>
