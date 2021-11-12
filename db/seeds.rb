@@ -17,7 +17,7 @@ demo = User.create!(
     bio: "This is a demo user, it doesn't really do much",
     password: "demoPassword"
 )
-demo.profile_photo.attach(io: File.open("/home/pasan/fullstack_project/images/albert-dera-ILip77SbmOE-unsplash.jpg"), filename:"albert-dera-ILip77SbmOE-unsplash.jpg")
+demo.profile_photo.attach(io: File.open("D:/coding/AppAcademy/Course/Week_14/images/albert-dera-ILip77SbmOE-unsplash.jpg"), filename:"albert-dera-ILip77SbmOE-unsplash.jpg")
 
 user1 = User.create!(
     email: "pasan@gmail.com",
