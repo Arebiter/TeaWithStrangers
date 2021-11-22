@@ -2,7 +2,7 @@
 
 [Live Demo](https://teawithstrangers-pd.herokuapp.com/#/)
 
-TeaWithStrangers is a meetup platform whereyou have tea, with strangers. The app helps people, who would never normally meet in their normal lives, meet and have conversations. A host can set up a Tea Time and up to six others can join them. 
+TeaWithStrangers is a meetup platform to getting together and conversing with other tea enthudiasts about anything. The app helps people, who would never meet in their normal lives, to connect and have conversations. A host can set up a Tea Time and up to six others can join them. 
 
 ## Technologies Used
 
@@ -12,7 +12,7 @@ TeaWithStrangers is a meetup platform whereyou have tea, with strangers. The app
 * JavaScript
 * HTML
 * SCSS
-* Post
+* PostgreSQL
 * Node.js
 * jQuery
 * jbuilder
@@ -22,7 +22,7 @@ TeaWithStrangers is a meetup platform whereyou have tea, with strangers. The app
 ### Making/Editing Tea Times 
 ![TeaTimeEdit](https://user-images.githubusercontent.com/48140022/141437193-5c0c0864-eb51-412a-afd0-d9910d3b87b4.PNG)
 
-Signed in users are able to create tea time events and also edit those events. The changes to the tea times update in real time. 
+Signed in users are able to create tea time events and also edit those events. The changes to the tea times update in real time. There are validations in place to ensure a tea time is created for a date in the future.   
 
 
 ### Joining/Displaying Tea Times
@@ -30,6 +30,10 @@ Signed in users are able to create tea time events and also edit those events. T
 
 
 ![TeaTimeShow](https://user-images.githubusercontent.com/48140022/141437259-d69b03d0-13e6-48ff-8c5c-d101780f710c.PNG)
+
+The main tea times page display all available tea times, sorted by the city they are being hosted in. Each tea time is selectable. Clicking on enables a logged in user to view the tea time's information and join the tea time, or leave the tea time - if they have already joined. This automatically updates the tea times index page which reflects the number of users each tea time has attending through the use of a progress bar. 
+
+
 
 
 ## Future Features
