@@ -53,19 +53,18 @@ class About extends React.Component {
                     </h1>
                     <p>
                         Hi, my name is Pasan Dharmasena, I created this clone of
-                        <span className="about-link">
-                            <a src="http://www.teawithstrangers.com"> Tea With Strangers </a>
-                        </span>
+                        <a className="about-link" href="http://www.teawithstrangers.com" target="_blank"> Tea With Strangers </a>
+
                         as my final project for App Academy.
                     </p>
                     <p>
                         Here are links to my
                         <span className="about-link">
-                            <a src="https://www.linkedin.com/in/pasan-dharmasena-135507159/"> LinkedIn </a>
+                            <a href="https://www.linkedin.com/in/pasan-dharmasena-135507159/" target="_blank"> LinkedIn </a>
                         </span>
                         and to the
                         <span className="about-link">
-                            <a src="https://github.com/Arebiter/TeaWithStrangers"> Github page </a>
+                            <a href="https://github.com/Arebiter/TeaWithStrangers" target="_blank"> Github page </a>
                         </span>
                         for this project.
                     </p>

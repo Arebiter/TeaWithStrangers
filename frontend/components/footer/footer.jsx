@@ -11,12 +11,14 @@ class Footer extends React.Component {
                             <li><Link to="/about">About</Link></li>
                             <li><Link to="/teaTimes/new">Hosting</Link></li>
                             <li><Link to="/teaTimes">Tea Times</Link></li>
-                            <li><Link to="/https://github.com/Arebiter/TeaWithStrangers">GitHub</Link></li>
-                            <li><Link to="/https://www.linkedin.com/in/pasan-dharmasena-135507159/">LinkedIn</Link></li>
+                            <li><a href="http://www.teawithstrangers.com/" target="_blank">Original Site</a></li>
+
                         </ul>
                         <ul>
-                            <li><Link to="/">Terms of Service</Link></li>
-                            <li><Link to="/">Privacy Policy</Link></li>
+                            <li><a href="https://www.pasandharmasena.com/" target="_blank">Porfolio</a></li>
+                            <li><a href="https://github.com/Arebiter/TeaWithStrangers" target="_blank">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/pasan-dharmasena-135507159/" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://angel.co/u/pasan-dharmasena/" target="_blank">AngelList</a></li>
                         </ul>
                     </div>
                     <div className="footer-message">

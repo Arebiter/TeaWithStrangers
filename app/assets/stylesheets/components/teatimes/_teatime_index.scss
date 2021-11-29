@@ -179,6 +179,8 @@
     margin-right: 10px;
     border-radius: 0 0 5px 5px;
     background-color: $main-color3;
+    box-shadow: 0px 0px 0px $main-color8;
+    transition: all 0.05s ease-in;
 
     .teatime-main{
         border-left: 2px solid  $main-color1;
@@ -308,9 +310,8 @@
 }
 
 .tea-time-item-box:hover{
-    filter: drop-shadow(0.5px 0.5px 2px $main-color8);
-    transform:scale(1.005);
-    transition: all 0.05s ease-in;
+    box-shadow: -0.5px 0.5px 2px $main-color8;
+    transform:translateX(1px) translateY(1px);
 
 }
 

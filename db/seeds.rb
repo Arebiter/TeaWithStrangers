@@ -118,7 +118,7 @@ TeaTime.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('tea_times')
 tea_time_1 = TeaTime.create!(
     location: "Roosevelt Island",
-    date: "2021-11-25",
+    date: "2022-11-25",
     start_time: "12:00",
     end_time: "15:00",
     city_id: new_york.id,
@@ -128,7 +128,7 @@ tea_time_1 = TeaTime.create!(
 
 tea_time_2 = TeaTime.create!(
     location: "Union Square, near the giant clock thing",
-    date: "2021-11-27",
+    date: "2022-11-27",
     start_time: "12:00",
     end_time: "15:00",
     city_id: new_york.id,
@@ -138,7 +138,7 @@ tea_time_2 = TeaTime.create!(
 
 tea_time_3 = TeaTime.create!(
     location: "Bar Pizza",
-    date: "2021-11-28",
+    date: "2022-11-28",
     start_time: "12:00",
     end_time: "15:00",
     city_id: new_haven.id,
@@ -148,7 +148,7 @@ tea_time_3 = TeaTime.create!(
 
 tea_time_4 = TeaTime.create!(
     location: "The Staten Island mall",
-    date: "2021-11-01",
+    date: "2022-11-01",
     start_time: "12:00",
     end_time: "15:00",
     city_id: new_york.id,
@@ -158,7 +158,7 @@ tea_time_4 = TeaTime.create!(
 
 tea_time_5 = TeaTime.create!(
     location: "Starbucks somewhere in Queens",
-    date: "2021-11-25",
+    date: "2022-11-25",
     start_time: "12:00",
     end_time: "14:00",
     city_id: new_york.id,
@@ -178,7 +178,7 @@ tea_time_6 = TeaTime.create!(
 
 tea_time_7 = TeaTime.create!(
     location: "East Village",
-    date: "2021-12-01",
+    date: "2022-12-01",
     start_time: "11:00",
     end_time: "12:00",
     city_id: new_york.id,
@@ -188,7 +188,7 @@ tea_time_7 = TeaTime.create!(
 
 tea_time_8 = TeaTime.create!(
     location: "In front of the Bean",
-    date: "2021-11-24",
+    date: "2022-11-24",
     start_time: "12:00",
     end_time: "14:00",
     city_id: chicago.id,
@@ -198,7 +198,7 @@ tea_time_8 = TeaTime.create!(
 
 tea_time_9 = TeaTime.create!(
     location: "Near the Staten Island Ferry",
-    date: "2021-10-28",
+    date: "2022-10-28",
     start_time: "11:00",
     end_time: "13:30",
     city_id: new_york.id,
@@ -208,12 +208,82 @@ tea_time_9 = TeaTime.create!(
 
 tea_time_10 = TeaTime.create!(
     location: "TBD, I'll let you know",
-    date: "2021-10-19",
+    date: "2022-10-19",
     start_time: "13:00",
     end_time: "15:00",
     city_id: houston.id,
     host_id: demo.id,
     description: "Let's go do something in Houston, I haven't seen the city yet"
+)
+
+tea_time_11 = TeaTime.create!(
+    location: "Near the Museum of Modern Art",
+    date: "2022-05-19",
+    start_time: "13:00",
+    end_time: "15:00",
+    city_id: san_francisco.id,
+    host_id: user2.id,
+    description: "I LOVE modern art, let's talk about it"
+)
+
+tea_time_12 = TeaTime.create!(
+    location: "The Space Needle",
+    date: "2022-03-19",
+    start_time: "13:00",
+    end_time: "15:00",
+    city_id: seattle.id,
+    host_id: demo.id,
+    description: "Let's go to the top of the needle and just hang out"
+)
+
+tea_time_13 = TeaTime.create!(
+    location: "Jackson Square",
+    date: "2022-03-19",
+    start_time: "13:00",
+    end_time: "15:00",
+    city_id: new_orleans.id,
+    host_id: user4.id,
+    description: "I hope we can drink tea and maybe even paint a little"
+)
+
+tea_time_14 = TeaTime.create!(
+    location: "Denver Botanic Gardens",
+    date: "2022-03-19",
+    start_time: "13:00",
+    end_time: "15:00",
+    city_id: denver.id,
+    host_id: user6.id,
+    description: "I haven't been here before, I'm dying to check it out"
+)
+
+tea_time_15 = TeaTime.create!(
+    location: "The Aquarium",
+    date: "2022-03-13",
+    start_time: "13:00",
+    end_time: "15:00",
+    city_id: boston.id,
+    host_id: user5.id,
+    description: "I haven't been here before, I'm dying to check it out"
+)
+
+tea_time_15 = TeaTime.create!(
+    location: "Maybe Alcatraz?",
+    date: "2022-01-19",
+    start_time: "13:00",
+    end_time: "15:00",
+    city_id: san_francisco.id,
+    host_id: user1.id,
+    description: "I just want to check it out, going with others seems fun"
+)
+
+tea_time_16 = TeaTime.create!(
+    location: "TBD",
+    date: "2022-02-02",
+    start_time: "13:00",
+    end_time: "15:00",
+    city_id: houston.id,
+    host_id: user3.id,
+    description: "I'm new to the city, just looking to make some friends and get to know people"
 )
 
 Attendance.destroy_all
