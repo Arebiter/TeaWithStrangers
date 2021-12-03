@@ -2,7 +2,7 @@
 
 [Live Demo](https://teawithstrangers-pd.herokuapp.com/#/)
 
-TeaWithStrangers is a meetup platform to getting together and conversing with other tea enthudiasts about anything. The app helps people, who would never meet in their normal lives, to connect and have conversations. A host can set up a Tea Time and up to six others can join them. 
+TeaWithStrangers is a meetup platform for getting together and conversing with other tea enthusiasts about anything. The app helps people, who would never meet in their normal lives, to connect and have conversations. A host can set up a Tea Time and up to six others can join them. 
 
 ## Technologies Used
 
