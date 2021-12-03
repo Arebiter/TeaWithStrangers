@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import ProgressBar from "./progress_bar";
+import ReviewForm from "../review_form/review_form_container";
 
 
 class TeaTimeShow extends React.Component {
@@ -149,6 +150,10 @@ class TeaTimeShow extends React.Component {
                                 <p>{teaTime.description}</p>
                             </div>
                         </div>
+                        <div>
+                            <p>this is where the review_form_container will be</p>
+                        </div>
+                        {/* <ReviewFormContainer /> */}
                     </div>
                 </div>
             </section>
