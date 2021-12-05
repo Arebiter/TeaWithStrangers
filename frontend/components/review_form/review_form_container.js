@@ -13,13 +13,13 @@ const mSTP = (state) => {
         .map(attend => attend.teatime_id)) //get array of teatimeids from user's attendances
         .includes(teaTime.id))); //get teatimes user has attended or will be attanding
     const availableHostsIdArray = attendingTeaTimes.map(host => host.host_id); //make array of hosts for teatimes current user is attending
-
+    const currentUser = state.entities.users[state.session.id];
     return {
-        currentUser: state.entities.users[state.session.id],
+        currentUser: currentUser,
         attendingTeaTimes: attendingTeaTimes, //get teatimes user has attended or will be attanding
         availableHosts: Object.values(state.entities.users).filter(host => availableHostsIdArray.includes(host.id)), //get the hosts of teatimes the user is attending
         userReviews: Object.values(state.entities.reviews).filter(review => review.user_id === state.session.id), //find all reviews by the current user
-        userReviewedHosts: Object.values(state.entities.users).filter(host => (state.entities.users[state.session.id].reviews_of_hosts).includes(host.id)), //hosts current user has reviewed
+        userReviewedHosts: Object.values(state.entities.users).filter(host => (currentUser.reviews_of_hosts).includes(host.id)), //hosts current user has reviewed
         userReviewsByOthers: Object.values(state.entities.reviews).filter(review => review.host_id === state.session.id), //find all reviews of current user by others
         review: {
             user_id: "",
