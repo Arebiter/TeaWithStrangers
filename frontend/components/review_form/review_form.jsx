@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { deleteReview } from "../../actions/review_actions";
 import ProfileNavBar from "../profile/profile_nav";
-
+import Rating from "./rating";
 
 class ReviewForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.review;
+        this.updateRating = this.updateRating.bind(this);
     }
 
     componentDidMount() {
@@ -28,6 +29,10 @@ class ReviewForm extends React.Component {
         }
     }
 
+    updateRating(rating) {
+        this.setState({ rating: rating });
+    }
+
     render() {
         // console.log(this.props);
         if (!this.props.currentUser) {
@@ -40,7 +45,7 @@ class ReviewForm extends React.Component {
         // if (this.props.allReviews.length === 0) {
         //     return null;
         // }
-        // console.log(this.props.attendances);
+        console.log(this.state);
         const { currentUser, attendingTeaTimes, availableHosts, userReviews, userReviewedHosts, userReviewsByOthers } = this.props;
         const { user_id, host_id, rating, review } = this.state;
         return (
@@ -70,6 +75,7 @@ class ReviewForm extends React.Component {
                             </div>
                             <div className="profile-edit-info-tag">
                                 <h3>Rating</h3>
+                                <Rating updateRating={this.updateRating} />
                                 {/* <input className="profile-form-field" type="text" onChange={this.update("fname")} value={fname} /> */}
                             </div>
                             <div className="profile-edit-info-tag">
