@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import ReviewForm from "./review_form";
-import { fetchReviews, createReview } from "../../actions/review_actions";
+import Reviews from "./reviews_index";
+import { fetchReviews, createReview, deleteReview } from "../../actions/review_actions";
 import { fetchUsers } from "../../actions/user_actions";
 import { fetchTeaTimes } from "../../actions/tea_time_actions";
 import { fetchAttendances } from "../../actions/attendance_actions";
@@ -20,17 +20,13 @@ const mSTP = (state) => {
     return {
         currentUser: currentUser,
         attendingTeaTimes: attendingTeaTimes, //get teatimes user has attended or will be attanding
+        allUsers: Object.values(state.entities.users),
+        allHosts: Object.values(state.entities.users).filter(host => currentUserAttendingHostsIdArray.includes(host.id)),
         availableHosts: Object.values(state.entities.users).filter(host => availableHosts.includes(host.id)), //get the hosts of teatimes the user is attending but has not reviewed 
         // Object.values(state.entities.users).filter(host => currentUserAttendingHostsIdArray.includes(host.id))
         userReviews: Object.values(state.entities.reviews).filter(review => review.user_id === state.session.id), //find all reviews by the current user
         userReviewedHosts: Object.values(state.entities.users).filter(host => currentUserReviewedHosts.includes(host.id)), //hosts current user has reviewed
         userReviewsByOthers: Object.values(state.entities.reviews).filter(review => review.host_id === state.session.id), //find all reviews of current user by others
-        review: {
-            user_id: "",
-            host_id: "",
-            rating: 0,
-            review: ""
-        }
     }
 }
 
@@ -38,10 +34,11 @@ const mDTP = dispatch => {
     return {
         fetchReviews: () => dispatch(fetchReviews()),
         fetchUsers: () => dispatch(fetchUsers()),
-        createReview: () => dispatch(createReview(review)),
+        createReview: (review) => dispatch(createReview(review)),
         fetchTeaTimes: () => dispatch(fetchTeaTimes()),
-        fetchAttendances: () => dispatch(fetchAttendances())
+        fetchAttendances: () => dispatch(fetchAttendances()),
+        deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
     }
 }
 
-export default withRouter(connect(mSTP, mDTP)(ReviewForm));
+export default withRouter(connect(mSTP, mDTP)(Reviews));

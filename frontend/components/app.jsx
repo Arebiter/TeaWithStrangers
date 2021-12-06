@@ -14,7 +14,7 @@ import TeaTimeEditContainer from "./tea_times/tea_time_edit_form_container"
 import TeaTimeShowContainer from "./tea_time/tea_time_show_container";
 import HostedTeaContainer from "./tea_profile/hosted_tea_container";
 import JoinedTeaContainer from "./tea_profile/joined_tea_container";
-import ReviewFormContainer from "./review_form/review_form_container";
+import ReviewsContainer from "./review_page/reviews_index_container";
 import NotFound from "./not_found/not_found";
 import About from "./about/about";
 
@@ -40,7 +40,7 @@ const App = () => (
             <ProtectedRoute exact path="/teaTimes/:teaTimeId/edit" component={TeaTimeEditContainer} />
             <ProtectedRoute exact path="/hosting" component={HostedTeaContainer} />
             <ProtectedRoute exact path="/joined" component={JoinedTeaContainer} />
-            <ProtectedRoute exact path="/reviews" component={ReviewFormContainer} />
+            <ProtectedRoute exact path="/reviews" component={ReviewsContainer} />
             <Route exact path="/teaTimes" component={TeaTimesContainer} />
             <Route exact path="/about" component={About} />
             <Route component={NotFound} />

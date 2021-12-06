@@ -14,18 +14,6 @@ const reviewsReducer = (oldState = {}, action) => {
         case REMOVE_REVIEW:
             delete nextState[action.reviewId]
             return nextState;
-        // case RECEIVE_ATTENDANCE:
-        //     nextState[action.attendance.teatime_id].attendees.push(action.attendance.user_id)
-        //     return nextState
-        // case REMOVE_ATTENDANCE:
-        //     const teaId = action.attendance.teatime_id
-        //     const userId = action.attendance.user_id
-        //     let attendees = nextState[teaId].attendees
-        //     attendees.splice(attendees.indexOf(userId), 1)
-        //     nextState[teaId].attendees = attendees
-        //     // const attendeeArray = nextState[action.attendance.teatime_id].attendees.filter(attendeeId => attendeeId !== action.attendance.user_id)
-        //     // nextState[action.attendance.teatime_id].attendees = attendeeArray
-        //     return nextState
         default:
             return oldState;
     }

@@ -22,8 +22,9 @@ const Rating = ({ updateRating }) => {
                             value={ratingVal}
                             // className={ratingVal <= (hover || rating) ? "on" : "off"}
                             onClick={() => updateStarRating(ratingVal)}
-                        // onMouseEnter={() => setHover(ratingVal)}
-                        // onMouseLeave={() => setHover(rating)}
+                            // onMouseEnter={() => setHover(ratingVal)}
+                            // onMouseLeave={() => setHover(rating)}
+                            className="star-radio"
                         />
 
 
