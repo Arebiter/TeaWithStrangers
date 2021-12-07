@@ -18,7 +18,7 @@
             color: $main-color8;
         }
 
-        button{
+        .review-delete-btn{
             padding: 5px 15px;
             background-color: $main-color1;
             border: 2px solid #9e4d40;
@@ -72,6 +72,18 @@
 
     .reviews{
         width: 50%;
+
+        .reviews-top{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            span{
+                color: #464646;
+                font-size: 16px;
+                font-weight: 900;
+            }
+        }
 
         .review-title{
             font-size: 25px;
@@ -132,15 +144,22 @@
 
                 .host-select{
                     padding: 5px 5px;
-                    border: 1px solid $main-color8;
+                    border: 1px solid $main-color5;
                     border-radius: 5px;
                     font-size: 16px;
+                    transition: all 0.1s ease-in;
+                    box-sizing: border-box;
+                    background-color: white;
 
 
                     option{
                         padding: 5px 5px;
                         color: $main-color8;
                     }
+                }
+
+                .host-select:hover{
+                   border: 1px solid $main-color8;
                 }
 
                 .review-form-field{
@@ -150,7 +169,8 @@
                     margin-bottom: 12px;
                     border-radius: 5px;
                     border: 1px solid #B7B7A4;
-                    max-width: 100%;
+                    max-width: 446px;
+                    
                 }
             }
 

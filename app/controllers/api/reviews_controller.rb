@@ -33,7 +33,7 @@ class Api::ReviewsController < ApplicationController
         if @review
             @review.destroy
         end
-        redirect_to :index
+        # render :index
     end
 
     private

@@ -11,7 +11,7 @@ const Rating = ({ updateRating }) => {
     }
 
     return (
-        <div>
+        <div id="rating-div">
             {[...Array(5)].map((star, id) => {
                 const ratingVal = id + 1;
                 return (
@@ -20,10 +20,8 @@ const Rating = ({ updateRating }) => {
                             type="radio"
                             name="rating"
                             value={ratingVal}
-                            // className={ratingVal <= (hover || rating) ? "on" : "off"}
+                            checked="false"
                             onClick={() => updateStarRating(ratingVal)}
-                            // onMouseEnter={() => setHover(ratingVal)}
-                            // onMouseLeave={() => setHover(rating)}
                             className="star-radio"
                         />
 

@@ -16,34 +16,37 @@ class Review extends React.Component {
 
     removeReview(e) {
         e.preventDefault;
-        this.props.deleteReview(this.props.review.id);
+        const review = this.props.userReviews.find(review => ((review.id === this.props.review.id)));
+        // console.log(review.id);
+        this.props.deleteReview(review.id);
+        this.props.redirectReview();
     }
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         const { review, host, reviewer, deleteReview, currentUser, userReviews } = this.props;
-        const userReviewsIdArray = userReviews.map(review => review.id);
-        // if (!userReviewsIdArray.includes(review.id) && (!reviewer === "")) {
-        //     return null;
-        // }
-        // const userName = (this.props.host === "") ? (
-        //     <p>Reviewer: {reviewer.fname} {reviewer.lname}</p>
-        // ) : (
-        //     <p>Host: {host.fname} {host.lname}</p>
-        // );
+        // const userReviewsIdArray = userReviews.map(review => review.id);
+        if (host === undefined || reviewer === undefined) {
+            return null;
+        }
+        // console.log(review.id);
+        const userName = (this.props.host === "") ? (
+            <p><span>Reviewer:</span> {reviewer.fname} {reviewer.lname}</p>
+        ) : (
+            <p><span>Host:</span> {host.fname} {host.lname}</p>
+        );
         const rating = review.rating;
-        console.log(rating);
+        // console.log(rating);
 
         const deleteButton = (review.user_id === currentUser.id) ? (
-            <button onClick={this.removeReview}> Delete</button >
+            <button className="review-delete-btn" onClick={this.removeReview}> Delete</button >
         ) : (
             null
         )
         return (
             <section className="review-item">
                 <div className="review-item-name-div">
-                    {/* {userName} */}
-                    <p><span>Host:</span> Name</p>
+                    {userName}
                     {deleteButton}
                 </div>
                 <ul className="review-item-rating-div">

@@ -8,23 +8,45 @@ import Review from "../review_page/review";
 class ReviewForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            user_id: this.props.currentUser.id,
-            host_id: "",
-            rating: 0,
-            review: ""
-        }
+        this.state = this.initialState();
         this.updateRating = this.updateRating.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
+
+    initialState = () => ({
+        user_id: this.props.currentUser.id,
+        host_id: "",
+        rating: 0,
+        review: ""
+    })
+
+    resetState = () => {
+        // this.setState(this.initialState());
+        document.querySelector("select").value = "DEFAULT";
+        document.querySelectorAll(`input[value='${this.state.rating}']`).checked = false;
+        this.setState({
+            rating: 0,
+            host_id: "",
+            review: "",
+        })
+
+        // console.log(this.state);
+    };
 
     handleSubmit(e) {
         e.preventDefault();
         // console.log(this.state);
         const review = Object.assign({}, this.state);
-        console.log(review);
         this.props.createReview(review);
+        //     this.setState({
+        //         user_id: this.props.currentUser.id,
+        //         host_id: "",
+        //         rating: 0,
+        //         review: ""
+        //     })
+        //     // document.querySelector("selected").value = "DEFAULT";
+
+        this.resetState();
     }
 
     update(field) {
@@ -42,19 +64,27 @@ class ReviewForm extends React.Component {
     }
 
     render() {
-        if (!this.props.currentUser) {
-            return null;
-        }
-        // console.log(this.props);
-        if (this.props.attendingTeaTimes.length === 0) {
-            return null;
-        }
-        if (this.props.allUsers.length < 2) {
-            return null;
-        }
-        // console.log(this.state);
-        const { currentUser, attendingTeaTimes, allHosts, allUsers, availableHosts, userReviews, userReviewedHosts, userReviewsByOthers } = this.props;
+
+        const { currentUser, attendingTeaTimes, allHosts, allUsers, checked, availableHosts, userReviews, userReviewedHosts, userReviewsByOthers } = this.props;
         const { user_id, host_id, rating, review } = this.state;
+
+        const availableHostsLength = availableHosts.length;
+        // console.log(availableHostsLength);
+
+        if (!currentUser) {
+            return null;
+        }
+        if (attendingTeaTimes.length === 0) {
+            return null;
+        }
+        if (allUsers.length < 2) {
+            return null;
+        }
+
+        if (availableHostsLength !== availableHosts.length) {
+            return null;
+        }
+        console.log(this.state);
         return (
             <div className="review-form-div">
                 <form className="review-form" onSubmit={this.handleSubmit}>
@@ -65,8 +95,8 @@ class ReviewForm extends React.Component {
                         <div className="review-form-tag">
                             <h3>Select A Host</h3>
                             <div>
-                                <select className="host-select" onChange={this.update("host_id")} defaultValue={"DEFAULT"}>
-                                    <option value="DEFAULT" disabled>Select A Host</option>
+                                <select className="host-select" onChange={this.update("host_id")}>
+                                    <option value="DEFAULT" selected disabled>Select A Host</option>
                                     {
                                         availableHosts.map((host, id) => {
                                             return (
@@ -79,16 +109,16 @@ class ReviewForm extends React.Component {
                         </div>
                         <div className="review-form-tag">
                             <h3>Rating</h3>
-                            <Rating updateRating={this.updateRating} />
+                            <Rating updateRating={this.updateRating} checked={checked} />
                             {/* <input className="profile-form-field" type="text" onChange={this.update("fname")} value={fname} /> */}
                         </div>
                         <div className="review-form-tag">
                             <h3>Review</h3>
-                            <input className="review-form-field" type="text" onChange={this.update("review")} value={review} />
+                            <textarea className="review-form-field" onChange={this.update("review")} value={review} cols="30" rows="9.8"></textarea>
+                            {/* <input className="review-form-field" type="textarea" onChange={this.update("review")} value={review} /> */}
                         </div>
                         <div className="review-btn-container">
                             <button className="review-button">Submit Review</button>
-                            {/* <Link className="session-button" to={`/users/${this.props.user.id}`}>Cancel Changes</Link> */}
                         </div>
                     </div>
                 </form>
