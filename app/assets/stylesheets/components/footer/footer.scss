@@ -1,9 +1,10 @@
 .footer-outer{
     display: block;
     background-color: $main-color6;
-    height: 300px;
-    position: absolute;
-    bottom: 0;
+    height: 100%;
+    position: sticky;
+    top:100vh;
+    // bottom: 0;
     width: 100%;
 }
 .footer{

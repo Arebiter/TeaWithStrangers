@@ -149,6 +149,9 @@ class TeaTimeShow extends React.Component {
                                 <p>{teaTime.description}</p>
                             </div>
                         </div>
+                        <div>
+                            <p>this is where the reviews will be listed for this user</p>
+                        </div>
                     </div>
                 </div>
             </section>

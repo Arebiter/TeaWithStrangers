@@ -18,6 +18,15 @@ class User < ApplicationRecord
         has_many :attendances,
           foreign_key: :user_id,
           class_name: :Attendance
+
+        has_many :reviews_of_hosts,
+          foreign_key: :user_id,
+          class_name: :Review
+
+        has_many :reviews_by_users,
+          foreign_key: :host_id,
+          class_name: :Review,
+          dependent: :destroy
       
         def self.find_by_credentials(email, password)
           user = User.find_by(email: email)

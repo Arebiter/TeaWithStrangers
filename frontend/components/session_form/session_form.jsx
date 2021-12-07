@@ -42,15 +42,15 @@ class SessionForm extends React.Component {
         const { email, password, fname, lname } = this.state;
 
 
-        const errorMessages = errors ? (
-            <div>
-                <ul>
-                    {errors.map((error, id) => <li key={id} className="errors">{error}</li>)}
-                </ul>
-            </div>
-        ) : (
-            null
-        );
+        // const errorMessages = errors ? (
+        //     <div>
+        //         <ul>
+        //             {errors.map((error, id) => <li key={id} className="errors">{error}</li>)}
+        //         </ul>
+        //     </div>
+        // ) : (
+        //     null
+        // );
 
         const altLink = (formType === "Login") ? (
             <div>
@@ -63,7 +63,7 @@ class SessionForm extends React.Component {
         );
 
         const demoLogin = (formType === "Login") ? (
-            <div>
+            <div className="demo-login-link">
                 <p>Just here to look? &nbsp;
                     <span onClick={this.demoUser}>Sign in as guest</span>
                 </p>
@@ -74,28 +74,46 @@ class SessionForm extends React.Component {
         );
 
         const firstName = (formType === "Sign Up") ? (
-            <label>
-                <input className="session-form-field" type="text" onChange={this.update("fname")} value={fname} placeholder="First name" />
+            <label className="session-form-field-label">
+                <input className={errors.includes("Fname can't be blank") ? "session-form-field red" : "session-form-field"} type="text" onChange={this.update("fname")} value={fname} placeholder="First name" />
+                <p className="session-form-error">
+                    {errors.includes("Fname can't be blank") ? "First name can't be blank" : ""}
+                </p>
             </label>
         ) : (
             <div></div>
         );
 
         const lastName = (formType === "Sign Up") ? (
-            <label>
-                <input className="session-form-field" type="text" onChange={this.update("lname")} value={lname} placeholder="Last name" />
+            <label className="session-form-field-label">
+                <input className={errors.includes("Lname can't be blank") ? "session-form-field red" : "session-form-field"} type="text" onChange={this.update("lname")} value={lname} placeholder="Last name" />
+                <p className="session-form-error">
+                    {errors.includes("Lname can't be blank") ? "Last name can't be blank" : ""}
+                </p>
             </label>
         ) : (
             <div></div>
         );
 
         const passwordInput = (formType === "Sign Up") ? (
-            <label>
-                <input className="session-form-field" type="password" onChange={this.update("password")} value={password} placeholder="Password (at least 6 characters you won't forget)" />
+            <label className="session-form-field-label">
+                <input className={errors.includes("Password is too short (minimum is 6 characters)") || errors.includes("Invalid email/password combination") ? "session-form-field red" : "session-form-field"} type="password" onChange={this.update("password")} value={password} placeholder="Password (at least 6 characters you won't forget)" />
+                <p className="session-form-error">
+                    {errors.includes("Password is too short (minimum is 6 characters)") ? "Password is too short (minimum is 6 characters)" : ""}
+                </p>
+                <p className="session-form-error">
+                    {errors.includes("Invalid email/password combination") ? "This password is invalid" : ""}
+                </p>
             </label>
         ) : (
-            <label>
-                <input className="session-form-field" type="password" onChange={this.update("password")} value={password} placeholder="Password" />
+            <label className="session-form-field-label">
+                <input className={errors.includes("Password is too short (minimum is 6 characters)") || errors.includes("Invalid email/password combination") ? "session-form-field red" : "session-form-field"} type="password" onChange={this.update("password")} value={password} placeholder="Password" />
+                <p className="session-form-error">
+                    {errors.includes("Password is too short (minimum is 6 characters)") ? "Password is too short (minimum is 6 characters)" : ""}
+                </p>
+                <p className="session-form-error">
+                    {errors.includes("Invalid email/password combination") ? "This password is invalid" : ""}
+                </p>
             </label>
         );
 
@@ -129,11 +147,28 @@ class SessionForm extends React.Component {
                         <div className="session-form-inputs">
                             {firstName}
                             {lastName}
-                            <label>
-                                <input className="session-form-field" type="text" onChange={this.update("email")} value={email} placeholder="Email address" />
+                            <label className="session-form-field-label">
+                                <input className={errors.includes("Email can't be blank") ||
+                                    errors.includes("Email is invalid") ||
+                                    errors.includes("Email has already been taken") ||
+                                    errors.includes("Invalid email/password combination") ?
+                                    "session-form-field red" : "session-form-field"}
+                                    type="text" onChange={this.update("email")} value={email} placeholder="Email address" />
+                                <p className="session-form-error">
+                                    {errors.includes("Email can't be blank") ? "Email can't be blank" : ""}
+                                </p>
+                                <p className="session-form-error">
+                                    {errors.includes("Email is invalid") ? "Email is invalid" : ""}
+                                </p>
+                                <p className="session-form-error">
+                                    {errors.includes("Email has already been taken") ? "Email has already been taken" : ""}
+                                </p>
+                                <p className="session-form-error">
+                                    {errors.includes("Invalid email/password combination") ? "This email is invalid" : ""}
+                                </p>
                             </label>
                             {passwordInput}
-                            {errorMessages}
+                            {/* {errorMessages} */}
                         </div>
                         <div className="session-button-div">
                             <button className="session-button">{formType}</button>

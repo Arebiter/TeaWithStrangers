@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :tea_times, only: [:index, :show, :create, :destroy, :update]
     resources :cities, only: [:index]
     resources :attendances, only: [:index, :create, :destroy, :show]
+    resources :reviews, only: [:index, :show, :create, :update, :destroy]
   end
 
 end
