@@ -63,7 +63,7 @@ class SessionForm extends React.Component {
         );
 
         const demoLogin = (formType === "Login") ? (
-            <div>
+            <div className="demo-login-link">
                 <p>Just here to look? &nbsp;
                     <span onClick={this.demoUser}>Sign in as guest</span>
                 </p>

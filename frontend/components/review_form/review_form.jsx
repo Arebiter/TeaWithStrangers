@@ -17,39 +17,30 @@ class ReviewForm extends React.Component {
         user_id: this.props.currentUser.id,
         host_id: "",
         rating: 0,
-        review: ""
+        review: "",
+        // reset: false
     })
 
     resetState = () => {
+        // debugger
         // this.setState(this.initialState());
         document.querySelector("select").value = "DEFAULT";
-        Array.from(document.querySelectorAll(input[type = "radio"])).forEach(ele => ele.checked = "false");
+        // Array.from(document.querySelectorAll(input[type = "radio"])).forEach(ele => ele.checked = "false");
         this.setState({
             rating: 0,
             host_id: "",
-            review: "",
+            review: ""
         })
-
-        // console.log(this.state);
+        // this.forceUpdate();
+        // window.location.reload(false);
     };
 
-    // handleClose() {
-
-    // }
 
     handleSubmit(e) {
         e.preventDefault();
         // console.log(this.state);
         const review = Object.assign({}, this.state);
         this.props.createReview(review);
-        //     this.setState({
-        //         user_id: this.props.currentUser.id,
-        //         host_id: "",
-        //         rating: 0,
-        //         review: ""
-        //     })
-        //     // document.querySelector("selected").value = "DEFAULT";
-
         this.resetState();
     }
 
@@ -73,7 +64,6 @@ class ReviewForm extends React.Component {
         const { user_id, host_id, rating, review } = this.state;
 
         const availableHostsLength = availableHosts.length;
-        // console.log(availableHostsLength);
 
         if (!currentUser) {
             return null;
@@ -88,7 +78,8 @@ class ReviewForm extends React.Component {
         if (availableHostsLength !== availableHosts.length) {
             return null;
         }
-        console.log(this.state);
+        // console.log(this.state);
+        console.log(this.state.rating);
         return (
             <div className="review-form-div">
                 <form className="review-form" onSubmit={this.handleSubmit}>
@@ -99,8 +90,8 @@ class ReviewForm extends React.Component {
                         <div className="review-form-tag">
                             <h3>Select A Host</h3>
                             <div>
-                                <select className="host-select" onChange={this.update("host_id")}>
-                                    <option value="DEFAULT" selected disabled>Select A Host</option>
+                                <select className="host-select" onChange={this.update("host_id")} defaultValue="DEFAULT">
+                                    <option value="DEFAULT" disabled>Select A Host</option>
                                     {
                                         availableHosts.map((host, id) => {
                                             return (
@@ -113,7 +104,7 @@ class ReviewForm extends React.Component {
                         </div>
                         <div className="review-form-tag">
                             <h3>Rating</h3>
-                            <Rating updateRating={this.updateRating} checked={checked} />
+                            <Rating updateRating={this.updateRating} ratingState={this.state.rating} />
                             {/* <input className="profile-form-field" type="text" onChange={this.update("fname")} value={fname} /> */}
                         </div>
                         <div className="review-form-tag">
