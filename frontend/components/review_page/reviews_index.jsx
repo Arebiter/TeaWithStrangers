@@ -8,7 +8,11 @@ import { fetchReviews } from "../../actions/review_actions";
 class Reviews extends React.Component {
     constructor(props) {
         super(props);
+        // this.state = {
+        //     show: false
+        // }
         this.redirectReview = this.redirectReview.bind(this);
+        // this.showModal = this.showModal.bind(this);
     }
 
     componentDidMount() {
@@ -30,21 +34,21 @@ class Reviews extends React.Component {
 
     redirectReview() {
         this.props.history.push("./reviews");
-    }
+    };
+
+    // showModal(e) {
+    //     this.setState({
+    //         show: true
+    //     });
+    // };
+
+    // closeModal(e) {
+    //     this.setState({
+    //         show: false
+    //     });
+    // }
 
     render() {
-        // console.log(this.props);
-        if (!this.props.currentUser) {
-            return null;
-        }
-        // console.log(this.props);
-        if (this.props.attendingTeaTimes.length === 0) {
-            return null;
-        }
-        if (this.props.allUsers.length === 0) {
-            return null;
-        }
-
         const {
             currentUser,
             attendingTeaTimes,
@@ -60,6 +64,40 @@ class Reviews extends React.Component {
             checked
         } = this.props;
 
+        // console.log(this.props);
+        if (!currentUser) {
+            return null;
+        }
+        // console.log(this.props);
+        if (attendingTeaTimes.length === 0) {
+            return null;
+        }
+        if (allUsers.length === 0) {
+            return null;
+        }
+
+        // (this.state.show === false) ? (
+        //     null
+        // ) : (
+        //     <div show={this.state.show}>
+        //         <ReviewForm
+        //             currentUser={currentUser}
+        //             attendingTeaTimes={attendingTeaTimes}
+        //             allHosts={allHosts}
+        //             allUsers={allUsers}
+        //             availableHosts={availableHosts}
+        //             userReviews={userReviews}
+        //             userReviewedHosts={userReviewedHosts}
+        //             userReviewsByOthers={userReviewsByOthers}
+        //             createReview={createReview}
+        //             redirectReview={this.redirectReview}
+        //             review={review}
+        //             fetchReviews={fetchReviews}
+        //         // checked={checked}
+        //         />
+        //     </div>
+        // )
+
         const ratings = [];
         userReviewsByOthers.length > 0 ? userReviewsByOthers.forEach(review => { ratings.push(review.rating) }) : null; //get array of ratings by other users
         const averageRating = ratings.length > 0 ? Math.round((ratings.reduce((a, b) => a + b, 0) / ratings.length) * 10) / 10 : 0; //get average rating number
@@ -73,7 +111,7 @@ class Reviews extends React.Component {
                     <div className="reviews left">
                         <div>
                             <h3 className="review-title">Your Reviews</h3>
-                            <button>Add Review</button>
+                            <button onClick={this.showModal}>Add Review</button>
                         </div>
                         <h3 className="review-title">Your Reviews</h3>
                         <ReviewForm
