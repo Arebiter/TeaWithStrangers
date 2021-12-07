@@ -23,7 +23,7 @@ class ReviewForm extends React.Component {
     resetState = () => {
         // this.setState(this.initialState());
         document.querySelector("select").value = "DEFAULT";
-        Array.from(document.querySelector(input[type = "radio"])).forEach(ele => ele.checked = "false");
+        Array.from(document.querySelectorAll(input[type = "radio"])).forEach(ele => ele.checked = "false");
         this.setState({
             rating: 0,
             host_id: "",
