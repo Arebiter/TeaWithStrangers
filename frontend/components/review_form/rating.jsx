@@ -19,9 +19,7 @@ const Rating = ({ updateRating, ratingState }) => {
         < div id="rating-div" >
             {
                 [...Array(5)].map((star, id) => {
-
                     let ratingVal = id + 1;
-
                     return (
 
                         < label key={id} >
@@ -32,8 +30,6 @@ const Rating = ({ updateRating, ratingState }) => {
                                 onClick={() => updateStarRating(ratingVal)}
                                 className="star-radio"
                             />
-
-
                             {
                                 ratingVal <= (hover || rating) ?
                                     <AiFillStar className="star" onMouseEnter={() => setHover(ratingVal)} onMouseLeave={() => setHover(rating)} />

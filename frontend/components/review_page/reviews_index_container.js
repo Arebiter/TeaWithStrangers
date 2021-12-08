@@ -16,7 +16,6 @@ const mSTP = (state) => {
     const distinctCurrentUserAttendingHostsIdArray = [...new Set(currentUserAttendingHostsIdArray)];
     const currentUser = state.entities.users[state.session.id];
     const currentUserReviewedHosts = currentUser.reviews_of_hosts;//array of ids of hosts the current user has reviewed
-    // console.log(currentUserReviewedHosts);
     const availableHosts = distinctCurrentUserAttendingHostsIdArray.filter(host_id => !currentUserReviewedHosts.includes(host_id))
         .concat(currentUserReviewedHosts.filter(host_id => !distinctCurrentUserAttendingHostsIdArray.includes(host_id))); //get array of hosts user had not reviewed yet - from list of hosts of teatimes current user is attending
     return {
