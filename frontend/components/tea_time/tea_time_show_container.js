@@ -4,7 +4,7 @@ import { deleteTeaTime, fetchTeaTime } from "../../actions/tea_time_actions";
 import { fetchUser, fetchUsers } from "../../actions/user_actions";
 import { createAttendance, deleteAttendance, fetchAttendances } from "../../actions/attendance_actions";
 import { fetchCities } from "../../actions/cities_actions"
-import { fetchReviews } from "../../actions/review_actions";
+import { fetchReviews, deleteReview } from "../../actions/review_actions";
 
 
 
@@ -27,10 +27,12 @@ const mDTP = dispatch => {
     return {
         fetchTeaTime: (teaTimeId) => dispatch(fetchTeaTime(teaTimeId)),
         fetchUser: (userId) => dispatch(fetchUser(userId)),
+        fetchUsers: () => dispatch(fetchUsers()),
         createAttendance: (attendance) => dispatch(createAttendance(attendance)),
         deleteAttendance: (attendanceId) => dispatch(deleteAttendance(attendanceId)),
         fetchAttendances: () => dispatch(fetchAttendances()),
-        fetchReviews: () => dispatch(fetchReviews())
+        fetchReviews: () => dispatch(fetchReviews()),
+        deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
     }
 };
 

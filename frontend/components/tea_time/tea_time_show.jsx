@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import ProgressBar from "./progress_bar";
+import Review from "../review_page/review";
 
 
 class TeaTimeShow extends React.Component {
@@ -19,6 +20,7 @@ class TeaTimeShow extends React.Component {
         this.props.fetchTeaTime(this.props.match.params.teaTimeId);
         this.props.fetchAttendances();
         this.props.fetchReviews();
+        this.props.fetchUsers()
         this.setState({ teatime_id: this.props.match.params.teaTimeId });
         this.setState({ user_id: this.props.currentUser.id });
     }
@@ -51,10 +53,10 @@ class TeaTimeShow extends React.Component {
         }
 
         // debugger
-        const { teaTime, users, city, reviews } = this.props;
-
+        const { teaTime, users, city, reviews, deleteReview, currentUser } = this.props;
+        const allUsers = Object.values(users);
         const editBtn = (teaTime.host_id === this.props.currentUser.id) ? (
-            <Link className="joinbtn btn2" to={`/teaTimes/${teaTime.id}/edit`}>This is the edit button</Link>
+            <Link className="joinbtn btn2" to={`/teaTimes/${teaTime.id}/edit`}>Edit Tea Time</Link>
         ) : (
             null
         );
@@ -88,12 +90,12 @@ class TeaTimeShow extends React.Component {
         const teaStart = moment(teaStart_pre).format('hh:mm a')
         const teaEnd = moment(teaEnd_pre).format('hh:mm a')
 
-
+        const userReviews = Object.values(reviews).filter(review => review.user_id === currentUser.id) //find all reviews by the current user
         const userReviewsByOthers = Object.values(reviews).filter(review => review.host_id === teaTime.host_id) //find all reviews of current user by others
         const ratings = [];
         userReviewsByOthers.length > 0 ? userReviewsByOthers.forEach(review => { ratings.push(review.rating) }) : null; //get array of ratings by other users
         const averageRating = ratings.length > 0 ? Math.round((ratings.reduce((a, b) => a + b, 0) / ratings.length) * 10) / 10 : "-"; //get average rating number
-        console.log(averageRating);
+        // console.log(averageRating);
 
         // debugger
         return (
@@ -163,6 +165,26 @@ class TeaTimeShow extends React.Component {
                                 <h3>What might we talk about?</h3>
                                 <p>{teaTime.description}</p>
                             </div>
+                        </div>
+                        <div>
+                            <ul className="reviews-list">
+                                {userReviewsByOthers.map((review, id) => {
+                                    const reviewer = allUsers.find(host => host.id === review.user_id);
+                                    return (
+                                        <li key={id}>
+                                            <Review
+                                                review={review}
+                                                host=""
+                                                reviewer={reviewer}
+                                                deleteReview={deleteReview}
+                                                currentUser={currentUser}
+                                                userReviews={userReviews}
+                                            // redirectReview={this.redirectReview}
+                                            />
+                                        </li>
+                                    )
+                                })}
+                            </ul>
                         </div>
                     </div>
                 </div>
