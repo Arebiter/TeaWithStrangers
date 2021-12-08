@@ -19,7 +19,7 @@ class Review extends React.Component {
         const review = this.props.userReviews.find(review => ((review.id === this.props.review.id)));
         // console.log(review.id);
         this.props.deleteReview(review.id);
-        this.props.redirectReview();
+        // this.props.redirectReview();
     }
 
     render() {

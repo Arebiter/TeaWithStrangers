@@ -18,9 +18,9 @@ class Reviews extends React.Component {
         this.props.fetchAttendances();
     }
 
-    redirectReview() {
-        this.props.history.push("./reviews");
-    };
+    // redirectReview() {
+    //     this.props.history.push("./reviews");
+    // };
 
     render() {
         const {

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import ProgressBar from "./progress_bar";
+import Review from "../review_page/review";
 
 
 class TeaTimeShow extends React.Component {
@@ -18,6 +19,8 @@ class TeaTimeShow extends React.Component {
     componentDidMount() {
         this.props.fetchTeaTime(this.props.match.params.teaTimeId);
         this.props.fetchAttendances();
+        this.props.fetchReviews();
+        this.props.fetchUsers()
         this.setState({ teatime_id: this.props.match.params.teaTimeId });
         this.setState({ user_id: this.props.currentUser.id });
     }
@@ -50,10 +53,10 @@ class TeaTimeShow extends React.Component {
         }
 
         // debugger
-        const { teaTime, users, city } = this.props;
-
+        const { teaTime, users, city, reviews, deleteReview, currentUser } = this.props;
+        const allUsers = Object.values(users);
         const editBtn = (teaTime.host_id === this.props.currentUser.id) ? (
-            <Link className="joinbtn btn2" to={`/teaTimes/${teaTime.id}/edit`}>This is the edit button</Link>
+            <Link className="joinbtn btn2" to={`/teaTimes/${teaTime.id}/edit`}>Edit Tea Time</Link>
         ) : (
             null
         );
@@ -86,6 +89,13 @@ class TeaTimeShow extends React.Component {
         const teaEnd_pre = new Date("1970-01-01T" + teaTime.end_time)
         const teaStart = moment(teaStart_pre).format('hh:mm a')
         const teaEnd = moment(teaEnd_pre).format('hh:mm a')
+
+        const userReviews = Object.values(reviews).filter(review => review.user_id === currentUser.id) //find all reviews by the current user
+        const userReviewsByOthers = Object.values(reviews).filter(review => review.host_id === teaTime.host_id) //find all reviews of current user by others
+        const ratings = [];
+        userReviewsByOthers.length > 0 ? userReviewsByOthers.forEach(review => { ratings.push(review.rating) }) : null; //get array of ratings by other users
+        const averageRating = ratings.length > 0 ? Math.round((ratings.reduce((a, b) => a + b, 0) / ratings.length) * 10) / 10 : "-"; //get average rating number
+        // console.log(averageRating);
 
         // debugger
         return (
@@ -133,8 +143,15 @@ class TeaTimeShow extends React.Component {
                     </div>
                     <div className="teashow-right">
                         <div className="teashow-host-name">
-                            <h1>Meet your Host, {users[teaTime.host_id].fname}</h1>
-                            <p>(It'll be helpful to know what they look like when you're looking for a group of confused strangers at the cafe.)</p>
+                            <div className="teashow-host-left">
+                                <h1>Meet your Host, {users[teaTime.host_id].fname}</h1>
+                                <p>(It'll be helpful to know what they look like when you're looking for a group of confused strangers at the cafe.)</p>
+                            </div>
+                            <div className="teashow-host-right">
+                                <p className="teashow-host-rating">Avg Rating:
+                                    <span> {averageRating}/5</span>
+                                </p>
+                            </div>
                         </div>
                         <div className="teashow-photo-area">
                             {photo}
@@ -150,7 +167,24 @@ class TeaTimeShow extends React.Component {
                             </div>
                         </div>
                         <div>
-                            <p>this is where the reviews will be listed for this user</p>
+                            <ul className="reviews-list">
+                                {userReviewsByOthers.map((review, id) => {
+                                    const reviewer = allUsers.find(host => host.id === review.user_id);
+                                    return (
+                                        <li key={id}>
+                                            <Review
+                                                review={review}
+                                                host=""
+                                                reviewer={reviewer}
+                                                deleteReview={deleteReview}
+                                                currentUser={currentUser}
+                                                userReviews={userReviews}
+                                            // redirectReview={this.redirectReview}
+                                            />
+                                        </li>
+                                    )
+                                })}
+                            </ul>
                         </div>
                     </div>
                 </div>
