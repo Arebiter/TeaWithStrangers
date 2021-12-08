@@ -16,6 +16,8 @@ $font1-bold: 900;
 .main-body{
     font-family: $font1;
     display:block;
+    position: relative;
+    height: 100%;
     // padding-bottom: 300px; 
 }   
 
@@ -28,6 +30,7 @@ $font1-bold: 900;
     margin-left: auto;
     margin-right: auto;
     padding: 0 1em;
+    // height: 100%;
 }
 
 .color6{
@@ -89,10 +92,12 @@ Link{
     height: 100%;
     background-color: $main-color3;
     position: relative;
-    min-height: 100vh;
+    // min-height: 100vh;
 }
 
-
+html, body{
+    height: 100%;
+}
 
 
 body::-webkit-scrollbar {

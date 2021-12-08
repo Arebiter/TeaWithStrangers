@@ -16,14 +16,12 @@ class TeaTimes extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        // debugger
         if (Object.values(this.props.teaTimes).length !== Object.values(prevProps.teaTimes).length) {
             this.props.fetchTeaTimes();
         }
     };
 
     render() {
-        // debugger
         const { cities, teaTimes, users } = this.props;
         if (cities.length === 0) {
             return null;
