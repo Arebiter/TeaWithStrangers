@@ -5,7 +5,7 @@
 
 TeaWithStrangers is a meetup platform for getting together and conversing with other tea enthusiasts about anything. The app helps people, who would never meet in their normal lives, to connect and have conversations. A host can set up a Tea Time and up to six others can join them. 
 
-## Technologies Used
+# Technologies Used
 
 * Ruby on Rails
 * React
@@ -18,16 +18,16 @@ TeaWithStrangers is a meetup platform for getting together and conversing with o
 * jQuery
 * jbuilder
 
-## Features
+# Features
 
-### Making/Editing Tea Times 
+## Making/Editing Tea Times 
 ![TeaTimeEdit](https://user-images.githubusercontent.com/48140022/141437193-5c0c0864-eb51-412a-afd0-d9910d3b87b4.PNG)
 
 Signed in users are able to create tea time events and also edit those events. The changes to the tea times update in real time. There are validations in place to ensure a tea time is created for a date in the future.   
 
-
-### Displaying Tea Times
-![TeaTimesIndex](https://user-images.githubusercontent.com/48140022/141437243-f095de5a-4cc8-479f-b50b-d7c486fc53a5.PNG)
+---
+## Displaying Tea Times
+![TeaTimesIndex](https://user-images.githubusercontent.com/48140022/145286740-e7a493af-39e1-48b9-b8b1-5504aa7bfaf9.png)
 
 This page shows all availables TeaTimes organized by city. It allows users to see some basic information about the host and the location of the Tea Time. They may also click on each Tea Time item to learn more and join the event.
 
@@ -61,19 +61,36 @@ In order to ensure all of the required data was being shown to the user, I had t
 The original site allowed any extra Tea Times to simply overflow onto the next line if there were enough to fill the width of the page. I removed this and enabled a scrollbar on the X axis - keeping all Tea Times for any one city within a single row. This makes the page less cluttered and allows for a better user experience.
 
 
-
-### Reviews Of Hosts
+---
+## Reviews Of Hosts
 ![Reviews](https://user-images.githubusercontent.com/48140022/145286189-ab2479d5-4550-4490-b094-ca7bc34e0a62.png)
 
-The main tea times page display all available tea times, sorted by the city they are being hosted in. Each tea time is selectable. Clicking on enables a logged in user to view the tea time's information and join the tea time, or leave the tea time - if they have already joined. This automatically updates the tea times index page which reflects the number of users each tea time has attending through the use of a progress bar. 
+Users are able to reviews the hosts of Tea Times they are attending or have attended. The ReviewForm component creates a list of hosts for the user to choose from. The user is able to give a rating and write a review and also see previous reviews other users have left, along with the user's average rating. 
 
+```javascript
+const mSTP = (state) => {
+    const attendingTeaTimes = Object.values(state.entities.teaTimes).filter(teaTime => ((Object.values(state.entities.attendances)
+        .filter(attendance => ((attendance.user_id === state.session.id))) //get attandances for current user
+        .map(attend => attend.teatime_id)) //get array of teatimeids from user's attendances
+        .includes(teaTime.id))); //get teatimes user has attended or will be attanding
+    const currentUserAttendingHostsIdArray = attendingTeaTimes.map(host => host.host_id); //make array of ids of hosts from teatimes current user is attending or has attended
+    const distinctCurrentUserAttendingHostsIdArray = [...new Set(currentUserAttendingHostsIdArray)];
+    const currentUser = state.entities.users[state.session.id];
+    const currentUserReviewedHosts = currentUser.reviews_of_hosts;//array of ids of hosts the current user has reviewed
+    const availableHosts = distinctCurrentUserAttendingHostsIdArray.filter(host_id => !currentUserReviewedHosts.includes(host_id))
+        .concat(currentUserReviewedHosts.filter(host_id => !distinctCurrentUserAttendingHostsIdArray.includes(host_id))); //get array of hosts user had not reviewed yet - from list of hosts of teatimes current user is attending
+    return {
+        currentUser: currentUser,
+        attendingTeaTimes: attendingTeaTimes, //get teatimes user has attended or will be attanding
+        allUsers: Object.values(state.entities.users),
+        allHosts: Object.values(state.entities.users).filter(host => currentUserAttendingHostsIdArray.includes(host.id)),
+        availableHosts: Object.values(state.entities.users).filter(host => availableHosts.includes(host.id)), //get the hosts of teatimes the user is attending but has not reviewed 
+        userReviews: Object.values(state.entities.reviews).filter(review => review.user_id === state.session.id), //find all reviews by the current user
+        userReviewedHosts: Object.values(state.entities.users).filter(host => currentUserReviewedHosts.includes(host.id)), //hosts current user has reviewed
+        userReviewsByOthers: Object.values(state.entities.reviews).filter(review => review.host_id === state.session.id), //find all reviews of current user by others
+    }
+}
+```
+I performed a large amount of filtering for the data passed into the `ReviewIndexContainer` props. This allowed me to keep the structure of the `ReviewIndex` component clean, letting me write clear code and easily pass the information onto the `Review` and `ReviewForm` components. The filtering looks through various sliced of state and brings together the necessary information from the User, the host, and the reviews. 
 
-
-
-## Future Features
-### User Reviews
-I want to give users the ability to review the tea times they have attended. The host of the tea time will receive those reviews on their profile and the reviews will be accessible by other people. 
-
-### Google Maps
-I want to give the users a way to more precisely determine the location of a tea time. Using the google maps api, users will be able to point to exactly where they want to meet instead of vague locations and instructions
 
