@@ -63,7 +63,7 @@ The original site allowed any extra Tea Times to simply overflow onto the next l
 
 
 ### Reviews Of Hosts
-![TeaTimeShow](https://user-images.githubusercontent.com/48140022/141437259-d69b03d0-13e6-48ff-8c5c-d101780f710c.PNG)
+![Reviews](https://user-images.githubusercontent.com/48140022/145286189-ab2479d5-4550-4490-b094-ca7bc34e0a62.png)
 
 The main tea times page display all available tea times, sorted by the city they are being hosted in. Each tea time is selectable. Clicking on enables a logged in user to view the tea time's information and join the tea time, or leave the tea time - if they have already joined. This automatically updates the tea times index page which reflects the number of users each tea time has attending through the use of a progress bar. 
 
