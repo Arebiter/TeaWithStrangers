@@ -5,6 +5,9 @@
 
 TeaWithStrangers is a meetup platform for getting together and conversing with other tea enthusiasts about anything. The app helps people, who would never meet in their normal lives, to connect and have conversations. A host can set up a Tea Time and up to six others can join them. 
 
+![main_image](https://user-images.githubusercontent.com/48140022/145290845-4333af4d-d91c-49a2-9b4d-c9d4f5e1992d.png)
+
+
 # Technologies Used
 
 * Ruby on Rails
