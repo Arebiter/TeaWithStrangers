@@ -28,6 +28,29 @@ Signed in users are able to create tea time events and also edit those events. T
 
 ### Joining/Displaying Tea Times
 ![TeaTimesIndex](https://user-images.githubusercontent.com/48140022/141437243-f095de5a-4cc8-479f-b50b-d7c486fc53a5.PNG)
+`const cityTeaTimes = cities.map((city, id) => (
+            <li className="city-li" key={id}>
+                <div className="city-name">
+                    <h2 id={city.city_name}>{city.city_name}</h2>
+                    <Link className="teatime-host-link" to="/teaTimes/new">Host Tea Time</Link>
+                </div>
+                <div className="city-tea-times">
+                    {
+                        city.tea_times.length > 0 ?
+                            city.tea_times.map((teaTimeId) => (
+                                (Date.parse(teaTimes[teaTimeId].date) > Date.parse(today) ? (
+                                    <TeaTimeItemBox key={teaTimeId} teaTime={teaTimes[teaTimeId]} host={users[teaTimes[teaTimeId].host_id]} />
+                                ) : (
+                                    null
+                                )))
+                            ) : (
+                                null
+                            )
+                    }
+                </div>
+            </li>
+        )
+        )`
 
 
 ![TeaTimeShow](https://user-images.githubusercontent.com/48140022/141437259-d69b03d0-13e6-48ff-8c5c-d101780f710c.PNG)
