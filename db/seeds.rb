@@ -399,79 +399,79 @@ review2 = Review.create!(
     review: "Guest was alright. He didn't really do much, almost like he's not a real person. But everyon one else that showed up was great."
 )
 
-review3 = Review.create!{
+review3 = Review.create!(
     user_id: rebecca.id,
     host_id: demo.id,
     rating: 2,
     review: "It was ok, I think Guest was a little robotic and I did actually get to have some tea."
-}
+)
 
-review4 = Review.create!{
+review4 = Review.create!(
     user_id: vic.id,
     host_id: demo.id,
     rating: 5,
     review: "Guest was an awesome host!"
-}
+)
 
-review5 = Review.create!{
+review5 = Review.create!(
     user_id: rebecca.id,
     host_id: pasan.id,
     rating: 4,
     review: "I had a lot of fun! Pasan was a great host and I think everyone had a good time. It was great finally meeting everyone."
-}
+)
 
-review6 = Review.create!{
+review6 = Review.create!(
     user_id: jon.id,
     host_id: pasan.id,
     rating: 5,
     review: "Pasan's tea time was a lot of fun. Great to finally meet people in person"
-}
+)
 
-review7 = Review.create!{
+review7 = Review.create!(
     user_id: demo.id,
     host_id: rebecca.id,
     rating: 5,
     review: "It was fun."
-}
+)
 
-review8 = Review.create!{
+review8 = Review.create!(
     user_id: vic.id,
     host_id: jon.id,
     rating: 5,
     review: "That was awesome, we gotta do it again."
-}
+)
 
-review9 = Review.create!{
+review9 = Review.create!(
     user_id: emmay.id,
     host_id: jon.id,
     rating: 4,
     review: "Jon was awesome! I just had trouble finding the place."
-}
+)
 
-review10 = Review.create!{
+review10 = Review.create!(
     user_id: rebecca.id,
     host_id: vic.id,
     rating: 4,
     review: "I came all the way out to LA for this, it was great!"
-}
+)
 
-review11 = Review.create!{
+review11 = Review.create!(
     user_id: pasan.id,
     host_id: vic.id,
     rating: 5, 
     review: "It was my first time in LA and Vic made sure we all had a great time!"
-}
+)
 
-review12 = Review.create!{
+review12 = Review.create!(
     user_id: emmay.id,
     host_id: alKim.id,
     rating: 5,
     review: "Al was awesome and getting food in the East Village is always a good time."
-}
+)
 
-review13 = Review.create!{
+review13 = Review.create!(
     user_id: pasan.id,
     host_id: emmay.id,
     rating: 5,
     review: "10/10 host but I kind of hate the Bean."
-}
+)

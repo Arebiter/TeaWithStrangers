@@ -51,7 +51,7 @@ class ProfileEditForm extends React.Component {
     };
 
     render() {
-        console.log(this.state);
+        // console.log(this.state);
         const { email, fname, lname, bio } = this.state
         return (
             <section className="profile-main-section">

@@ -126,7 +126,7 @@ class TeaTimes extends React.Component {
         //iterate thorugh teatimes - get the ids - use that to key into teatimes
         //have a null for the if no teatimes 
         //watch out for empty objects - being true
-        console.log(this.props);
+        // console.log(this.props);
         return (
             <div className="teatime-container">
                 <section className="teatime-header-img">

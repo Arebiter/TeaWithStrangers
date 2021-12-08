@@ -30,13 +30,6 @@ class ProfileTea extends React.Component {
         }
     }
 
-    componentDidUpdate(prevProps) {
-        // debugger
-        // if (this.props.attendances !== prevProps.attendances) {
-        //     this.props.fetchAttendances();
-        // }
-    }
-
     updateShowPrev() {
         if (this.state.showPrev === false) {
             this.setState({ showPrev: true })
@@ -94,8 +87,8 @@ class ProfileTea extends React.Component {
             this.state.showPrev === false ? (
                 <div className="profile-info-container">
                     {
-                        joinedUpcoming.map(tea => (
-                            <div className="tea-item">
+                        joinedUpcoming.map((tea, id) => (
+                            <div className="tea-item" key={id} >
                                 <div className="tea-details">
                                     <Link to={`/teaTimes/${tea.id}`}>
 
@@ -118,8 +111,8 @@ class ProfileTea extends React.Component {
             ) : (
                 <div className="profile-info-container">
                     {
-                        joinedBefore.map(tea => (
-                            <div className="tea-item">
+                        joinedBefore.map((tea, id) => (
+                            <div className="tea-item" key={id}>
                                 <div className="tea-details">
 
 
@@ -145,8 +138,8 @@ class ProfileTea extends React.Component {
             this.state.showPrev === false ? (
                 <div className="profile-info-container">
                     {
-                        hostedUpcoming.map(tea => (
-                            <div className="tea-item">
+                        hostedUpcoming.map((tea, id) => (
+                            <div className="tea-item" key={id}>
                                 <div className="tea-details">
                                     <Link to={`/teaTimes/${tea.id}`}>
 
@@ -171,8 +164,8 @@ class ProfileTea extends React.Component {
             ) : (
                 <div className="profile-info-container">
                     {
-                        hostedBefore.map(tea => (
-                            <div className="tea-item">
+                        hostedBefore.map((tea, id) => (
+                            <div className="tea-item" key={id}>
                                 <div className="tea-details">
 
 
@@ -209,7 +202,7 @@ class ProfileTea extends React.Component {
         );
 
 
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <section className="profile-main-section">
                 <ProfileNavBar user={this.props.currentUser} />

@@ -247,6 +247,13 @@
             padding-top: 30px;
             max-height: 900px;
             overflow-y: scroll;
+
+            .teashow-host-reviews{
+                font-size: 25px;
+                color: $main-color1;
+                font-weight: 900;
+                padding-bottom: 10px; 
+            }
         }
         .reviews-list::-webkit-scrollbar {
             width: 0.25em;

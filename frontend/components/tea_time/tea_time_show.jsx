@@ -8,7 +8,7 @@ import Review from "../review_page/review";
 class TeaTimeShow extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
+        // console.log(this.props);
         this.state = {
             teatime_id: "",
             user_id: ""
@@ -52,7 +52,6 @@ class TeaTimeShow extends React.Component {
             return null
         }
 
-        // debugger
         const { teaTime, users, city, reviews, deleteReview, currentUser } = this.props;
         const allUsers = Object.values(users);
         const editBtn = (teaTime.host_id === this.props.currentUser.id) ? (
@@ -97,7 +96,6 @@ class TeaTimeShow extends React.Component {
         const averageRating = ratings.length > 0 ? Math.round((ratings.reduce((a, b) => a + b, 0) / ratings.length) * 10) / 10 : "-"; //get average rating number
         // console.log(averageRating);
 
-        // debugger
         return (
             <section className="teashow-main-section">
                 <div className="teashow container">
@@ -168,6 +166,7 @@ class TeaTimeShow extends React.Component {
                         </div>
                         <div>
                             <ul className="reviews-list">
+                                <p className="teashow-host-reviews">Previous Reviews</p>
                                 {userReviewsByOthers.map((review, id) => {
                                     const reviewer = allUsers.find(host => host.id === review.user_id);
                                     return (

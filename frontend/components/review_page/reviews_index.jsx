@@ -8,7 +8,7 @@ import { fetchReviews } from "../../actions/review_actions";
 class Reviews extends React.Component {
     constructor(props) {
         super(props);
-        this.redirectReview = this.redirectReview.bind(this);
+        // this.redirectReview = this.redirectReview.bind(this);
     }
 
     componentDidMount() {

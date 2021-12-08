@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { deleteReview } from "../../actions/review_actions";
 import ProfileNavBar from "../profile/profile_nav";
 import Rating from "./rating";
-import Review from "../review_page/review";
+// import Review from "../review_page/review";
 
 class ReviewForm extends React.Component {
     constructor(props) {
@@ -17,28 +17,22 @@ class ReviewForm extends React.Component {
         user_id: this.props.currentUser.id,
         host_id: "",
         rating: 0,
-        review: "",
-        // reset: false
+        review: ""
     })
 
     resetState = () => {
-        // debugger
         // this.setState(this.initialState());
         document.querySelector("select").value = "DEFAULT";
-        // Array.from(document.querySelectorAll(input[type = "radio"])).forEach(ele => ele.checked = "false");
         this.setState({
             rating: 0,
             host_id: "",
             review: ""
         })
-        // this.forceUpdate();
-        // window.location.reload(false);
     };
 
 
     handleSubmit(e) {
         e.preventDefault();
-        // console.log(this.state);
         const review = Object.assign({}, this.state);
         this.props.createReview(review);
         this.resetState();
@@ -79,7 +73,7 @@ class ReviewForm extends React.Component {
             return null;
         }
         // console.log(this.state);
-        console.log(this.state.rating);
+        // console.log(this.state.rating);
         return (
             <div className="review-form-div">
                 <form className="review-form" onSubmit={this.handleSubmit}>

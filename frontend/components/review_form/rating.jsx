@@ -7,7 +7,7 @@ const Rating = ({ updateRating, ratingState }) => {
 
     useEffect(() => {
         setRating(ratingState)
-        console.log("this is ratingState", ratingState)
+        // console.log("this is ratingState", ratingState)
     }, [ratingState])
 
     const updateStarRating = (ratingVal) => {
