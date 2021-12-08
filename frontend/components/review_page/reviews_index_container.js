@@ -25,7 +25,6 @@ const mSTP = (state) => {
         allUsers: Object.values(state.entities.users),
         allHosts: Object.values(state.entities.users).filter(host => currentUserAttendingHostsIdArray.includes(host.id)),
         availableHosts: Object.values(state.entities.users).filter(host => availableHosts.includes(host.id)), //get the hosts of teatimes the user is attending but has not reviewed 
-        // Object.values(state.entities.users).filter(host => currentUserAttendingHostsIdArray.includes(host.id))
         userReviews: Object.values(state.entities.reviews).filter(review => review.user_id === state.session.id), //find all reviews by the current user
         userReviewedHosts: Object.values(state.entities.users).filter(host => currentUserReviewedHosts.includes(host.id)), //hosts current user has reviewed
         userReviewsByOthers: Object.values(state.entities.reviews).filter(review => review.host_id === state.session.id), //find all reviews of current user by others

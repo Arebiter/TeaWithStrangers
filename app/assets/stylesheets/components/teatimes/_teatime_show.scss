@@ -165,6 +165,10 @@
         max-width: 70%;
 
         .teashow-host-name{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
             h1{
                 font-size: 25px;
                 color: $main-color1;
@@ -174,6 +178,28 @@
             p{
                 font-size: 14px;
                 color: #a5a594;
+            }
+
+            .teashow-host-rating{
+                color: #464646;
+                font-size: 16px;
+                font-weight: 900;
+
+                span{
+                    font-size: 25px;
+                    color: $main-color1;
+                    font-weight: 900;
+                    padding-bottom: 20px; 
+                }
+            }
+
+            .teashow-host-left{
+                width: 75%;
+            }
+            .teashow-host-right{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
         }
 
