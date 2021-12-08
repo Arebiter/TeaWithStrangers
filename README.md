@@ -1,4 +1,5 @@
 # Tea With Strangers
+![main_logo](https://github.com/Arebiter/TeaWithStrangers/blob/main/app/assets/images/main_logo.png?raw=true)
 
 [Live Demo](https://teawithstrangers-pd.herokuapp.com/#/)
 
