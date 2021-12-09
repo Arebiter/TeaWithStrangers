@@ -98,9 +98,9 @@ class TeaTimeForm extends React.Component {
                                     <div>Have tea on</div>
                                     <input type="date" name="tea_date" min={today} onChange={this.update("date")} value={date} />
                                     <div>from</div>
-                                    <input type="time" onChange={this.update("start_time")} value={start_time} step="900" />
+                                    <input type="time" onChange={this.update("start_time")} value={start_time} />
                                     <div>to</div>
-                                    <input type="time" min={start_time} onChange={this.update("end_time")} value={end_time} step="900" />
+                                    <input type="time" min={start_time} onChange={this.update("end_time")} value={end_time} />
                                 </div>
                             </div>
                             <div className="tea-time-edit-info-tag">
