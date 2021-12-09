@@ -17,7 +17,8 @@ class ReviewForm extends React.Component {
         user_id: this.props.currentUser.id,
         host_id: "",
         rating: 0,
-        review: ""
+        review: "",
+        checked: false,
     })
 
     resetState = () => {
@@ -26,7 +27,8 @@ class ReviewForm extends React.Component {
         this.setState({
             rating: 0,
             host_id: "",
-            review: ""
+            review: "",
+            checked: !this.state.checked
         })
     };
 
@@ -54,8 +56,8 @@ class ReviewForm extends React.Component {
 
     render() {
 
-        const { currentUser, attendingTeaTimes, allHosts, allUsers, checked, availableHosts, userReviews, userReviewedHosts, userReviewsByOthers } = this.props;
-        const { user_id, host_id, rating, review } = this.state;
+        const { currentUser, attendingTeaTimes, allHosts, allUsers, availableHosts, userReviews, userReviewedHosts, userReviewsByOthers } = this.props;
+        const { user_id, host_id, rating, review, checked } = this.state;
 
         const availableHostsLength = availableHosts.length;
 
@@ -98,7 +100,7 @@ class ReviewForm extends React.Component {
                         </div>
                         <div className="review-form-tag">
                             <h3>Rating</h3>
-                            <Rating updateRating={this.updateRating} ratingState={this.state.rating} />
+                            <Rating updateRating={this.updateRating} ratingState={this.state.rating} key={String(checked)} />
                             {/* <input className="profile-form-field" type="text" onChange={this.update("fname")} value={fname} /> */}
                         </div>
                         <div className="review-form-tag">
